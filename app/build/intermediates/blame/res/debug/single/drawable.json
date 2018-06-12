@@ -20,12 +20,12 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\2750abfa120359f118da75e1e43d20a20b563907\\output\\res\\drawable\\notification_tile_bg.xml"
     },
     {
-        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_more.png",
-        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\umeng_socialize_more.png"
-    },
-    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\home_shearc_item.xml",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\home_shearc_item.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_more.png",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\umeng_socialize_more.png"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\loading.png",
