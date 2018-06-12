@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="C:\fei\bhds\mylibrary\src\main\assets"/><source path="C:\fei\bhds\mylibrary\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="C:\fei\bhds\mylibrary\src\release\assets"/></dataSet></merger>
