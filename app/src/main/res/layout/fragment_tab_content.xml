@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:zhy="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+  <com.baihuodasha.bhds.utils.ScrollInterceptScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scrollbars="none"
+      android:overScrollMode="never"
+      android:fadingEdge="none"
+      >
+    <RelativeLayout
+        android:descendantFocusability="blocksDescendants"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+      <com.youth.banner.Banner
+          android:id="@+id/banner"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/dm250"
+          />
+      <ImageView
+          android:id="@+id/youxuan"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/banner"
+          android:paddingBottom="@dimen/dm016"
+          android:paddingTop="@dimen/dm016"
+          android:src="@mipmap/youxuan"
+          />
+
+      <ImageView
+          android:id="@+id/xianshi"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/youxuan"
+          android:src="@mipmap/xianshi"
+          />
+      <ImageView
+
+          android:id="@+id/zhenxuan"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_below="@+id/youxuan"
+          android:src="@mipmap/zhenxuan"
+          />
+      <ImageView
+          android:id="@+id/liangyou"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_below="@+id/zhenxuan"
+          android:layout_marginTop="@dimen/dm008"
+          android:src="@mipmap/liangyou"
+          />
+      <TextView
+          android:id="@+id/tv_content"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerInParent="true"
+          android:text="TabContent"
+          android:textSize="@dimen/dm030"
+          />
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/liangyou"
+          android:orientation="vertical"
+          >
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:id="@+id/id_flowlayout"
+            android:layout_marginTop="@dimen/dm005"
+            android:layout_width="fill_parent"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
+            zhy:max_select="1"
+            >
+        </com.zhy.view.flowlayout.TagFlowLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dm001"
+            android:background="@color/titleBar"
+            />
+        <!--<include layout="@layout/home_selector_tab"/>-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyc_shoping"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dm240"
+            android:layout_centerVertical="true"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            ></android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:layout_marginTop="@dimen/dm010"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dm020"
+            android:background="#EEEEEE"
+            />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyc_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:scrollbars="none"
+            ></android.support.v7.widget.RecyclerView>
+      </LinearLayout>
+
+    </RelativeLayout>
+
+
+  </com.baihuodasha.bhds.utils.ScrollInterceptScrollView>
+
+
+</LinearLayout>
