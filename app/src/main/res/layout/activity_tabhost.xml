@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+    <FrameLayout
+        android:id="@+id/main_framlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/main_view" />
+
+    <View
+        android:id="@+id/main_view"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_above="@+id/fragment"
+        android:background="@color/divide_color" />
+
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+        <RadioGroup
+            android:id="@+id/main_bottom_rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/main_bottom_sy"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@drawable/bottom_selector"
+                android:button="@android:color/transparent"
+                android:checked="true"
+                android:drawablePadding="2dp"
+                android:drawableTop="@drawable/tab_home_btn"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="首页"
+                android:textColor="@drawable/tab_text_btn"
+                android:textSize="10sp" />
+
+            <RadioButton
+                android:id="@+id/main_bottom_cs"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@drawable/bottom_selector"
+                android:button="@android:color/transparent"
+                android:checked="false"
+                android:drawablePadding="2dp"
+                android:drawableTop="@drawable/tab_news_btn"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="百货超市"
+                android:textColor="@drawable/tab_text_btn"
+                android:textSize="10sp" />
+
+            <RadioButton
+                android:id="@+id/main_bottom_fl"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@drawable/bottom_selector"
+                android:button="@android:color/transparent"
+                android:drawablePadding="2dp"
+                android:drawableTop="@drawable/tab_advisor_btn"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="分类"
+                android:textColor="@drawable/tab_text_btn"
+                android:textSize="10sp"
+                android:visibility="visible" />
+
+            <RadioButton
+                android:id="@+id/main_bottom_gw"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@drawable/bottom_selector"
+                android:button="@android:color/transparent"
+                android:drawablePadding="2dp"
+                android:drawableTop="@drawable/tab_market_btn"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="购物车"
+                android:textColor="@drawable/tab_text_btn"
+                android:textSize="10sp" />
+            <RadioButton
+                android:id="@+id/main_bottom_wd"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@drawable/bottom_selector"
+                android:button="@android:color/transparent"
+                android:drawablePadding="2dp"
+                android:drawableTop="@drawable/tab_myself_btn"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="我的"
+                android:textColor="@drawable/tab_text_btn"
+                android:textSize="10sp" />
+        </RadioGroup>
+    </FrameLayout>
+</RelativeLayout>
