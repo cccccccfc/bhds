@@ -1,7 +1,0 @@
-#Tue Jun 12 17:11:41 CST 2018
-base.0=C\:\\fei\\bhds\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_1e2fe12bded5966bfd592d92e7bf2e03b0d63d29
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=C\:\\fei\\bhds\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_0024bd7472f795954846190f8658a0da7883a620\\classes.dex
-base.1=C\:\\fei\\bhds\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_0024bd7472f795954846190f8658a0da7883a620
-file.0=C\:\\fei\\bhds\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_1e2fe12bded5966bfd592d92e7bf2e03b0d63d29\\classes.dex
