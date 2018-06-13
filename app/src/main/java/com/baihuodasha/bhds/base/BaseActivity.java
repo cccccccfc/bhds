@@ -20,9 +20,7 @@ import java.text.ParseException;
 /**
  * 
  * 类名称 ：BaseActivity 
- * 类描述 ：Activity基类 
- * 创建人 ：夏正伟
- * 创建时间：下午1:56:18
+ * 类描述 ：Activity基类
  */
 public abstract class BaseActivity extends FragmentActivity implements OnClickListener {
 	public BaseApplication softApplication;

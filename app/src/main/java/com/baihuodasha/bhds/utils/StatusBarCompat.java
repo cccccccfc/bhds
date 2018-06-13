@@ -27,8 +27,6 @@ public class StatusBarCompat {
         tintManager.setStatusBarTintEnabled(true);
         // 使用颜色资源
         tintManager.setStatusBarTintResource(color);
-
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Window window = activity.getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS

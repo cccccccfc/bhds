@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,6 +23,7 @@ import com.baihuodasha.bhds.adapter.CategorizeProductAdapter;
 import com.baihuodasha.bhds.base.BaseFragment;
 import com.baihuodasha.bhds.base.Config;
 import com.baihuodasha.bhds.utils.CustomViewPager;
+import com.baihuodasha.bhds.utils.StatusBarCompat;
 
 /**
  * author：Anumbrella
@@ -149,7 +149,7 @@ public class CategorizeFragment extends BaseFragment implements View.OnClickList
 
   View.OnClickListener ListItemMenusClickListener = new View.OnClickListener() {
     @Override public void onClick(View v) {
-      Log.i("qaz", "onClick: "+v.getId());
+      //Log.i("qaz", "onClick: "+v.getId());
       viewPager.setCurrentItem(v.getId());
     }
   };
@@ -166,7 +166,7 @@ public class CategorizeFragment extends BaseFragment implements View.OnClickList
   @Override public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
     restoreState();
-   // changeTextColor(currentItem);
+    changeTextColor(currentItem);
   }
 
   @Override public void onDestroyView() {

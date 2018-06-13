@@ -10,12 +10,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baihuodasha.bhds.R;
 import com.baihuodasha.bhds.adapter.RecycInfoAdapter;
 import com.baihuodasha.bhds.adapter.RecycshopAdapter;
+import com.baihuodasha.bhds.base.Config;
 import com.baihuodasha.bhds.bean.ChildInfo;
 import com.baihuodasha.bhds.bean.ParentInfo;
 import com.baihuodasha.bhds.utils.CommonUtils;
@@ -34,28 +33,11 @@ import java.util.Set;
 public class TabContentFragment extends Fragment implements View.OnClickListener {
 
   private static final String EXTRA_CONTENT = "content";
-  private String[] images = new String[] {
-      "http://test2.baihuodasha.com/mobile/data/afficheimg/1522294960829052434.jpg",
-      "http://test2.baihuodasha.com/mobile/data/afficheimg/1521189818366778385.jpg",
-      "http://test2.baihuodasha.com/mobile/data/afficheimg/1511260867777304821.jpg",
-      "http://test2.baihuodasha.com/mobile/data/afficheimg/1521189941117678111.jpg",
-      "http://test2.baihuodasha.com/mobile/data/afficheimg/1521189618759975270.jpg"
-  };
-  private String[] image = new String[] {
-      "http://test2.baihuodasha.com/images/201805/thumb_img/5028_thumb_G_1527068836793.jpg",
-      "http://test2.baihuodasha.com/images/201805/thumb_img/5028_thumb_G_1527068836793.jpg",
-      "http://test2.baihuodasha.com/images/201805/thumb_img/5028_thumb_G_1527068836793.jpg",
-      "http://test2.baihuodasha.com/images/201805/thumb_img/5028_thumb_G_1527068836793.jpg",
-      "http://test2.baihuodasha.com/images/201805/thumb_img/5028_thumb_G_1527068836793.jpg"
-  };
   private ParentInfo parentInfo;
 
   private ArrayList<String> imageList;
   private Banner mBanner;
   private String mTitle;
-  private TextView mtvtab1, mtvtab2, mtvtab3, mtvtab4, mtvtab5;
-  private ImageView mImtab1, mImtab2, mImtab3, mImtab4, mImtab5;
-  private RelativeLayout mRltab1, mRltab2, mRltab3, mRltab4, mRltab5;
   private RecyclerView mRecycshoping;
   private ArrayList<String> imageRecyc;
   private RecycshopAdapter adapter;
@@ -63,6 +45,8 @@ public class TabContentFragment extends Fragment implements View.OnClickListener
   private RecycInfoAdapter infoadapter;
   private TagFlowLayout id_flowlayout;
   private TagAdapter tagAdapter;
+  private String[] BannerImage;
+  private String[] contextImages;
 
   public static TabContentFragment newInstance(String content) {
     Bundle arguments = new Bundle();
@@ -91,6 +75,8 @@ public class TabContentFragment extends Fragment implements View.OnClickListener
   }
 
   public void init() {
+    BannerImage = Config.Bannerhomeimages;
+    contextImages = Config.ContextImages;
     if (!mTitle.equals("推荐")) {
       mBanner.setVisibility(View.GONE);
       mBanner.stopAutoPlay();
@@ -98,8 +84,8 @@ public class TabContentFragment extends Fragment implements View.OnClickListener
       mBanner.startAutoPlay();
     }
     imageList = new ArrayList<>();
-    for (int i = 0; i < images.length; i++) {
-      imageList.add(images[i]);
+    for (int i = 0; i < BannerImage.length; i++) {
+      imageList.add(BannerImage[i]);
     }
     //设置图片加载器
     mBanner.setImageLoader(new GlideImageLoader());
@@ -140,23 +126,23 @@ public class TabContentFragment extends Fragment implements View.OnClickListener
   private  List<ParentInfo> dataInfoList = new ArrayList<>();
   private void getImageList(){
     imageRecyc = new ArrayList<>();
-    for (int i = 0; i < image.length; i++) {
-      imageRecyc.add(image[i]);
+    for (int i = 0; i < contextImages.length; i++) {
+      imageRecyc.add(contextImages[i]);
     }
     adapter.addList(imageRecyc);
 
   }
   private void getShopList(){
     dataInfoList.clear();
-    for (int i = 0; i < images.length; i++) {
+    for (int i = 0; i < BannerImage.length; i++) {
       parentInfo = new ParentInfo();
       List<ChildInfo> childInfoList = new ArrayList<>();
       parentInfo.setTitle("居家生活");
-      parentInfo.setImage(images[i]);
-      for (int j = 0; j < image.length; j++) {
+      parentInfo.setImage(BannerImage[i]);
+      for (int j = 0; j < contextImages.length; j++) {
         ChildInfo childInfo = new ChildInfo();
         childInfo.setMenuName(i + "-" + j);
-        childInfo.setIconImgID(image[j]);
+        childInfo.setIconImgID(contextImages[j]);
         childInfoList.add(childInfo);
       }
       parentInfo.setMenuList(childInfoList);

@@ -17,24 +17,24 @@ ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:2:1-50:12
 		INJECTED from C:\fei\bhds\app\src\main\AndroidManifest.xml
 application
 ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:6:5-29:19
+MERGED from [com.android.support:design:25.1.1] C:\Users\zhang\.android\build-cache\010a735325088608fa76242c15c386da617c24fb\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:transition:25.1.1] C:\Users\zhang\.android\build-cache\be8b4008a9717f27fe952deb11574ede2ea36202\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\zhang\.android\build-cache\bc51265347f34dbca426593291e8c6ed88500ee9\output\AndroidManifest.xml:9:5-20
 MERGED from [com.github.LuckSiege.PictureSelector:picture_library:v2.0.7] C:\Users\zhang\.android\build-cache\deb4fb50000acf0d343d809022d85269c91fabdd\output\AndroidManifest.xml:22:5-55:19
 MERGED from [bhds:utilslibrary:unspecified] C:\fei\bhds\utilslibrary\build\intermediates\bundles\default\AndroidManifest.xml:11:5-12:19
 MERGED from [bhds:mylibrary:unspecified] C:\fei\bhds\mylibrary\build\intermediates\bundles\default\AndroidManifest.xml:11:5-20
-MERGED from [com.android.support:design:25.1.1] C:\Users\zhang\.android\build-cache\010a735325088608fa76242c15c386da617c24fb\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\2750abfa120359f118da75e1e43d20a20b563907\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\1f9d492fe5e5759f272d01f676c17c92c061f967\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\c67a6115b97da09446236d473ebb945d25299099\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:transition:25.1.1] C:\Users\zhang\.android\build-cache\be8b4008a9717f27fe952deb11574ede2ea36202\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\89002b54678e8c63c283a4f958ba9f42c63d47e9\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\515b2989f2536837a8f5b2d8873e758c859139c6\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\2777387a9423f2b83f3af769862f256fa33a6200\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\70a0cc7a345cc5d5a5bf7f3d47ed66c66b2ae46e\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\1f9d492fe5e5759f272d01f676c17c92c061f967\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\c67a6115b97da09446236d473ebb945d25299099\output\AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\08640240abd46cc7d400273b55911972e4e53604\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\a3d753b8a777bf243283a818a34671773f510d43\output\AndroidManifest.xml:29:5-20
 MERGED from [com.scwang.smartrefresh:SmartRefreshLayout:1.0.3] C:\Users\zhang\.android\build-cache\4b5c1563716aa5edb89d01ef3e9437bf8c5b221c\output\AndroidManifest.xml:11:5-15:19
 MERGED from [com.scwang.smartrefresh:SmartRefreshHeader:1.0.3] C:\Users\zhang\.android\build-cache\eff0e5771f2338741d2901002baca30dd35a9f73\output\AndroidManifest.xml:11:5-15:19
-MERGED from [com.android.support:cardview-v7:23.3.0] C:\Users\zhang\.android\build-cache\734a49ec6cc332fa2588ee7473dbcfd39624f78a\output\AndroidManifest.xml:22:5-20
+MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] C:\Users\zhang\.android\build-cache\16d839c9e64256b653bf76cea8dd464c7e37bb40\output\AndroidManifest.xml:13:5-20
 	android:label
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:10:9-41
 	android:supportsRtl
@@ -137,6 +137,8 @@ ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:47:5-89
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:47:22-86
 uses-sdk
 INJECTED from C:\fei\bhds\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:design:25.1.1] C:\Users\zhang\.android\build-cache\010a735325088608fa76242c15c386da617c24fb\output\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:transition:25.1.1] C:\Users\zhang\.android\build-cache\be8b4008a9717f27fe952deb11574ede2ea36202\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\zhang\.android\build-cache\bc51265347f34dbca426593291e8c6ed88500ee9\output\AndroidManifest.xml:5:5-7:41
 MERGED from [com.jakewharton:butterknife:8.4.0] C:\Users\zhang\.android\build-cache\1c0c35545541d07f3f8e945a7fd825636191761a\output\AndroidManifest.xml:5:5-43
 MERGED from [com.github.LuckSiege.PictureSelector:picture_library:v2.0.7] C:\Users\zhang\.android\build-cache\deb4fb50000acf0d343d809022d85269c91fabdd\output\AndroidManifest.xml:7:5-9:41
@@ -147,15 +149,13 @@ MERGED from [jp.wasabeef:glide-transformations:2.0.0] C:\Users\zhang\.android\bu
 MERGED from [bhds:utilslibrary:unspecified] C:\fei\bhds\utilslibrary\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
 MERGED from [com.zhy:okhttputils:2.6.2] C:\Users\zhang\.android\build-cache\ea2dd7230ec1e8181d18ecd359d6298b0b9547e3\output\AndroidManifest.xml:7:5-9:41
 MERGED from [bhds:mylibrary:unspecified] C:\fei\bhds\mylibrary\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:design:25.1.1] C:\Users\zhang\.android\build-cache\010a735325088608fa76242c15c386da617c24fb\output\AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\2750abfa120359f118da75e1e43d20a20b563907\output\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\1f9d492fe5e5759f272d01f676c17c92c061f967\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\c67a6115b97da09446236d473ebb945d25299099\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:25.1.1] C:\Users\zhang\.android\build-cache\be8b4008a9717f27fe952deb11574ede2ea36202\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\89002b54678e8c63c283a4f958ba9f42c63d47e9\output\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\515b2989f2536837a8f5b2d8873e758c859139c6\output\AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\2777387a9423f2b83f3af769862f256fa33a6200\output\AndroidManifest.xml:21:5-23:60
 MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\70a0cc7a345cc5d5a5bf7f3d47ed66c66b2ae46e\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\1f9d492fe5e5759f272d01f676c17c92c061f967\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\c67a6115b97da09446236d473ebb945d25299099\output\AndroidManifest.xml:20:5-44
 MERGED from [com.youth.banner:banner:1.4.10] C:\Users\zhang\.android\build-cache\a2f17965a0e2ff15a528dfaebc6a300431c68da4\output\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:recyclerview-v7:25.1.1] C:\Users\zhang\.android\build-cache\b34940dfa707259ab2308dfea9e34843f4ccf95c\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\08640240abd46cc7d400273b55911972e4e53604\output\AndroidManifest.xml:21:5-23:58
@@ -163,7 +163,7 @@ MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\zhang\.a
 MERGED from [com.hyman:flowlayout-lib:1.1.2] C:\Users\zhang\.android\build-cache\1645d74f02c26646403f862e8257281791b19b01\output\AndroidManifest.xml:8:5-10:41
 MERGED from [com.scwang.smartrefresh:SmartRefreshLayout:1.0.3] C:\Users\zhang\.android\build-cache\4b5c1563716aa5edb89d01ef3e9437bf8c5b221c\output\AndroidManifest.xml:7:5-9:41
 MERGED from [com.scwang.smartrefresh:SmartRefreshHeader:1.0.3] C:\Users\zhang\.android\build-cache\eff0e5771f2338741d2901002baca30dd35a9f73\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:cardview-v7:23.3.0] C:\Users\zhang\.android\build-cache\734a49ec6cc332fa2588ee7473dbcfd39624f78a\output\AndroidManifest.xml:20:5-43
+MERGED from [me.imid.swipebacklayout.lib:library:1.1.0] C:\Users\zhang\.android\build-cache\16d839c9e64256b653bf76cea8dd464c7e37bb40\output\AndroidManifest.xml:9:5-11:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:25.1.1] C:\Users\zhang\.android\build-cache\010a735325088608fa76242c15c386da617c24fb\output\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
@@ -250,12 +250,12 @@ ADDED from [com.github.LuckSiege.PictureSelector:picture_library:v2.0.7] C:\User
 		ADDED from [com.github.LuckSiege.PictureSelector:picture_library:v2.0.7] C:\Users\zhang\.android\build-cache\deb4fb50000acf0d343d809022d85269c91fabdd\output\AndroidManifest.xml:52:13-73
 meta-data#android.support.VERSION
 ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\2750abfa120359f118da75e1e43d20a20b563907\output\AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\1f9d492fe5e5759f272d01f676c17c92c061f967\output\AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\c67a6115b97da09446236d473ebb945d25299099\output\AndroidManifest.xml:22:5-24:41
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\89002b54678e8c63c283a4f958ba9f42c63d47e9\output\AndroidManifest.xml:25:5-27:41
 MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\515b2989f2536837a8f5b2d8873e758c859139c6\output\AndroidManifest.xml:25:5-27:41
 MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\2777387a9423f2b83f3af769862f256fa33a6200\output\AndroidManifest.xml:25:5-27:41
 MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\70a0cc7a345cc5d5a5bf7f3d47ed66c66b2ae46e\output\AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\1f9d492fe5e5759f272d01f676c17c92c061f967\output\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\c67a6115b97da09446236d473ebb945d25299099\output\AndroidManifest.xml:22:5-24:41
 MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\08640240abd46cc7d400273b55911972e4e53604\output\AndroidManifest.xml:25:5-27:41
 MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\zhang\.android\build-cache\a3d753b8a777bf243283a818a34671773f510d43\output\AndroidManifest.xml:25:5-27:41
 	android:value

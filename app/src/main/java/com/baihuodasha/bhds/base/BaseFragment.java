@@ -11,12 +11,13 @@ import android.view.ViewGroup;
 public class BaseFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        init();
+
         super.onCreate(savedInstanceState);
 
     }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        init();
         initdata();
         initListener();
         super.onActivityCreated(savedInstanceState);

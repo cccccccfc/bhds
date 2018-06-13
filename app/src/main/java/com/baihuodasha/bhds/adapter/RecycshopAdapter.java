@@ -3,7 +3,6 @@ package com.baihuodasha.bhds.adapter;
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +21,7 @@ public class RecycshopAdapter extends RecyclerView.Adapter<RecycshopAdapter.MyVi
   private OnItemClickListener mOnItemClickListener = null;
   private List<String> newlist;
 
-  public RecycshopAdapter(FragmentActivity mContext, ArrayList<String> mList) {
+  public RecycshopAdapter(FragmentActivity mContext, List<String> mList) {
     this.mContext = mContext;
     if (mList != null && mList.size() > 0) {
       this.newlist = mList;
@@ -79,7 +78,6 @@ public class RecycshopAdapter extends RecyclerView.Adapter<RecycshopAdapter.MyVi
   }
 
   public void addList(List<String> list) {
-    Log.i("qaz", "addList: "+list.size());
     if (list != null && list.size() > 0) {
       newlist.addAll(list);
       notifyDataSetChanged();

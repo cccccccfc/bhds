@@ -1,12 +1,9 @@
 package com.baihuodasha.bhds.fragment;
 
 import android.content.Intent;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +16,7 @@ import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
 import com.baihuodasha.bhds.activity.index.ShopSearchActivity;
 import com.baihuodasha.bhds.base.BaseFragment;
-import com.baihuodasha.bhds.utils.StatusBarCompat;
+import com.baihuodasha.bhds.utils.tablayout.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +48,8 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
     if (parent != null) {
       parent.removeView(view);
     }
-    StatusBarCompat.initSystemBar(getActivity(), R.color.titleBar);
+
+    //StatusBarCompat.initSystemBar(getActivity(), R.color.titleBar);
     titleReturn = (ImageView)view.findViewById(R.id.title_return);
     searchCon = (TextView)view.findViewById(R.id.search_con);
     title = (RelativeLayout)view.findViewById(R.id.title);
@@ -88,17 +86,7 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
         startActivity(intent);
       }
     });
-    //mTabTl.post(new Runnable() {
-    //  @Override
-    //  public void run() {
-    //    setIndicator(mTabTl, 5, 5);
-    //  }
-    //});
-    mTabTl.setTabMode(TabLayout.MODE_SCROLLABLE);
-    mTabTl.setTabTextColors(ContextCompat.getColor(getActivity(), R.color.colorText),
-        ContextCompat.getColor(getActivity(), R.color.black));
-    mTabTl.setSelectedTabIndicatorColor(ContextCompat.getColor(getActivity(), R.color.titleBar));
-    ViewCompat.setElevation(mTabTl, 0);
+    //ViewCompat.setElevation(mTabTl, 2);
     mTabTl.setupWithViewPager(mContentVp);
   }
 
@@ -106,6 +94,16 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
     tabIndicators = new ArrayList<>();
     String[] src = { "推荐", "居家", "电器", "厨具", "3C数码", "智能家电" };
     for (int i = 0; i < src.length; i++) {
+      View view = LayoutInflater.from(getActivity()).inflate(R.layout.item_skill_tab, null, false);
+      TextView tvName = (TextView) view.findViewById(R.id.tv_name);
+      tvName.setText(src[i]);
+      TabLayout.Tab tab = mTabTl.newTab().setCustomView(view);
+      //设置第一个默认选中Tab
+      if (i == 0) {
+        mTabTl.addTab(tab, true);
+      } else {
+        mTabTl.addTab(tab);
+      }
       tabIndicators.add(src[i]);
     }
     tabFragments = new ArrayList<>();

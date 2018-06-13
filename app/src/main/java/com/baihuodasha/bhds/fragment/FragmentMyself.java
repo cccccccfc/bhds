@@ -71,6 +71,7 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
 		if(parent !=null){
 			parent.removeView(view);
 		}
+
 		ButterKnife.bind(this,view);
 		return view;
 	}

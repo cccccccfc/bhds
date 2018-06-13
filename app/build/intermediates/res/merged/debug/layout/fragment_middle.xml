@@ -5,10 +5,44 @@
     android:background="@color/white"
     android:orientation="vertical"
     >
+  <include layout="@layout/context_simpletoolbar"></include>
+  <include layout="@layout/contxt_search_box"></include>
+  <com.baihuodasha.bhds.utils.ScrollInterceptScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scrollbars="none"
+      android:overScrollMode="never"
+      android:fadingEdge="none"
+      >
+    <RelativeLayout
+        android:descendantFocusability="blocksDescendants"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+      <com.youth.banner.Banner
+          android:id="@+id/banner_supermarket"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/dm250"
+          />
+      <android.support.v7.widget.RecyclerView
+          android:id="@+id/recycler_supermarket"
+          android:layout_below="@+id/banner_supermarket"
+          android:layout_width="match_parent"
+          android:layout_marginLeft="@dimen/dm012"
+          android:layout_marginRight="@dimen/dm012"
+          android:layout_height="wrap_content"
+          >
+      </android.support.v7.widget.RecyclerView>
+      <TextView
+          android:layout_below="@+id/recycler_supermarket"
+          android:layout_marginTop="@dimen/dm016"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/dm020"
+          android:background="#EEEEEE"
+          />
 
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="中间"
-      />
+    </RelativeLayout>
+
+
+  </com.baihuodasha.bhds.utils.ScrollInterceptScrollView>
 </LinearLayout>

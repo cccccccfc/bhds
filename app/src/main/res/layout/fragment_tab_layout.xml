@@ -9,14 +9,27 @@
   <!--<include-->
       <!--layout="@layout/include_toolbar"/>-->
 
-  <android.support.design.widget.TabLayout
+  <!--<android.support.design.widget.TabLayout-->
+      <!--android:id="@+id/tl_tab"-->
+      <!--android:layout_width="match_parent"-->
+      <!--android:layout_height="@dimen/dm048"-->
+      <!--android:background="@color/white"-->
+      <!--app:tabMode="scrollable"-->
+      <!--app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+    <!--/>-->
+  <com.baihuodasha.bhds.utils.tablayout.TabLayout
       android:id="@+id/tl_tab"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/dm048"
-      android:background="@color/white"
+      android:layout_height="@dimen/dm060"
+      app:tabBackground="@color/transparent"
+      app:tabGravity="center"
+      app:tabIndicatorHeight="@dimen/dm004"
+      app:tabIndicatorColor="@color/titleBar"
+      app:tabLineOffset="@dimen/dm026"
       app:tabMode="scrollable"
-      app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    />
+      app:tabSelectedTextColor="@color/black"
+      app:tabTextColor="@color/colorText"
+      ></com.baihuodasha.bhds.utils.tablayout.TabLayout>
   <android.support.v4.view.ViewPager
       android:id="@+id/vp_content"
       android:layout_width="match_parent"
