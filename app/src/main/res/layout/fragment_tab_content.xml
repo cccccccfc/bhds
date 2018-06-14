@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:zhy="http://schemas.android.com/apk/res-auto"
-    android:gravity="center"
     android:orientation="vertical"
+    android:gravity="center"
     >
+
   <com.baihuodasha.bhds.utils.ScrollInterceptScrollView
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:scrollbars="none"
       android:overScrollMode="never"
       android:fadingEdge="none"
+      android:id="@+id/ScrollInterceptScrollView"
       >
     <RelativeLayout
         android:descendantFocusability="blocksDescendants"
@@ -109,6 +111,46 @@
             android:layout_centerVertical="true"
             android:scrollbars="none"
             ></android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:id="@+id/item_lin_more"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dm022"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+          <TextView
+              android:layout_width="@dimen/dm150"
+              android:layout_marginLeft="@dimen/dm016"
+              android:layout_height="@dimen/dm001"
+              android:background="@color/itemback"
+              android:layout_gravity="center"
+              />
+          <TextView
+              android:layout_marginLeft="@dimen/dm020"
+              android:layout_marginRight="@dimen/dm020"
+              android:id="@+id/item_tx_title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="为您推荐更多精彩商品"
+              android:textColor="@color/colorText"
+              android:textSize="@dimen/dm022"
+              />
+          <TextView
+              android:layout_width="@dimen/dm150"
+              android:layout_marginRight="@dimen/dm016"
+              android:layout_height="@dimen/dm001"
+              android:background="@color/itemback"
+              android:layout_gravity="center"
+              />
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyc_commendation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:scrollbars="none"
+            ></android.support.v7.widget.RecyclerView>
       </LinearLayout>
 
     </RelativeLayout>
@@ -116,5 +158,16 @@
 
   </com.baihuodasha.bhds.utils.ScrollInterceptScrollView>
 
-
-</LinearLayout>
+  <android.support.design.widget.FloatingActionButton
+      android:id="@+id/fab"
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentRight="true"
+      borderWidth="0dp"
+      zhy:fabSize="mini"
+      elevation = "0dp"
+      zhy:backgroundTint="@color/titleBar"
+      android:layout_margin="@dimen/dm026"
+      android:src="@mipmap/fab_icon_top" />
+</RelativeLayout>

@@ -328,6 +328,10 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\2750abfa120359f118da75e1e43d20a20b563907\\output\\res\\drawable\\notification_icon_background.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\home_recommen_item_selector.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\home_recommen_item_selector.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\picture_btn_music_shape.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\deb4fb50000acf0d343d809022d85269c91fabdd\\output\\res\\drawable\\picture_btn_music_shape.xml"
     },
@@ -520,6 +524,10 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\deb4fb50000acf0d343d809022d85269c91fabdd\\output\\res\\drawable\\btn_right_true.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\home_recommendation_item.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\home_recommendation_item.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_share_music.png",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\umeng_socialize_share_music.png"
     },
@@ -554,6 +562,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_copy.png",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\umeng_socialize_copy.png"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_item_recommen.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\selector_item_recommen.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",

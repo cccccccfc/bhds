@@ -9,7 +9,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 import com.baihuodasha.bhds.R;
 import com.baihuodasha.bhds.base.BaseApplication;
-import com.baihuodasha.bhds.fragment.CategorizeFragment;
+import com.baihuodasha.bhds.fragment.FragmentClassification;
 import com.baihuodasha.bhds.fragment.FragmentHome;
 import com.baihuodasha.bhds.fragment.FragmentMyself;
 import com.baihuodasha.bhds.fragment.FragmentOther;
@@ -30,7 +30,7 @@ public class MainActivityTabHost extends StatusBarActivity {
   RadioButton main_bottom_cs;
   //分类
   //FragmentNews flFragment = new FragmentNews();
-  CategorizeFragment categorizeFragment = new CategorizeFragment();
+  FragmentClassification categorizeFragment = new FragmentClassification();
   RadioButton main_bottom_fl;
   //购物车
   FragmentOther gwFragment = new FragmentOther();
@@ -42,7 +42,7 @@ public class MainActivityTabHost extends StatusBarActivity {
 
   private FragmentHome fragment0;
   private FragmentSupermarket fragment1;
-  private CategorizeFragment fragment2;
+  private FragmentClassification fragment2;
   private FragmentOther fragment3;
   private FragmentMyself fragment4;
   private FragmentManager manager;
@@ -60,7 +60,7 @@ public class MainActivityTabHost extends StatusBarActivity {
       fragment0 = (FragmentHome) manager.getFragment(savedInstanceState, "FragmentHome");
       fragment1 =
           (FragmentSupermarket) manager.getFragment(savedInstanceState, "FragmentSupermarket");
-      fragment2 = (CategorizeFragment) manager.getFragment(savedInstanceState, "FragmentNews");
+      fragment2 = (FragmentClassification) manager.getFragment(savedInstanceState, "FragmentClassification");
       fragment3 = (FragmentOther) manager.getFragment(savedInstanceState, "FragmentOther");
       fragment4 = (FragmentMyself) manager.getFragment(savedInstanceState, "FragmentMyself");
       if (null != fragment0) fragments[0] = fragment4;

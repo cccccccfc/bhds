@@ -5,7 +5,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginLeft="@dimen/dm014"
-      android:background="@drawable/selector_item_seach"
+      android:background="@drawable/selector_item_recommen"
       android:paddingBottom="3dp"
       android:paddingLeft="8dp"
       android:paddingRight="8dp"

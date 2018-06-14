@@ -30,8 +30,8 @@ public final class R {
     public static final class drawable {
         public static final int black_background = 0x7f02005d;
         public static final int gray_radius = 0x7f02007b;
-        public static final int no_banner = 0x7f0200a9;
-        public static final int white_radius = 0x7f020102;
+        public static final int no_banner = 0x7f0200ab;
+        public static final int white_radius = 0x7f020105;
     }
     public static final class id {
         public static final int bannerContainer = 0x7f100004;
