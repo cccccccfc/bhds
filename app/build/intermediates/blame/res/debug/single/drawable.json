@@ -520,6 +520,10 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\icon_refresh.png"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\timer_shape2.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\timer_shape2.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_right_true.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\deb4fb50000acf0d343d809022d85269c91fabdd\\output\\res\\drawable\\btn_right_true.xml"
     },

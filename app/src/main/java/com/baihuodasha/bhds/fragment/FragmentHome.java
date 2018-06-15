@@ -93,9 +93,9 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
   private void initContent() {
     tabIndicators = new ArrayList<>();
     String[] src = { "推荐", "居家", "电器", "厨具", "3C数码", "智能家电" };
+    View view = LayoutInflater.from(getActivity()).inflate(R.layout.item_skill_tab, null, false);
+    TextView tvName = (TextView) view.findViewById(R.id.tv_name);
     for (int i = 0; i < src.length; i++) {
-      View view = LayoutInflater.from(getActivity()).inflate(R.layout.item_skill_tab, null, false);
-      TextView tvName = (TextView) view.findViewById(R.id.tv_name);
       tvName.setText(src[i]);
       TabLayout.Tab tab = mTabTl.newTab().setCustomView(view);
       //设置第一个默认选中Tab
@@ -108,12 +108,41 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
     }
     tabFragments = new ArrayList<>();
     for (String s : tabIndicators) {
-      tabFragments.add(TabContentFragment.newInstance(s));
+      tabFragments.add(TabTecommendFragment.newInstance(s));
+      tabFragments.add(TabLivingathomeFragment.newInstance(s));
     }
     contentAdapter = new ContentPagerAdapter(getChildFragmentManager());
     mContentVp.setAdapter(contentAdapter);
-  }
+    mTabTl.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+      @Override public void onTabSelected(TabLayout.Tab tab) {
+        updateTabTextView(tab, true);
+      }
 
+      @Override public void onTabUnselected(TabLayout.Tab tab) {
+        updateTabTextView(tab, false);
+      }
+
+      @Override public void onTabReselected(TabLayout.Tab tab) {
+
+      }
+    });
+  }
+  private void updateTabTextView(TabLayout.Tab tab, boolean isSelect) {
+  //  mContentVp.setCurrentItem(tab.getPosition());
+    if (isSelect) {
+      //选中加粗
+      TextView tabSelect = (TextView)(((LinearLayout) ((LinearLayout) mTabTl.getChildAt(0)).getChildAt(tab.getPosition())).getChildAt(1));
+     // TextView tabSelect = (TextView) tab.getCustomView().findViewById(R.id.tv_name);
+     // tabSelect.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+      //tabSelect.setText(tab.getText());
+    } else {
+      TextView tabUnSelect = (TextView)(((LinearLayout) ((LinearLayout) mTabTl.getChildAt(0)).getChildAt(tab.getPosition())).getChildAt(1));
+
+  //    TextView tabUnSelect = (TextView) tab.getCustomView().findViewById(R.id.tv_name);
+      //tabUnSelect.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+     // tabUnSelect.setText(tab.getText());
+    }
+  }
   @Override public void onDestroyView() {
     super.onDestroyView();
   }

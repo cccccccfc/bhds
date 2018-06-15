@@ -38,7 +38,7 @@ import java.util.Set;
 /**
  * Created by yifeng on 16/8/3.
  */
-public class TabContentFragment extends Fragment implements View.OnClickListener {
+public class TabTecommendFragment extends Fragment implements View.OnClickListener {
 
   private static final String EXTRA_CONTENT = "content";
   private ParentInfo parentInfo;
@@ -61,12 +61,12 @@ public class TabContentFragment extends Fragment implements View.OnClickListener
   private FloatingActionButton mFabbutton;
   private ScrollInterceptScrollView mScrollView;
 
-  public static TabContentFragment newInstance(String content) {
+  public static TabTecommendFragment newInstance(String content) {
     Bundle arguments = new Bundle();
     arguments.putString(EXTRA_CONTENT, content);
-    TabContentFragment tabContentFragment = new TabContentFragment();
-    tabContentFragment.setArguments(arguments);
-    return tabContentFragment;
+    TabTecommendFragment tabTecommendFragment = new TabTecommendFragment();
+    tabTecommendFragment.setArguments(arguments);
+    return tabTecommendFragment;
   }
 
   @Nullable @Override

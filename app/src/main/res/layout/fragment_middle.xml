@@ -23,6 +23,7 @@
           android:id="@+id/banner_supermarket"
           android:layout_width="match_parent"
           android:layout_height="@dimen/dm250"
+          android:visibility="visible"
           />
       <android.support.v7.widget.RecyclerView
           android:id="@+id/recycler_supermarket"
@@ -31,15 +32,89 @@
           android:layout_marginLeft="@dimen/dm012"
           android:layout_marginRight="@dimen/dm012"
           android:layout_height="wrap_content"
+          android:visibility="visible"
           >
       </android.support.v7.widget.RecyclerView>
       <TextView
           android:layout_below="@+id/recycler_supermarket"
+          android:id="@+id/text_line"
           android:layout_marginTop="@dimen/dm016"
           android:layout_width="match_parent"
           android:layout_height="@dimen/dm020"
           android:background="#EEEEEE"
           />
+
+        <TextView
+            android:layout_below="@+id/text_line"
+            android:id="@+id/text_timelimit_title"
+            android:layout_marginTop="@dimen/dm050"
+            android:layout_marginBottom="@dimen/dm040"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="限时抢购"
+            android:gravity="center"
+            android:textSize="@dimen/dm032"
+            android:textColor="@color/blackText"
+            />
+
+      <LinearLayout
+          android:id="@+id/lin_timelimit_title"
+          android:layout_below="@+id/text_timelimit_title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:weightSum="2"
+          android:orientation="horizontal"
+          >
+        <RelativeLayout
+            android:id="@+id/rel_timelimit_backgroud"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/timelimit_backgroud"
+            >
+            <TextView
+                android:id="@+id/text_timelimit_headline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="限时购"
+                android:textSize="@dimen/dm044"
+                android:textColor="@color/blackText"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/dm040"
+                android:layout_marginLeft="@dimen/dm032"
+                />
+          <TextView
+              android:layout_below="@+id/text_timelimit_headline"
+              android:id="@+id/text_timelimit_subhead"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="距离活动结束还有"
+              android:textSize="@dimen/dm024"
+              android:textColor="@color/black"
+              android:layout_marginTop="@dimen/dm050"
+              android:layout_marginLeft="@dimen/dm032"
+              />
+          <LinearLayout
+
+              android:layout_below="@+id/text_timelimit_subhead"
+              android:id="@+id/lin_timelimit_timer"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/dm022"
+              android:layout_marginLeft="@dimen/dm032"
+              android:orientation="vertical"
+              />
+
+        </RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recy_timelimit_image"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginRight="@dimen/dm008"
+            android:layout_height="wrap_content"
+            >
+        </android.support.v7.widget.RecyclerView>
+      </LinearLayout>
 
     </RelativeLayout>
 

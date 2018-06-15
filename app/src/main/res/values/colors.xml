@@ -12,6 +12,7 @@
     <color name="itemback">#cccccc</color>
     <color name="white">#ffffff</color>
     <color name="gray">#dbdbdb</color>
+    <color name="blackText">#333333</color>
     //搜索地址标题颜色
     <color name="search_title_color">#4C4C4C</color>
     //历史搜索字体颜色

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:2:1-50:12
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:2:1-44:12
 	package
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:4:5-35
 		INJECTED from C:\fei\bhds\app\src\main\AndroidManifest.xml
@@ -114,27 +114,27 @@ ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:34:5-80
 MERGED from [com.github.LuckSiege.PictureSelector:picture_library:v2.0.7] C:\Users\zhang\.android\build-cache\deb4fb50000acf0d343d809022d85269c91fabdd\output\AndroidManifest.xml:11:5-80
 	android:name
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:34:22-77
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:35:5-75
+	android:name
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:35:22-72
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:35:5-76
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:38:5-76
 MERGED from [com.github.LuckSiege.PictureSelector:picture_library:v2.0.7] C:\Users\zhang\.android\build-cache\deb4fb50000acf0d343d809022d85269c91fabdd\output\AndroidManifest.xml:17:5-76
 	android:name
-		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:35:22-73
-uses-permission#android.permission.READ_PHONE_STATE
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:36:5-75
-	android:name
-		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:36:22-72
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:38:22-73
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:45:5-79
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:39:5-79
 	android:name
-		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:45:22-76
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:39:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:46:5-81
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:40:5-81
 	android:name
-		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:46:22-78
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:40:22-78
 uses-permission#android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:47:5-89
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:41:5-89
 	android:name
-		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:47:22-86
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:41:22-86
 uses-sdk
 INJECTED from C:\fei\bhds\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:25.1.1] C:\Users\zhang\.android\build-cache\010a735325088608fa76242c15c386da617c24fb\output\AndroidManifest.xml:21:5-23:62

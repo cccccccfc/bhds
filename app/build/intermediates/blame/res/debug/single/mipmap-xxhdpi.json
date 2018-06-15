@@ -36,6 +36,10 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-xxhdpi\\youxuan.png"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\timelimit_backgroud.png",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-xxhdpi\\timelimit_backgroud.png"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\fenleia.png",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-xxhdpi\\fenleia.png"
     },

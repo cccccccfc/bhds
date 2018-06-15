@@ -1,8 +1,10 @@
 package com.baihuodasha.bhds.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,7 @@ import com.baihuodasha.bhds.bean.ChildInfo;
 import com.baihuodasha.bhds.bean.SupermarketGridBean;
 import com.baihuodasha.bhds.utils.CommonUtils;
 import com.baihuodasha.bhds.utils.GlideImageLoader;
+import com.baihuodasha.bhds.utils.countdowntimer.TimerUtils;
 import com.baihuodasha.bhds.view.SimpleToolbar;
 import com.youth.banner.Banner;
 import com.youth.banner.listener.OnBannerClickListener;
@@ -45,7 +48,14 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
   @BindView(R.id.search_con) TextView searchCon;
   @BindView(R.id.title) RelativeLayout title;
   @BindView(R.id.banner_supermarket) Banner mBannersupermarket;
+  @BindView(R.id.text_timelimit_title) TextView mTexttimelimittitle;
+  @BindView(R.id.lin_timelimit_title) LinearLayout mLintimelimittitle;
+  @BindView(R.id.recy_timelimit_image) RecyclerView mRecytimelimitimage;
   @BindView(R.id.recycler_supermarket) RecyclerView mRecyclerSupermarket;
+  @BindView(R.id.lin_timelimit_timer) LinearLayout mLintimelimittimer;
+  @BindView(R.id.rel_timelimit_backgroud) RelativeLayout mReltimelimitbackgroud;
+  @BindView(R.id.text_timelimit_headline) TextView mTexttimelimitheadline;
+  @BindView(R.id.text_timelimit_subhead) TextView mTexttimelimitsubhead;
   private View view;
   private String[] BannerImage;
   private List<String> imageList;
@@ -90,13 +100,26 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
     adapter = new SupermarkeGridtAdapter(getActivity(), null);
     mRecyclerSupermarket.setAdapter(adapter);
   }
-
+  private int padding =0;
+  private int textSize = 44;
   @Override public void initdata() {
-
+    TextView tv5= TimerUtils.getTimer(TimerUtils.JD_STYLE,getActivity(),1200000,TimerUtils.TIME_STYLE_ONE,R.drawable.timer_shape2)
+        .setTimerPadding(15,15,20,15)
+        .setTimerTextColor(Color.WHITE)
+        .setTimerTextSize(textSize)
+        .setTimerGapColor(Color.BLACK)
+        .getmDateTv();
+    mLintimelimittimer.addView(tv5);
+    setmLayoutParams(tv5);
     getShopList();
     super.initdata();
   }
-
+  private void setmLayoutParams(TextView tv) {
+    tv.setGravity(Gravity.CENTER_HORIZONTAL);
+    LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) tv.getLayoutParams();
+    params.setMargins(0,0,0,0);
+    tv.setLayoutParams(params);
+  }
   @Override public void initListener() {
     lin_seach.setOnClickListener(this);
     mBannersupermarket.setOnBannerClickListener(new OnBannerClickListener() {

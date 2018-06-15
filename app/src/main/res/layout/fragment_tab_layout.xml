@@ -22,16 +22,19 @@
       android:layout_width="match_parent"
       android:layout_height="@dimen/dm060"
       app:tabBackground="@color/transparent"
+      app:tabMaxWidth="@dimen/dm320"
+      app:tabMinWidth="@dimen/dm030"
       app:tabGravity="center"
       app:tabIndicatorHeight="@dimen/dm004"
       app:tabIndicatorColor="@color/titleBar"
-      app:tabLineOffset="@dimen/dm026"
+      app:tabLineOffset="@dimen/dm024"
       app:tabMode="scrollable"
       app:tabSelectedTextColor="@color/black"
       app:tabTextColor="@color/colorText"
       ></com.baihuodasha.bhds.utils.tablayout.TabLayout>
   <android.support.v4.view.ViewPager
       android:id="@+id/vp_content"
+      android:overScrollMode="never"
       android:layout_width="match_parent"
       android:layout_height="match_parent">
 

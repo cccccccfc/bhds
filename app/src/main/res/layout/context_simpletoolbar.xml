@@ -13,7 +13,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:minHeight="@dimen/dm080"
-      android:background="@color/white"
+      android:background="@color/titleBar"
       android:fitsSystemWindows="true"
       app:contentInsetLeft="0dp"
       app:contentInsetStart="0dp">
@@ -29,6 +29,7 @@
         android:textStyle="bold"
         android:text=""
         android:textColor="@color/white"
+        android:drawableLeft="@color/titleBar"
         android:textSize="16sp"
         android:visibility="visible"/>
 
@@ -39,7 +40,7 @@
         android:layout_gravity="center"
         android:singleLine="true"
         android:text="标题"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:visibility="visible"/>
 
