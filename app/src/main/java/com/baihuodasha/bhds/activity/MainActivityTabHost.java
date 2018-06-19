@@ -83,7 +83,6 @@ public class MainActivityTabHost extends BaseActivity {
     main_bottom_wd = (RadioButton) findViewById(R.id.main_bottom_wd);
     main_bottom_gw = (RadioButton) findViewById(R.id.main_bottom_gw);
     main_bottom_rg = (RadioGroup) findViewById(R.id.main_bottom_rg);
-    initBottomBar();
   }
 
   @Override public void dealLogicBeforeInitView() {
@@ -91,35 +90,6 @@ public class MainActivityTabHost extends BaseActivity {
   }
 
   @Override public void dealLogicAfterInitView() {
-
-  }
-
-  @Override public void onClickEvent(View view) throws ParseException {
-
-  }
-
-  private long exitTime = 0;
-
-  @Override public boolean onKeyDown(int keyCode, KeyEvent event) {
-    if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
-      if ((System.currentTimeMillis() - exitTime) > 2000) {
-        Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
-        exitTime = System.currentTimeMillis();
-      } else {
-        BaseApplication.getThreadPool().shutdownNow();//关闭线程池
-        finish();
-        System.exit(0);
-      }
-      return true;
-    }
-    return super.onKeyDown(keyCode, event);
-  }
-
-  @Override public void onBackPressed() {
-    super.onBackPressed();
-  }
-
-  private void initBottomBar() {
     fragmentUtil = new FragmentUtil(fragments, getSupportFragmentManager(), R.id.main_framlayout);
     main_bottom_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
       @Override public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -179,6 +149,32 @@ public class MainActivityTabHost extends BaseActivity {
         break;
     }
   }
+
+  @Override public void onClickEvent(View view) throws ParseException {
+
+  }
+
+  private long exitTime = 0;
+
+  @Override public boolean onKeyDown(int keyCode, KeyEvent event) {
+    if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+      if ((System.currentTimeMillis() - exitTime) > 2000) {
+        Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+        exitTime = System.currentTimeMillis();
+      } else {
+        BaseApplication.getThreadPool().shutdownNow();//关闭线程池
+        finish();
+        System.exit(0);
+      }
+      return true;
+    }
+    return super.onKeyDown(keyCode, event);
+  }
+
+  @Override public void onBackPressed() {
+    super.onBackPressed();
+  }
+
 
   @Override protected void onSaveInstanceState(Bundle outState) {
     //super.onSaveInstanceState(outState);
