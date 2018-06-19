@@ -2,6 +2,7 @@ package com.baihuodasha.bhds.activity.index;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -24,7 +25,6 @@ import com.baihuodasha.bhds.bean.StoreSearchBean;
 import com.baihuodasha.bhds.databases.searchshopdp.HistoryShopEntity;
 import com.baihuodasha.bhds.databases.searchshopdp.HistoryShopShopDataBaseInfo;
 import com.baihuodasha.bhds.utils.CommonUtils;
-import com.baihuodasha.bhds.utils.StatusBarCompat;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
 import com.zhy.view.flowlayout.TagFlowLayout;
@@ -61,9 +61,10 @@ public class ShopSearchActivity extends BaseActivity {
   private RelativeLayout remn_rl;
   private TagAdapter tagAdapter;
 
-  @Override public void setContentLayout() {
+  @Override public void setContentLayout(Bundle savedInstanceState) {
     setContentView(R.layout.activity_shopsearch);
-    StatusBarCompat.initSystemBar(this, R.color.titleBar);
+    setStatusBarPlaceVisible(true);
+    setViewColorStatusBar(false, getResources().getColor(R.color.titleBar));
     mInflater = LayoutInflater.from(this);
     historyShopDataBaseInfo = HistoryShopShopDataBaseInfo.getInstance(this);
     showEntities = new ArrayList<>();

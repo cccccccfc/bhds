@@ -7,6 +7,7 @@
     <color name="colorTitle">#FF6905</color>
     <color name="price">#DC143C</color>
     <color name="colorText">#999999</color>
+    <color name="colorText2">#666666</color>
     <color name="titleBar">#D3BF9C</color>
     <color name="recommonselect">#a08962</color>
     <color name="itemback">#cccccc</color>

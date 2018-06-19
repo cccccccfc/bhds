@@ -84,5 +84,8 @@ public final class Config {
     public static final String[] categorizeTools = {
             "热门", "百货超市", "居家生活", "家用电器", "餐具厨具", "3C数码", "智能家居",
     };
+    public static final String[] supermarketprice = {
+        "100", "200", "300", "400"
+    };
 
 }

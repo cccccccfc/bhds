@@ -188,6 +188,10 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\menu_info_item.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\supermarket_choiceness_item.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\supermarket_choiceness_item.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ucrop_layout_scale_wheel.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\62ceab76caf433ce4c92b6ca8e6832afc62419da\\output\\res\\layout\\ucrop_layout_scale_wheel.xml"
     },
@@ -320,6 +324,10 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_myself_info.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\supermarket_newproduct_item.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\supermarket_newproduct_item.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\banner_layout.xml",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\banner_layout.xml"
     },
@@ -350,6 +358,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\2750abfa120359f118da75e1e43d20a20b563907\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\supermarket_countdown_item.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\supermarket_countdown_item.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_middle.xml",

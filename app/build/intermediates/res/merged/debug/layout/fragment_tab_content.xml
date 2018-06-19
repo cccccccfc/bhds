@@ -115,7 +115,8 @@
             android:id="@+id/item_lin_more"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dm022"
+            android:layout_marginTop="@dimen/dm040"
+            android:layout_marginBottom="@dimen/dm032"
             android:orientation="horizontal"
             android:gravity="center"
             >

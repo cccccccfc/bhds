@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import com.baihuodasha.bhds.R;
+import com.baihuodasha.bhds.base.BaseActivity;
 import com.baihuodasha.bhds.base.BaseApplication;
 import com.baihuodasha.bhds.fragment.FragmentClassification;
 import com.baihuodasha.bhds.fragment.FragmentHome;
@@ -15,12 +17,12 @@ import com.baihuodasha.bhds.fragment.FragmentMyself;
 import com.baihuodasha.bhds.fragment.FragmentOther;
 import com.baihuodasha.bhds.fragment.FragmentSupermarket;
 import com.baihuodasha.bhds.utils.FragmentUtil;
-import com.baihuodasha.bhds.utils.statusbar.StatusBarActivity;
+import java.text.ParseException;
 
 /**
  * @author xqb
  */
-public class MainActivityTabHost extends StatusBarActivity {
+public class MainActivityTabHost extends BaseActivity {
 
   //首页
   FragmentHome syFragment = new FragmentHome();
@@ -50,8 +52,7 @@ public class MainActivityTabHost extends StatusBarActivity {
   private int selectedindex = 0;
   private FragmentUtil fragmentUtil;
 
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+  @Override public void setContentLayout(Bundle savedInstanceState) {
     setViewColorStatusBar(false, getResources().getColor(R.color.titleBar));
     setContentView(R.layout.activity_tabhost);
     //
@@ -70,14 +71,12 @@ public class MainActivityTabHost extends StatusBarActivity {
       if (null != fragment4) fragments[4] = fragment3;
       selectedindex = savedInstanceState.getInt("selectedindex");
     }
-
-    initView();
   }
 
   /**
    * 初始化组件
    */
-  private void initView() {
+  public void initView() {
     main_bottom_sy = (RadioButton) findViewById(R.id.main_bottom_sy);
     main_bottom_cs = (RadioButton) findViewById(R.id.main_bottom_cs);
     main_bottom_fl = (RadioButton) findViewById(R.id.main_bottom_fl);
@@ -85,6 +84,18 @@ public class MainActivityTabHost extends StatusBarActivity {
     main_bottom_gw = (RadioButton) findViewById(R.id.main_bottom_gw);
     main_bottom_rg = (RadioGroup) findViewById(R.id.main_bottom_rg);
     initBottomBar();
+  }
+
+  @Override public void dealLogicBeforeInitView() {
+
+  }
+
+  @Override public void dealLogicAfterInitView() {
+
+  }
+
+  @Override public void onClickEvent(View view) throws ParseException {
+
   }
 
   private long exitTime = 0;

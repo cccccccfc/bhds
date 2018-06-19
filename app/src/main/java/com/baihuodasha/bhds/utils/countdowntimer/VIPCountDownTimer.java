@@ -5,7 +5,6 @@ import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
 import android.text.style.TextAppearanceSpan;
-import android.util.Log;
 import com.baihuodasha.bhds.R;
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +73,6 @@ public class VIPCountDownTimer extends MikyouCountDownTimer {
         vipNonNumbers = TimerUtils.getNonNumInTimerStr(timeStr);//得到每个间隔字符，并加入到数组
         for (int i=0;i<vipNumbers.length;i++){
             for (int j=0;j<vipNumbers[i].toCharArray().length;j++){//因为需要得到每个数字所以还得遍历每块数值中的每个数字，所以需要二层循环
-                Log.i("qaz", "initSpanData: "+j);
                 MikyouBackgroundSpan mSpan = new MikyouBackgroundSpan(mContext.getDrawable(mDrawableId), ImageSpan.ALIGN_BOTTOM);
                 initBackSpanStyle(mSpan);
                 mSpanList.add(mSpan);

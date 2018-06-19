@@ -82,8 +82,8 @@
     </declare-styleable>
     <style name="SpecialTextAppearance" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/black</item>
-        <item name="android:width">5dp</item>
-        <item name="android:textSize">@dimen/dm048</item>
+        <item name="android:width">@dimen/dm008</item>
+        <item name="android:textSize">@dimen/dm028</item>
         <item name="android:textStyle">bold</item>
     </style>
 </resources>
