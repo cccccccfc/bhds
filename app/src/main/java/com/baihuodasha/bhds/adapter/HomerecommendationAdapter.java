@@ -48,7 +48,6 @@ public class HomerecommendationAdapter extends RecyclerView.Adapter<Homerecommen
     Glide.with(mContext).load(newlist.get(position).getUrl()).into(holder.mItemivimage);
     holder.mTextbuy.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-
         CommonUtils.toastMessage("点击了"+position+"的购买");
       }
     });

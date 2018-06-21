@@ -23,5 +23,6 @@
     <color name="divide_color">#e1e1e1</color>
     //横线颜色
     <color name="login_hx">#EDEDED </color>
-
+    <color name="full_delete">#d3bf9c </color>
+    <color name="full_add">#c8ab7a </color>
 </resources>

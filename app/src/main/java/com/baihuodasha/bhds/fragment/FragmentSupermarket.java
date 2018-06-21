@@ -122,7 +122,7 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
     title_return.setVisibility(View.GONE);
     img_message.setVisibility(View.GONE);
     mSimpletoolbar.setMainTitle("百货超市");
-    mSimpletoolbar.setVisibility(View.GONE);
+    mSimpletoolbar.setVisibility(View.VISIBLE);
     BannerImage = Config.Bannermarketimages;
     imageList = new ArrayList<>();
     for (int i = 0; i < BannerImage.length; i++) {

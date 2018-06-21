@@ -14,7 +14,7 @@ import com.baihuodasha.bhds.base.BaseApplication;
 import com.baihuodasha.bhds.fragment.FragmentClassification;
 import com.baihuodasha.bhds.fragment.FragmentHome;
 import com.baihuodasha.bhds.fragment.FragmentMyself;
-import com.baihuodasha.bhds.fragment.FragmentOther;
+import com.baihuodasha.bhds.fragment.FragmentShoppingTrolley;
 import com.baihuodasha.bhds.fragment.FragmentSupermarket;
 import com.baihuodasha.bhds.utils.FragmentUtil;
 import java.text.ParseException;
@@ -35,7 +35,7 @@ public class MainActivityTabHost extends BaseActivity {
   FragmentClassification categorizeFragment = new FragmentClassification();
   RadioButton main_bottom_fl;
   //购物车
-  FragmentOther gwFragment = new FragmentOther();
+  FragmentShoppingTrolley gwFragment = new FragmentShoppingTrolley();
   RadioButton main_bottom_gw;
   //我的
   FragmentMyself wdFragment = new FragmentMyself();
@@ -45,7 +45,7 @@ public class MainActivityTabHost extends BaseActivity {
   private FragmentHome fragment0;
   private FragmentSupermarket fragment1;
   private FragmentClassification fragment2;
-  private FragmentOther fragment3;
+  private FragmentShoppingTrolley fragment3;
   private FragmentMyself fragment4;
   private FragmentManager manager;
   private static RadioGroup main_bottom_rg;
@@ -62,7 +62,7 @@ public class MainActivityTabHost extends BaseActivity {
       fragment1 =
           (FragmentSupermarket) manager.getFragment(savedInstanceState, "FragmentSupermarket");
       fragment2 = (FragmentClassification) manager.getFragment(savedInstanceState, "FragmentClassification");
-      fragment3 = (FragmentOther) manager.getFragment(savedInstanceState, "FragmentOther");
+      fragment3 = (FragmentShoppingTrolley) manager.getFragment(savedInstanceState, "FragmentShoppingTrolley");
       fragment4 = (FragmentMyself) manager.getFragment(savedInstanceState, "FragmentMyself");
       if (null != fragment0) fragments[0] = fragment4;
       if (null != fragment1) fragments[1] = fragment0;

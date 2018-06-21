@@ -8,8 +8,8 @@ package com.zhy.view.flowlayout;
 
 public final class R {
     public static final class attr {
-        public static final int max_select = 0x7f0101b9;
-        public static final int tag_gravity = 0x7f0101ba;
+        public static final int max_select = 0x7f0101b4;
+        public static final int tag_gravity = 0x7f0101b5;
     }
     public static final class id {
         public static final int center = 0x7f10003b;
@@ -23,7 +23,7 @@ public final class R {
         public static final int gravity_right = 0x7f0a012c;
     }
     public static final class styleable {
-        public static final int[] TagFlowLayout = { 0x7f0101b9, 0x7f0101ba };
+        public static final int[] TagFlowLayout = { 0x7f0101b4, 0x7f0101b5 };
         public static final int TagFlowLayout_max_select = 0;
         public static final int TagFlowLayout_tag_gravity = 1;
     }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -199,9 +200,11 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
 					// 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true
 					// 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
 					final Bitmap zoomBitMap = CommonUtils.getBitmap(media.getCompressPath());
+
 					if(zoomBitMap!=null){
 						//先保持到本地，在传到服务器
 						CommonUtils.saveBitmapFile(zoomBitMap,"myicon.jpg");//先保存文件到本地
+						Log.i("qaz", "onActivityResult2: "+zoomBitMap);
 						PersonalInternetRequestUtils.uplodePicture(getActivity(),"ub_id","myicon.jpg",new PersonalInternetRequestUtils.ForResultListener() {
 							@Override
 							public void onResponseMessage(String code) {
@@ -223,6 +226,7 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
 						//本地图片显示
 						Bitmap cacheBitmap = CommonUtils.getCacheFile("myicon.jpg");
 						byte[] bytes=CommonUtils.getBitMapByteArray(cacheBitmap);
+						Log.i("qaz", "onActivityResult1: "+bytes);
 						Glide.with(getActivity()).load(bytes)
 								.placeholder(R.drawable.advisor_home_img)
 								.bitmapTransform(new CropCircleTransformation(getActivity()))
@@ -231,5 +235,10 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
 					break;
 			}
 		}
+	}
+
+	@Override public void onResume() {
+
+		super.onResume();
 	}
 }

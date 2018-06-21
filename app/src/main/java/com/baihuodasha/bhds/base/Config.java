@@ -87,5 +87,19 @@ public final class Config {
     public static final String[] supermarketprice = {
         "100", "200", "300", "400"
     };
-
+    public static final int[] carid = {
+        111, 222, 333, 444, 555, 666, 777, 888,999,1111,2222,3333,4444
+    };
+    public static final String[] CarImages =  {
+        "http://test2.baihuodasha.com//images/201805/1527145341571611352.jpg",
+        "http://test2.baihuodasha.com//images/201805/1527145294792439769.jpg",
+        "http://test2.baihuodasha.com//images/201805/1527148858223918198.jpg",
+        "http://test2.baihuodasha.com//images/201805/1527145351939811366.jpg",
+        "http://test2.baihuodasha.com//images/201805/1527145318831036967.jpg",
+        "http://test2.baihuodasha.com//images/201805/1527145294792439769.jpg",
+        "http://test2.baihuodasha.com//images/201805/1527148858223918198.jpg",
+        "http://test2.baihuodasha.com//images/201805/1527145351939811366.jpg",
+        "http://test2.baihuodasha.com//images/201805/1527145318831036967.jpg",
+        "http://test2.baihuodasha.com//images/201805/1527145330758184757.jpg"
+    };
 }
