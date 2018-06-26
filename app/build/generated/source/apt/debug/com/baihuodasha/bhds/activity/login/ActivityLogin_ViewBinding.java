@@ -4,6 +4,7 @@ package com.baihuodasha.bhds.activity.login;
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -21,9 +22,6 @@ public class ActivityLogin_ViewBinding<T extends ActivityLogin> implements Unbin
   public ActivityLogin_ViewBinding(T target, View source) {
     this.target = target;
 
-    target.back = Utils.findRequiredViewAsType(source, R.id.iv_base_back, "field 'back'", ImageView.class);
-    target.edit = Utils.findRequiredViewAsType(source, R.id.iv_base_edit, "field 'edit'", ImageView.class);
-    target.title = Utils.findRequiredViewAsType(source, R.id.tv_base_title, "field 'title'", TextView.class);
     target.phone = Utils.findRequiredViewAsType(source, R.id.et_login_phone, "field 'phone'", EditText.class);
     target.passport = Utils.findRequiredViewAsType(source, R.id.et_login_passport, "field 'passport'", EditText.class);
     target.eye = Utils.findRequiredViewAsType(source, R.id.rl_login_eye, "field 'eye'", RelativeLayout.class);
@@ -32,7 +30,10 @@ public class ActivityLogin_ViewBinding<T extends ActivityLogin> implements Unbin
     target.forget = Utils.findRequiredViewAsType(source, R.id.tv_login_forget, "field 'forget'", TextView.class);
     target.qq = Utils.findRequiredViewAsType(source, R.id.iv_login_qq, "field 'qq'", ImageView.class);
     target.wx = Utils.findRequiredViewAsType(source, R.id.iv_login_wx, "field 'wx'", ImageView.class);
-    target.sina = Utils.findRequiredViewAsType(source, R.id.iv_login_sina, "field 'sina'", ImageView.class);
+    target.imgFullSelector = Utils.findRequiredViewAsType(source, R.id.img_full_selector, "field 'imgFullSelector'", CheckBox.class);
+    target.imgeye = Utils.findRequiredViewAsType(source, R.id.img_login_eye, "field 'imgeye'", ImageView.class);
+    target.ivBaseBack = Utils.findRequiredViewAsType(source, R.id.iv_base_back, "field 'ivBaseBack'", ImageView.class);
+    target.tvBaseTitle = Utils.findRequiredViewAsType(source, R.id.tv_base_title, "field 'tvBaseTitle'", TextView.class);
   }
 
   @Override
@@ -41,9 +42,6 @@ public class ActivityLogin_ViewBinding<T extends ActivityLogin> implements Unbin
     T target = this.target;
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
 
-    target.back = null;
-    target.edit = null;
-    target.title = null;
     target.phone = null;
     target.passport = null;
     target.eye = null;
@@ -52,7 +50,10 @@ public class ActivityLogin_ViewBinding<T extends ActivityLogin> implements Unbin
     target.forget = null;
     target.qq = null;
     target.wx = null;
-    target.sina = null;
+    target.imgFullSelector = null;
+    target.imgeye = null;
+    target.ivBaseBack = null;
+    target.tvBaseTitle = null;
 
     this.target = null;
   }

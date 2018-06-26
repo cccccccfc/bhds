@@ -1,5 +1,6 @@
 package com.baihuodasha.bhds.fragment;
 
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
 import com.baihuodasha.bhds.adapter.ShoppingTrolleyFullAdapter;
+import com.baihuodasha.bhds.adapter.SupermarketChoicenessAdapter;
 import com.baihuodasha.bhds.base.BaseFragment;
 import com.baihuodasha.bhds.base.Config;
 import com.baihuodasha.bhds.bean.ShopProduct;
@@ -47,12 +49,14 @@ public class FragmentShoppingTrolley extends BaseFragment
   @BindView(R.id.shoping_closeanaccount) TextView shopingCloseanaccount;  //结算
   @BindView(R.id.shoping_car) LinearLayout shopingCar; //
   @BindView(R.id.bhds_checkbox) CheckBox bhdscheckbox;
+  @BindView(R.id.rec_bhds_choiceness) RecyclerView mRecBhdsChoiceness; //推荐商品
   private View view;
   private ShoppingTrolleyFullAdapter shoppingTrolleyFullAdapter;
   private String[] contextImages;
   private int[] carids;
   private int shopNum;
   private int shopnum;
+  private SupermarketChoicenessAdapter choicenessAdapter;
 
   @Override public View initView(LayoutInflater inflater) {
     if (view == null) {
@@ -83,7 +87,12 @@ public class FragmentShoppingTrolley extends BaseFragment
     shoppingTrolleyFullAdapter.setHasStableIds(true);
     recyShopTrolley.setAdapter(shoppingTrolleyFullAdapter);
     shoppingTrolleyFullAdapter.setCallBackListener(this);
-
+    //推荐商品
+    LinearLayoutManager linearLayout = new GridLayoutManager(getActivity(), 3);
+    linearLayout.setOrientation(LinearLayoutManager.VERTICAL);
+    mRecBhdsChoiceness.setLayoutManager(linearLayout);
+    choicenessAdapter = new SupermarketChoicenessAdapter(getActivity(), null);
+    mRecBhdsChoiceness.setAdapter(choicenessAdapter);
     SetList();
     setPrise();
   }
@@ -128,7 +137,7 @@ public class FragmentShoppingTrolley extends BaseFragment
 
   private List<ShopProduct> productList = new ArrayList<>();
   private ShopProduct shopProduct;
-
+  private List<String> price2 = new ArrayList<>();
   private void SetList() {
     contextImages = Config.CarImages;
     carids = Config.carid;
@@ -138,6 +147,9 @@ public class FragmentShoppingTrolley extends BaseFragment
       shopProduct.setGoods("百安思保温杯304不锈钢真空高端保温杯 大容量男女创意定制便携保温杯");
       shopProduct.setPrice("999.00");
       shopProduct.setType("百安思保温杯304不锈钢真空高端保温杯 大容量男女创意定制便携保温杯");
+      if (i == 2) {
+        shopProduct.setGoods("百安思保温杯304不锈钢真");
+      }
       shopProduct.setNumber(1);
       shopProduct.setId(carids[i]);
       shopProduct.setIsselector(false);
@@ -145,6 +157,12 @@ public class FragmentShoppingTrolley extends BaseFragment
       productList.add(shopProduct);
     }
     shoppingTrolleyFullAdapter.addList(productList);
+
+    price2.clear();
+    for (int i = 0; i < 14; i++) {
+      price2.add(i + "测试");
+    }
+    choicenessAdapter.addList(price2);
 
     shoppingTrolleyFullAdapter.setOnDelListener(new ShoppingTrolleyFullAdapter.onSwipeListener() {
       @Override public void onDel(int pos) {
@@ -238,16 +256,6 @@ public class FragmentShoppingTrolley extends BaseFragment
       }
     }
     shopnum = shopNum;
-    //if(shopNum>0){
-    //  shoppingNum.setVisibility(View.VISIBLE);
-    //}else {
-    //  shoppingNum.setVisibility(View.GONE);
-    //}
-    //if (sum > 0) {
-    //  shoppingPrise.setVisibility(View.VISIBLE);
-    //} else {
-    //  shoppingPrise.setVisibility(View.GONE);
-    //}
     shopping3.setText("已选(" + shopnum + ")");
     shoppingPrise.setText("¥" + " " + (new DecimalFormat("0.00")).format(sum));
   }
@@ -284,11 +292,6 @@ public class FragmentShoppingTrolley extends BaseFragment
         shopProduct.setIsselector(false);
       }
       shoppingCart.setChecked(false);
-      //} else if (isCheck == true && isUnCheck == true) {//部分选择,做全选
-      //  for (ShopProduct shopProduct : productList) {
-      //    shopProduct.setIsselector(false);
-      //  }
-      //  shoppingCart.setChecked(true);
     } else if (!isCheck) {//一个没选,做全选
       for (ShopProduct shopProduct : productList) {
         shopProduct.setIsselector(true);
@@ -296,7 +299,6 @@ public class FragmentShoppingTrolley extends BaseFragment
       shoppingCart.setChecked(true);
     }
     setPrise();
-    //shoppingTrolleyFullAdapter.addList(productList);
     shoppingTrolleyFullAdapter.notifyDataSetChanged();
   }
 }

@@ -13,15 +13,7 @@
         android:layout_marginLeft="@dimen/dm040"
         android:layout_marginRight="@dimen/dm040"
         android:layout_marginTop="@dimen/dm050"
-        android:background="@drawable/backgroud_bg_white"
         android:orientation="horizontal">
-        <ImageView
-            android:layout_width="@dimen/dm026"
-            android:layout_height="@dimen/dm042"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/dm020"
-            android:scaleType="fitXY"
-            android:src="@drawable/icon_phone"/>
         <EditText
             android:id="@+id/et_forget_phone"
             android:layout_width="match_parent"
@@ -33,21 +25,20 @@
             android:textColorHint="@color/colorText"
             android:textSize="@dimen/dm026"/>
     </LinearLayout>
+    <TextView
+        android:layout_width="@dimen/dm530"
+        android:layout_height="@dimen/dm001"
+        android:layout_gravity="center"
+        android:background="#f4f4f4"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dm080"
         android:layout_marginLeft="@dimen/dm040"
         android:layout_marginRight="@dimen/dm040"
         android:layout_marginTop="@dimen/dm016"
-        android:background="@drawable/backgroud_bg_white"
+
         android:orientation="horizontal">
-        <ImageView
-            android:layout_width="@dimen/dm030"
-            android:layout_height="@dimen/dm040"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/dm020"
-            android:scaleType="fitXY"
-            android:src="@drawable/icon_yzm"/>
         <EditText
             android:id="@+id/et_forget_yzm"
             android:layout_width="0dp"
@@ -81,21 +72,20 @@
                 android:textSize="@dimen/dm026"/>
         </RelativeLayout>
     </LinearLayout>
+    <TextView
+        android:layout_width="@dimen/dm530"
+        android:layout_height="@dimen/dm001"
+        android:layout_gravity="center"
+        android:background="#f4f4f4"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dm080"
         android:layout_marginLeft="@dimen/dm040"
         android:layout_marginRight="@dimen/dm040"
         android:layout_marginTop="@dimen/dm016"
-        android:background="@drawable/backgroud_bg_white"
         android:orientation="horizontal">
-        <ImageView
-            android:layout_width="@dimen/dm030"
-            android:layout_height="@dimen/dm040"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/dm020"
-            android:scaleType="fitXY"
-            android:src="@drawable/icon_lock"/>
+
         <EditText
             android:id="@+id/et_forget_passport"
             android:layout_width="0dp"
@@ -108,22 +98,19 @@
             android:textColorHint="@color/colorText"
             android:textSize="@dimen/dm026"/>
     </LinearLayout>
-
+    <TextView
+        android:layout_width="@dimen/dm530"
+        android:layout_height="@dimen/dm001"
+        android:layout_gravity="center"
+        android:background="#f4f4f4"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dm080"
         android:layout_marginLeft="@dimen/dm040"
         android:layout_marginRight="@dimen/dm040"
         android:layout_marginTop="@dimen/dm016"
-        android:background="@drawable/backgroud_bg_white"
         android:orientation="horizontal">
-        <ImageView
-            android:layout_width="@dimen/dm030"
-            android:layout_height="@dimen/dm040"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/dm020"
-            android:scaleType="fitXY"
-            android:src="@drawable/icon_lock"/>
         <EditText
             android:id="@+id/et_forget_next_passport"
             android:layout_width="0dp"

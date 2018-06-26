@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.baihuodasha.bhds.activity.myself.receiveraddress.ActivityReceiverAddress"
+    android:background="@color/address_divide"
+    android:orientation="vertical"
+    >
+  <include layout="@layout/activity_base_title"/>
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_myself_shippingaddress_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_above="@+id/rv_myself_shippingaddress_add"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        ></android.support.v7.widget.RecyclerView>
+    <LinearLayout
+        android:id="@+id/ll_myself_shippingaddress_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+      <ImageView
+          android:layout_width="160dp"
+          android:layout_height="160dp"
+          android:src="@mipmap/address_empty"
+          />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="14dp"
+          android:text="收货地址在哪里？"
+          android:textColor="@color/search_history_color"
+          android:textSize="@dimen/dm030"
+          />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/rv_myself_shippingaddress_add"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/titleBar"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:drawableLeft="@mipmap/plus"
+          android:drawablePadding="8dp"
+          android:text="新增地址"
+          android:textColor="@color/white"
+          android:textSize="@dimen/dm028"
+          />
+    </LinearLayout>
+  </RelativeLayout>
+</LinearLayout>

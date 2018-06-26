@@ -2,15 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dm075"
-                android:background="@color/black">
+                android:background="@color/titleBar">
 
     <ImageView
         android:id="@+id/iv_base_backto"
-        android:layout_width="@dimen/dm038"
-        android:layout_height="@dimen/dm038"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/dm020"
-        android:src="@drawable/base_back"/>
+        android:src="@mipmap/back_x"/>
     <ImageView
         android:id="@+id/iv_base_back"
         android:layout_width="@dimen/dm100"
@@ -33,32 +33,28 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/dm020"
+        android:visibility="gone"
         android:src="@drawable/base_edit"/>
     <ImageView
-        android:id="@+id/iv_base_share"
+        android:id="@+id/iv_base_more"
         android:layout_width="@dimen/dm040"
         android:layout_height="@dimen/dm040"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/dm020"
-        android:src="@drawable/icon_share"
+        android:src="@mipmap/diandiandian"
         android:visibility="gone"/>
-    <ImageView
-        android:id="@+id/iv_base_question"
-        android:layout_width="@dimen/dm040"
-        android:layout_height="@dimen/dm040"
+    <TextView
+        android:id="@+id/tv_base_save"
+        android:layout_width="@dimen/dm060"
+        android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/dm020"
-        android:src="@drawable/icon_question"
-        android:visibility="gone"/>
-    <ImageView
-        android:id="@+id/iv_base_refresh"
-        android:layout_width="@dimen/dm040"
-        android:layout_height="@dimen/dm040"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/dm020"
-        android:src="@drawable/icon_refresh"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:text="保存"
+        android:textSize="@dimen/dm028"
+        android:textColor="@color/white"
+        android:gravity="center"
+        />
 </RelativeLayout>

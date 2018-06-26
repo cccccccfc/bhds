@@ -1,8 +1,8 @@
 package com.baihuodasha.bhds.activity.login;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -11,10 +11,12 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
+import com.baihuodasha.bhds.base.BaseActivity;
 import com.baihuodasha.bhds.utils.CommonUtils;
 import com.base.utilslibrary.internet.PersonalInternetRequestUtils;
+import java.text.ParseException;
 
-public class ActivityForget extends FragmentActivity implements View.OnClickListener{
+public class ActivityForget extends BaseActivity implements View.OnClickListener{
 
     @BindView(R.id.iv_base_back)
     ImageView back;
@@ -37,37 +39,37 @@ public class ActivityForget extends FragmentActivity implements View.OnClickList
     RelativeLayout success;
     @BindView(R.id.tv_forget_yzm)
     TextView mView;
-
-
     private String phoneNumber;
     private String mCode;
     private String mPassword;
     private String nextPassword;
     private String mVc_code ="";//验证码
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    @Override public void setContentLayout(Bundle savedInstanceState) {
         setContentView(R.layout.activity_forget);
         ButterKnife.bind(this);
         title.setText("忘记密码");
-        edit.setVisibility(View.INVISIBLE);
-        initdata();
-        initListener();
+        title.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        edit.setVisibility(View.GONE);
+        setStatusBarPlaceVisible(true);
+        setViewColorStatusBar(false, getResources().getColor(R.color.titleBar));
     }
 
-    private void initdata() {
-
-    }
-    private void initListener() {
+    @Override public void initView() {
         back.setOnClickListener(this);
         getYzm.setOnClickListener(this);
         success.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
+    @Override public void dealLogicBeforeInitView() {
+
+    }
+
+    @Override public void dealLogicAfterInitView() {
+
+    }
+
+    @Override public void onClickEvent(View view) throws ParseException {
+        switch (view.getId()){
             case R.id.iv_base_back:
                 finishAll();
                 finish();

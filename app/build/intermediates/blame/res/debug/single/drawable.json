@@ -80,6 +80,10 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\drawable\\abc_ic_voice_search_api_material.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\defaultavatar.png",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\defaultavatar.png"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
     },
@@ -118,10 +122,6 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_btn_bg.xml",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\selector_btn_bg.xml"
-    },
-    {
-        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\icon_qq.png",
-        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\icon_qq.png"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
@@ -252,6 +252,10 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\icon_history.png"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\user_daily_attendance.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\user_daily_attendance.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\home_shearch_frame.xml",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\home_shearch_frame.xml"
     },
@@ -344,10 +348,6 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\deb4fb50000acf0d343d809022d85269c91fabdd\\output\\res\\drawable\\picture_btn_music_shape.xml"
     },
     {
-        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\icon_wx.png",
-        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\icon_wx.png"
-    },
-    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\drawable\\abc_seekbar_track_material.xml"
     },
@@ -420,10 +420,6 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\shape_search_histroy.xml"
     },
     {
-        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\icon_sina.png",
-        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\icon_sina.png"
-    },
-    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\p_seekbar_thumb_normal.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\deb4fb50000acf0d343d809022d85269c91fabdd\\output\\res\\drawable\\p_seekbar_thumb_normal.xml"
     },
@@ -482,10 +478,6 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\icon_question.png",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\icon_question.png"
-    },
-    {
-        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\advisor_home_img.png",
-        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\advisor_home_img.png"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_edit_bg.xml",
@@ -556,6 +548,10 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\btn_style_alert_dialog_cancel.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\check_login_bg.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\check_login_bg.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tab_market_btn.xml",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\tab_market_btn.xml"
     },
@@ -606,6 +602,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\showpassword.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\showpassword.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",

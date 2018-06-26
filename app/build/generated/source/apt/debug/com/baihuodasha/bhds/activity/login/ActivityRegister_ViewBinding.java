@@ -33,6 +33,8 @@ public class ActivityRegister_ViewBinding<T extends ActivityRegister> implements
     target.xieyi = Utils.findRequiredViewAsType(source, R.id.ll_register_xieyi, "field 'xieyi'", LinearLayout.class);
     target.select = Utils.findRequiredViewAsType(source, R.id.iv_register_select, "field 'select'", ImageView.class);
     target.mView = Utils.findRequiredViewAsType(source, R.id.tv_register_yzm, "field 'mView'", TextView.class);
+    target.eye = Utils.findRequiredViewAsType(source, R.id.rl_login_eye, "field 'eye'", RelativeLayout.class);
+    target.imgeye = Utils.findRequiredViewAsType(source, R.id.img_login_eye, "field 'imgeye'", ImageView.class);
   }
 
   @Override
@@ -52,6 +54,8 @@ public class ActivityRegister_ViewBinding<T extends ActivityRegister> implements
     target.xieyi = null;
     target.select = null;
     target.mView = null;
+    target.eye = null;
+    target.imgeye = null;
 
     this.target = null;
   }

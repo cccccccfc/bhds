@@ -81,7 +81,7 @@ public class ShoppingTrolleyFullAdapter
     });
     holder.mTextfulltitle.setText(newlist.get(position).getGoods());
     holder.mTextfulllabel.setText(newlist.get(position).getType());
-    holder.mTextfullprice.setText(newlist.get(position).getPrice());
+    holder.mTextfullprice.setText("¥ "+newlist.get(position).getPrice());
     Glide.with(mContext).load(newlist.get(position).getPicture()).into(holder.mImgfullimage);
 
     holder.mImgfullminus.setOnClickListener(new View.OnClickListener() {

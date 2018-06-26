@@ -11,7 +11,7 @@
   <com.baihuodasha.bhds.view.SimpleToolbar
       android:id="@+id/simple_toolbar"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
+      android:layout_height="match_parent"
       android:minHeight="@dimen/dm080"
       android:background="@color/titleBar"
       android:fitsSystemWindows="true"
@@ -31,8 +31,16 @@
         android:textColor="@color/white"
         android:drawableLeft="@color/titleBar"
         android:textSize="16sp"
-        android:visibility="visible"/>
-
+        android:visibility="gone"/>
+    <ImageView
+        android:id="@+id/img_left_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/dm020"
+        android:gravity="center"
+        android:padding="@dimen/dm020"
+        android:src="@mipmap/back_x"
+        android:visibility="gone"/>
     <TextView
         android:id="@+id/txt_main_title"
         android:layout_width="wrap_content"

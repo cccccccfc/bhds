@@ -6,7 +6,6 @@
     android:background="@color/white"
     android:orientation="vertical"
     >
-  <include layout="@layout/context_simpletoolbar"></include>
   <include layout="@layout/contxt_search_box"></include>
   <RelativeLayout
       android:layout_width="match_parent"

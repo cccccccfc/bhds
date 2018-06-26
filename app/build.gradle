@@ -1,22 +1,22 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
-    defaultConfig {
-        applicationId "com.baihuodasha.bhds"
-        minSdkVersion 19
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  compileSdkVersion 25
+  buildToolsVersion "25.0.0"
+  defaultConfig {
+    applicationId "com.baihuodasha.bhds"
+    minSdkVersion 19
+    targetSdkVersion 25
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
+  }
 }
 configurations.all {
   resolutionStrategy.eachDependency { DependencyResolveDetails details ->
@@ -34,12 +34,6 @@ dependencies {
   androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
     exclude group: 'com.android.support', module: 'support-annotations'
   })
-  compile 'com.android.support:appcompat-v7:25.1.1'
-  compile 'com.android.support:design:25.1.1'
-  compile 'com.android.support.constraint:constraint-layout:1.0.2'
-  testCompile 'junit:junit:4.12'
-  compile 'com.jakewharton:butterknife:8.4.0'
-  apt 'com.jakewharton:butterknife-compiler:8.4.0'
   compile files('libs/SocialSDK_QQ_Simplify.jar')
   compile files('libs/SocialSDK_Sina_Simplify.jar')
   compile files('libs/SocialSDK_WeChat_Simplify.jar')
@@ -49,19 +43,25 @@ dependencies {
   compile files('libs/umeng_social_shareboard.jar')
   compile files('libs/umeng_social_shareview.jar')
   compile files('libs/umeng_social_tool.jar')
+  compile project(':utilslibrary')
+  compile project(':mylibrary')
+  //最新版本
+  //没有使用特殊Header，可以不加这行
+  //compile 'me.imid.swipebacklayout.lib:library:1.1.0'
+  compile files('libs/commons-lang.jar')
+  compile 'com.android.support:appcompat-v7:25.1.1'
+  compile 'com.android.support:design:25.1.1'
+  compile 'com.android.support.constraint:constraint-layout:1.0.2'
+  compile 'com.jakewharton:butterknife:8.4.0'
   compile 'com.zhy:okhttputils:2.6.2'
   compile 'com.google.code.gson:gson:2.8.0'
   compile 'com.github.LuckSiege.PictureSelector:picture_library:v2.0.7'
   compile 'jp.wasabeef:glide-transformations:2.0.0'
-  compile project(':utilslibrary')
-  compile project(':mylibrary')
   compile 'com.youth.banner:banner:1.4.10'
-  //最新版本
   compile 'com.android.support:recyclerview-v7:25.1.1'
   compile 'com.hyman:flowlayout-lib:1.1.2'
   compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
   compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
-  //没有使用特殊Header，可以不加这行
-  //compile 'me.imid.swipebacklayout.lib:library:1.1.0'
-  compile files('libs/commons-lang.jar')
+  testCompile 'junit:junit:4.12'
+  apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }

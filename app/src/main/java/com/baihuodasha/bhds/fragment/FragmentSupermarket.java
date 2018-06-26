@@ -31,7 +31,6 @@ import com.baihuodasha.bhds.utils.CommonUtils;
 import com.baihuodasha.bhds.utils.GlideImageLoader;
 import com.baihuodasha.bhds.utils.ScrollInterceptScrollView;
 import com.baihuodasha.bhds.utils.countdowntimer.TimerUtils;
-import com.baihuodasha.bhds.view.SimpleToolbar;
 import com.youth.banner.Banner;
 import com.youth.banner.listener.OnBannerClickListener;
 import java.util.ArrayList;
@@ -50,10 +49,8 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
   @BindView(R.id.title_return) ImageView title_return;
   @BindView(R.id.lin_seach) LinearLayout lin_seach;
   @BindView(R.id.img_message) ImageView img_message;
-  @BindView(R.id.txt_left_title) TextView mTxtlefttitle;
-  @BindView(R.id.txt_main_title) TextView mTxtmaintitle;
-  @BindView(R.id.txt_right_title) TextView mTxtrighttitle;
-  @BindView(R.id.simple_toolbar) SimpleToolbar mSimpletoolbar;
+
+
   @BindView(R.id.search_con) TextView searchCon;
   @BindView(R.id.title) RelativeLayout title;
   @BindView(R.id.banner_supermarket) Banner mBannersupermarket;
@@ -119,10 +116,9 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
 
   @Override public void init() {
     //mSimpletoolbar.setLeftTitleDrawable(R.drawable.advisor_home_img);
-    title_return.setVisibility(View.GONE);
-    img_message.setVisibility(View.GONE);
-    mSimpletoolbar.setMainTitle("百货超市");
-    mSimpletoolbar.setVisibility(View.VISIBLE);
+
+    img_message.setImageDrawable(getResources().getDrawable(R.mipmap.sort_light));
+    title_return.setImageDrawable(getResources().getDrawable(R.mipmap.market));
     BannerImage = Config.Bannermarketimages;
     imageList = new ArrayList<>();
     for (int i = 0; i < BannerImage.length; i++) {
