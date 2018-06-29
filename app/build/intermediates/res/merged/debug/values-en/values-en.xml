@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gif_tag">gif</string>
+    <string name="pickerview_cancel">Cancel</string>
+    <string name="pickerview_day"> </string>
+    <string name="pickerview_hours"> </string>
+    <string name="pickerview_minutes"> </string>
+    <string name="pickerview_month"> </string>
+    <string name="pickerview_seconds"> </string>
+    <string name="pickerview_submit">Confirm</string>
+    <string name="pickerview_year"> </string>
     <string name="picture_all_audio">All audio</string>
     <string name="picture_audio">Access to system recording permission denied</string>
     <string name="picture_audio_empty">You can use system recordings to record audio</string>

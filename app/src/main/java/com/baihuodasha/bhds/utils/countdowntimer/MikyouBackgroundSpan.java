@@ -15,10 +15,6 @@ public class MikyouBackgroundSpan extends ImageSpan {
   private Rect mTextBound;
   private int maxHeight = 0;
   private int maxWidth = 0;
-  private int mPaddingLeft = 0;
-  private int mPaddingRight = 0;
-  private int mPaddingTop = 0;
-  private int mPaddingBottom = 0;
   private int mTextColor = Color.GREEN;
   private int mTextSize = 50;
 
@@ -38,10 +34,10 @@ public class MikyouBackgroundSpan extends ImageSpan {
   }
 
   public MikyouBackgroundSpan setTimerPadding(int left, int top, int right, int bottom) {
-    this.mPaddingLeft = left;
-    this.mPaddingRight = right;
-    this.mPaddingBottom = bottom;
-    this.mPaddingTop = top;
+    int mPaddingLeft = left;
+    int mPaddingRight = right;
+    int mPaddingBottom = bottom;
+    int mPaddingTop = top;
     return this;
   }
 

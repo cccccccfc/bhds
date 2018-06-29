@@ -14,8 +14,14 @@ android {
   buildTypes {
     release {
       minifyEnabled false
+      shrinkResources false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
+  }
+
+  lintOptions {
+    checkReleaseBuilds false
+    abortOnError false
   }
 }
 configurations.all {
@@ -45,10 +51,9 @@ dependencies {
   compile files('libs/umeng_social_tool.jar')
   compile project(':utilslibrary')
   compile project(':mylibrary')
-  //最新版本
-  //没有使用特殊Header，可以不加这行
   //compile 'me.imid.swipebacklayout.lib:library:1.1.0'
   compile files('libs/commons-lang.jar')
+  compile project(path: ':pickerview')
   compile 'com.android.support:appcompat-v7:25.1.1'
   compile 'com.android.support:design:25.1.1'
   compile 'com.android.support.constraint:constraint-layout:1.0.2'

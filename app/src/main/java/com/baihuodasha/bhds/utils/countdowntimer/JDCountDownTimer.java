@@ -11,8 +11,7 @@ import com.baihuodasha.bhds.R;
  * Created by mikyou on 16-10-22.
  */
 public class JDCountDownTimer extends MikyouCountDownTimer {
-    private SpannableString mSpan;
-    private Context mContext;
+  private Context mContext;
     private int mDrawableId;
     public JDCountDownTimer(Context mContext, long mGapTime, String mTimePattern,int mDrawableId) {
         super(mContext, mGapTime, mTimePattern,mDrawableId);
@@ -32,8 +31,12 @@ public class JDCountDownTimer extends MikyouCountDownTimer {
     public void initSpanData(String timeStr) {
         super.initSpanData(timeStr);
         for (int i = 0; i<numbers.length;i++){
-            MikyouBackgroundSpan mBackSpan = new MikyouBackgroundSpan(mContext.getDrawable(mDrawableId), ImageSpan.ALIGN_BOTTOM);
-            initBackSpanStyle(mBackSpan);
+          MikyouBackgroundSpan mBackSpan = null;
+          if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            mBackSpan =
+                new MikyouBackgroundSpan(mContext.getDrawable(mDrawableId), ImageSpan.ALIGN_BOTTOM);
+          }
+          initBackSpanStyle(mBackSpan);
             mBackSpanList.add(mBackSpan);
         }
         for (int i= 0; i<nonNumbers.length;i++){
@@ -55,7 +58,7 @@ public class JDCountDownTimer extends MikyouCountDownTimer {
     public void setBackgroundSpan(String timeStr) {
         super.setBackgroundSpan(timeStr);
         int mGapLen = 1;
-        mSpan = new SpannableString(timeStr);
+      SpannableString mSpan = new SpannableString(timeStr);
         for (int i = 0;i<mBackSpanList.size();i++){
             int start = i*numbers[i].length() + i*mGapLen;
             int end = start + numbers[i].length();

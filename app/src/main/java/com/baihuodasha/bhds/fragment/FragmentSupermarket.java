@@ -19,6 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
 import com.baihuodasha.bhds.activity.index.ShopSearchActivity;
+import com.baihuodasha.bhds.activity.supermarket.ActivityFlashSale;
 import com.baihuodasha.bhds.adapter.SupermarkeGridtAdapter;
 import com.baihuodasha.bhds.adapter.SupermarketChoicenessAdapter;
 import com.baihuodasha.bhds.adapter.SupermarketCountdownAdapter;
@@ -91,16 +92,10 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
       //scrollInterceptScrollView
 
   private View view;
-  private String[] BannerImage;
-  private List<String> imageList;
   private SupermarkeGridtAdapter adapter;
-  private SupermarketGridBean supergridbean;
-  private String[] gridumage;
-  private String[] gridtext;
   private SupermarketCountdownAdapter countdownAdapter;
   private SupermarketNewproductAdapter newproductAdapter;
   private SupermarketChoicenessAdapter choicenessAdapter;
-  private String[] supermarketprice;
 
   @Override public View initView(LayoutInflater inflater) {
     if (view == null) {
@@ -119,10 +114,10 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
 
     img_message.setImageDrawable(getResources().getDrawable(R.mipmap.sort_light));
     title_return.setImageDrawable(getResources().getDrawable(R.mipmap.market));
-    BannerImage = Config.Bannermarketimages;
-    imageList = new ArrayList<>();
-    for (int i = 0; i < BannerImage.length; i++) {
-      imageList.add(BannerImage[i]);
+    String[] bannerImage = Config.Bannermarketimages;
+    List<String> imageList = new ArrayList<>();
+    for (int i = 0; i < bannerImage.length; i++) {
+      imageList.add(bannerImage[i]);
     }
     //设置图片加载器
     mBannersupermarket.setImageLoader(new GlideImageLoader());
@@ -134,7 +129,6 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
   }
 
   private int padding = 0;
-  private int textSize = 28;
 
   @Override public void initdata() {
     RecyclerView.LayoutManager manager = new GridLayoutManager(getActivity(), 5);
@@ -168,6 +162,7 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
 
   //设置倒计时
   private void setmLayoutParams() {
+    int textSize = 28;
     TextView tv =
         TimerUtils.getTimer(TimerUtils.VIP_STYLE, getActivity(), 1200000, TimerUtils.TIME_STYLE_ONE,
             R.drawable.timer_shape2)
@@ -237,6 +232,8 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
         break;
       case R.id.text_timelimit_more:
         CommonUtils.toastMessage("限时特卖查看更多");
+        Intent intentlimit = new Intent(getActivity() , ActivityFlashSale.class);
+        startActivity(intentlimit);
         break;
       case R.id.text_recommend_more:
         CommonUtils.toastMessage("百货大厦推荐查看更多");
@@ -253,11 +250,11 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
   private List<SupermarketGridBean> supermarketList = new ArrayList<>();
 
   private void getShopList() {
-    gridumage = Config.SupermarkeGridimages;
-    gridtext = Config.SupermarkeGridtext;
+    String[] gridumage = Config.SupermarkeGridimages;
+    String[] gridtext = Config.SupermarkeGridtext;
     supermarketList.clear();
     for (int i = 0; i < gridumage.length; i++) {
-      supergridbean = new SupermarketGridBean();
+      SupermarketGridBean supergridbean = new SupermarketGridBean();
       List<ChildInfo> childInfoList = new ArrayList<>();
       supergridbean.setTitle(gridtext[i]);
       supergridbean.setUrl(gridumage[i]);
@@ -271,7 +268,7 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
   private List<String> price2 = new ArrayList<>();
 
   private void SetList() {
-    supermarketprice = Config.supermarketprice;
+    String[] supermarketprice = Config.supermarketprice;
     price.clear();
     for (int i = 0; i < supermarketprice.length; i++) {
       price.add(supermarketprice[i]);

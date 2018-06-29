@@ -48,14 +48,14 @@ public final class R {
         public static final int srlTextTimeMarginTop = 0x7f010107;
     }
     public static final class id {
-        public static final int FixedBehind = 0x7f100021;
-        public static final int FixedFront = 0x7f100022;
-        public static final int MatchLayout = 0x7f100023;
-        public static final int Scale = 0x7f100024;
-        public static final int Translate = 0x7f100025;
+        public static final int FixedBehind = 0x7f0f0021;
+        public static final int FixedFront = 0x7f0f0022;
+        public static final int MatchLayout = 0x7f0f0023;
+        public static final int Scale = 0x7f0f0024;
+        public static final int Translate = 0x7f0f0025;
     }
     public static final class string {
-        public static final int app_name = 0x7f0a00c4;
+        public static final int app_name = 0x7f0a00c7;
     }
     public static final class styleable {
         public static final int[] BallPulseFooter = { 0x7f010048, 0x7f010049, 0x7f010052 };

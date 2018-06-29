@@ -39,7 +39,6 @@ import java.util.Set;
 public class ShopSearchActivity extends BaseActivity {
   private ImageView title_return;
   private EditText search_con;
-  private TextView search_tv;
   //没有搜索结果
   private LinearLayout no_lienar;
   private LayoutInflater mInflater;
@@ -48,7 +47,6 @@ public class ShopSearchActivity extends BaseActivity {
 
   private RelativeLayout his_rl;
   private ImageView im_edit_clear;
-  private ImageView history_del;
   private LinearLayout linear_group;
   private ListView search_history_list;
   //历史搜索的数据库
@@ -57,8 +55,6 @@ public class ShopSearchActivity extends BaseActivity {
   public List<HistoryShopEntity> showEntities;
   private SearchShopHistoryAdapter searchHistoryAdapter;
   private TagFlowLayout id_flowlayout;
-  private TagFlowLayout id_flow_remen;
-  private RelativeLayout remn_rl;
   private TagAdapter tagAdapter;
 
   @Override public void setContentLayout(Bundle savedInstanceState) {
@@ -73,19 +69,19 @@ public class ShopSearchActivity extends BaseActivity {
   @Override public void initView() {
 
     search_con = (EditText) findViewById(R.id.search_con);
-    search_tv = (TextView) findViewById(R.id.search_tv);
+    TextView search_tv = (TextView) findViewById(R.id.search_tv);
     search_tv.setOnClickListener(this);
     no_lienar = (LinearLayout) findViewById(R.id.no_lienar);
     mListView = (ListView) findViewById(R.id.listview);
     his_rl = (RelativeLayout) findViewById(R.id.his_rl); //历史搜索
     linear_group = (LinearLayout) findViewById(R.id.linear_group); //历史搜索条目
-    history_del = (ImageView) findViewById(R.id.history_del);  //历史搜索删除按钮
+    ImageView history_del = (ImageView) findViewById(R.id.history_del);
     history_del.setOnClickListener(this);
     im_edit_clear = (ImageView) findViewById(R.id.im_edit_clear); //输入内容删除
     im_edit_clear.setOnClickListener(this);
-    remn_rl = (RelativeLayout) findViewById(R.id.remn_rl);  //热门列表
+    RelativeLayout remn_rl = (RelativeLayout) findViewById(R.id.remn_rl);
     id_flowlayout = (TagFlowLayout) findViewById(R.id.id_flowlayout);
-    id_flow_remen = (TagFlowLayout) findViewById(R.id.id_flow_remen);
+    TagFlowLayout id_flow_remen = (TagFlowLayout) findViewById(R.id.id_flow_remen);
     search_con.setOnFocusChangeListener(new View.OnFocusChangeListener() {
       @Override public void onFocusChange(View v, boolean hasFocus) {
         if (hasFocus) {
@@ -289,4 +285,8 @@ public class ShopSearchActivity extends BaseActivity {
     }
   }
 
+  @Override protected void onDestroy() {
+    super.onDestroy();
+
+  }
 }

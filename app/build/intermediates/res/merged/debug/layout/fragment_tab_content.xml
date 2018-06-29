@@ -36,7 +36,6 @@
           />
 
       <ImageView
-          android:id="@+id/xianshi"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_below="@+id/youxuan"
@@ -78,7 +77,6 @@
             android:id="@+id/id_flowlayout"
             android:layout_marginTop="@dimen/dm005"
             android:layout_width="fill_parent"
-            android:layout_centerVertical="true"
             android:layout_height="wrap_content"
             zhy:max_select="1"
             >
@@ -93,7 +91,6 @@
             android:id="@+id/recyc_shoping"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dm240"
-            android:layout_centerVertical="true"
             android:overScrollMode="never"
             android:scrollbars="none"
             ></android.support.v7.widget.RecyclerView>
@@ -108,7 +105,6 @@
             android:id="@+id/recyc_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:scrollbars="none"
             ></android.support.v7.widget.RecyclerView>
         <LinearLayout
@@ -149,7 +145,6 @@
             android:id="@+id/recyc_commendation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:scrollbars="none"
             ></android.support.v7.widget.RecyclerView>
       </LinearLayout>

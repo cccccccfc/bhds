@@ -10,10 +10,10 @@ import android.database.sqlite.SQLiteDatabase;
 public class ShopDataBaseDao {
     public SQLiteDatabase mReadShopSQL;
     public SQLiteDatabase mWriteShopSQL;
-    private Context context;
-    public ShopDataBaseDao(Context context) {
+
+  public ShopDataBaseDao(Context context) {
         super();
-        this.context = context;
+    Context context1 = context;
         mReadShopSQL = SearchShopHistoryHelper.getReadDataBase(context);
         mWriteShopSQL = SearchShopHistoryHelper.getWriteDataBase(context);
     }

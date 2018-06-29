@@ -28,7 +28,7 @@ public class FabbuttonUtils {
     mScrollView.setOnTouchListener(new View.OnTouchListener() {
       private int lastY = 0;
       private int touchEventId = -9983761;
-      Handler handler = new Handler() {
+     Handler handler = new Handler() {
         @Override public void handleMessage(Message msg) {
           super.handleMessage(msg);
           View scroller = (View) msg.obj;

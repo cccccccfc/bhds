@@ -28,7 +28,7 @@
     </ScrollView>
     <com.baihuodasha.bhds.utils.CustomViewPager
         android:id="@+id/goods"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:overScrollMode="never"
         android:layout_height="match_parent"
         android:layout_weight="1"

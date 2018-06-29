@@ -13,7 +13,7 @@ import android.widget.ScrollView;
  */
 
 public class ScrollInterceptScrollView extends ScrollView {
-  private int downX, downY;
+  private int downY;
   private int mTouchSlop;
 
   public ScrollInterceptScrollView(Context context) {
@@ -40,7 +40,7 @@ public class ScrollInterceptScrollView extends ScrollView {
     int action = ev.getAction();
     switch (action) {
       case MotionEvent.ACTION_DOWN:
-        downX = (int) ev.getRawX();
+        int downX = (int) ev.getRawX();
         downY = (int) ev.getRawY();
         break;
       case MotionEvent.ACTION_MOVE:

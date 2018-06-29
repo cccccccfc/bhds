@@ -40,9 +40,6 @@ public class ActivityForget extends BaseActivity implements View.OnClickListener
     @BindView(R.id.tv_forget_yzm)
     TextView mView;
     private String phoneNumber;
-    private String mCode;
-    private String mPassword;
-    private String nextPassword;
     private String mVc_code ="";//验证码
     @Override public void setContentLayout(Bundle savedInstanceState) {
         setContentView(R.layout.activity_forget);
@@ -98,10 +95,11 @@ public class ActivityForget extends BaseActivity implements View.OnClickListener
     }
     private void successForget() {
         phoneNumber = phone.getText().toString();
-        mPassword = passport.getText().toString();
-        nextPassword = nextPassport.getText().toString();
-        mCode = yzm.getText().toString();
-        PersonalInternetRequestUtils.forgetPassword(this,phoneNumber, mVc_code, mCode, mPassword, nextPassword,
+        String mPassword = passport.getText().toString();
+        String nextPassword = nextPassport.getText().toString();
+        String mCode = yzm.getText().toString();
+        PersonalInternetRequestUtils.forgetPassword(this,phoneNumber, mVc_code, mCode, mPassword,
+            nextPassword,
                 mView, passport,nextPassport,new PersonalInternetRequestUtils.ForResultListener() {
             @Override
             public void onResponseMessage(String code) {

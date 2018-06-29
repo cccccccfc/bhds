@@ -42,12 +42,6 @@ public class MainActivityTabHost extends BaseActivity {
   RadioButton main_bottom_wd;
   Fragment[] fragments = { syFragment, csFragment, categorizeFragment, gwFragment, wdFragment };
 
-  private FragmentHome fragment0;
-  private FragmentSupermarket fragment1;
-  private FragmentClassification fragment2;
-  private FragmentShoppingTrolley fragment3;
-  private FragmentMyself fragment4;
-  private FragmentManager manager;
   private static RadioGroup main_bottom_rg;
   private int selectedindex = 0;
   private FragmentUtil fragmentUtil;
@@ -57,13 +51,19 @@ public class MainActivityTabHost extends BaseActivity {
     setContentView(R.layout.activity_tabhost);
     //
     if (null != savedInstanceState) {
-      manager = getSupportFragmentManager();
-      fragment0 = (FragmentHome) manager.getFragment(savedInstanceState, "FragmentHome");
-      fragment1 =
+      FragmentManager manager = getSupportFragmentManager();
+      FragmentHome fragment0 =
+          (FragmentHome) manager.getFragment(savedInstanceState, "FragmentHome");
+      FragmentSupermarket fragment1 =
           (FragmentSupermarket) manager.getFragment(savedInstanceState, "FragmentSupermarket");
-      fragment2 = (FragmentClassification) manager.getFragment(savedInstanceState, "FragmentClassification");
-      fragment3 = (FragmentShoppingTrolley) manager.getFragment(savedInstanceState, "FragmentShoppingTrolley");
-      fragment4 = (FragmentMyself) manager.getFragment(savedInstanceState, "FragmentMyself");
+      FragmentClassification fragment2 =
+          (FragmentClassification) manager.getFragment(savedInstanceState,
+              "FragmentClassification");
+      FragmentShoppingTrolley fragment3 =
+          (FragmentShoppingTrolley) manager.getFragment(savedInstanceState,
+              "FragmentShoppingTrolley");
+      FragmentMyself fragment4 =
+          (FragmentMyself) manager.getFragment(savedInstanceState, "FragmentMyself");
       if (null != fragment0) fragments[0] = fragment4;
       if (null != fragment1) fragments[1] = fragment0;
       if (null != fragment2) fragments[2] = fragment1;

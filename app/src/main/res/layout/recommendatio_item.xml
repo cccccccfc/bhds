@@ -82,7 +82,6 @@
   <TextView
       android:layout_width="match_parent"
       android:layout_height="@dimen/dm002"
-      android:layout_alignParentBottom="true"
       android:layout_marginTop="@dimen/dm020"
       android:background="#EEEEEE"
       />

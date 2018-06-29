@@ -37,11 +37,8 @@ import static com.baihuodasha.bhds.utils.FabbuttonUtils.FabbuttonUtil;
 
 public class TabLivingathomeFragment extends Fragment implements View.OnClickListener {
   private static final String EXTRA_CONTENT = "content";
-  private ParentInfo parentInfo;
 
-  private ArrayList<String> imageList;
   private Banner mBanner;
-  private String mTitle;
   private RecyclerView mRecycshoping;
   private ArrayList<String> imageRecyc;
   private HomesideslipproductsAdapter adapter;
@@ -52,7 +49,6 @@ public class TabLivingathomeFragment extends Fragment implements View.OnClickLis
   private String[] contextImages;
   private RecyclerView mRecyccommendation;
   private HomerecommendationAdapter recommendationAdapter;
-  private RecommendationBean recommendationBean;
   private FloatingActionButton mFabbutton;
   private ScrollInterceptScrollView mScrollView;
   private SupermarkeGridtAdapter gridadapter;
@@ -69,7 +65,7 @@ public class TabLivingathomeFragment extends Fragment implements View.OnClickLis
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
     View contentView = inflater.inflate(R.layout.fragment_tab_livingathome, null);
-    mTitle = getArguments().getString(EXTRA_CONTENT);
+    String mTitle = getArguments().getString(EXTRA_CONTENT);
     // ((TextView) contentView.findViewById(R.id.tv_content)).setText(mTitle);
     mBanner = (Banner) contentView.findViewById(R.id.banner);
     mRecycshoping = (RecyclerView) contentView.findViewById(R.id.recyc_shoping);
@@ -88,7 +84,7 @@ public class TabLivingathomeFragment extends Fragment implements View.OnClickLis
   public void init() {
     BannerImage = Config.Bannerhomeimages;
     contextImages = Config.ContextImages;
-    imageList = new ArrayList<>();
+    ArrayList<String> imageList = new ArrayList<>();
     //for (int i = 0; i < BannerImage.length; i++) {
     //  imageList.add(BannerImage[i]);
     //}
@@ -149,14 +145,12 @@ public class TabLivingathomeFragment extends Fragment implements View.OnClickLis
 
   private List<RecommendationBean> recommendationList = new ArrayList<>();
   private List<ParentInfo> dataInfoList = new ArrayList<>();
-  private String[] gridumage;
-  private String[] gridtext;
   private List<SupermarketGridBean> supermarketList = new ArrayList<>();
-  private SupermarketGridBean supergridbean;
+
   private void getShopList() {
     dataInfoList.clear();
     for (int i = 0; i < BannerImage.length; i++) {
-      parentInfo = new ParentInfo();
+      ParentInfo parentInfo = new ParentInfo();
       List<ChildInfo> childInfoList = new ArrayList<>();
       parentInfo.setTitle("家装软饰");
       parentInfo.setImage(BannerImage[i]);
@@ -173,7 +167,7 @@ public class TabLivingathomeFragment extends Fragment implements View.OnClickLis
 
     recommendationList.clear();
     for (int i = 0; i < contextImages.length; i++) {
-      recommendationBean = new RecommendationBean();
+      RecommendationBean recommendationBean = new RecommendationBean();
       recommendationBean.setTitle("百安思保温杯304不锈钢真空高端保温杯 大容量男女创意定制便携保温杯");
       recommendationBean.setOldprice("1990.00");
       recommendationBean.setPrice("999.00");
@@ -183,11 +177,11 @@ public class TabLivingathomeFragment extends Fragment implements View.OnClickLis
     }
     recommendationAdapter.addList(recommendationList);
 
-    gridumage = Config.SupermarkeGridimages;
-    gridtext = Config.SupermarkeGridtext;
+    String[] gridumage = Config.SupermarkeGridimages;
+    String[] gridtext = Config.SupermarkeGridtext;
     supermarketList.clear();
     for (int i = 0; i < 5; i++) {
-      supergridbean = new SupermarketGridBean();
+      SupermarketGridBean supergridbean = new SupermarketGridBean();
       List<ChildInfo> childInfoList = new ArrayList<>();
       supergridbean.setTitle(gridtext[i]);
       supergridbean.setUrl(gridumage[i]);

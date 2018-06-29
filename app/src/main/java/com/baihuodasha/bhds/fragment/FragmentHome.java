@@ -27,16 +27,12 @@ import java.util.List;
  * 邮箱：butterfly_xu@sina.com
  */
 public class FragmentHome extends BaseFragment implements View.OnClickListener {
-  private ImageView titleReturn;
-  private TextView searchCon;
-  private RelativeLayout title;
   private TabLayout mTabTl;
   private ViewPager mContentVp;
   private LinearLayout linSeach;
 
   private List<String> tabIndicators;
   private List<Fragment> tabFragments;
-  private ContentPagerAdapter contentAdapter;
   private View view;
 
   @Override public View initView(LayoutInflater inflater) {
@@ -50,9 +46,9 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
     }
 
     //StatusBarCompat.initSystemBar(getActivity(), R.color.titleBar);
-    titleReturn = (ImageView)view.findViewById(R.id.title_return);
-    searchCon = (TextView)view.findViewById(R.id.search_con);
-    title = (RelativeLayout)view.findViewById(R.id.title);
+    ImageView titleReturn = (ImageView) view.findViewById(R.id.title_return);
+    TextView searchCon = (TextView) view.findViewById(R.id.search_con);
+    RelativeLayout title = (RelativeLayout) view.findViewById(R.id.title);
     mTabTl = (TabLayout)view.findViewById(R.id.tl_tab);
     mContentVp = (ViewPager)view.findViewById(R.id.vp_content);
     linSeach = (LinearLayout)view.findViewById(R.id.lin_seach);
@@ -111,7 +107,7 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
       tabFragments.add(TabTecommendFragment.newInstance(s));
       tabFragments.add(TabLivingathomeFragment.newInstance(s));
     }
-    contentAdapter = new ContentPagerAdapter(getChildFragmentManager());
+    ContentPagerAdapter contentAdapter = new ContentPagerAdapter(getChildFragmentManager());
     mContentVp.setAdapter(contentAdapter);
     mTabTl.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
       @Override public void onTabSelected(TabLayout.Tab tab) {

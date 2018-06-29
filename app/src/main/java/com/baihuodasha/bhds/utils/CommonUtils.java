@@ -182,13 +182,13 @@ public class CommonUtils {
         return username.matches(telRegex);
     }
 
-    private static boolean isLoging = true;
-    /**
+  /**
      * 打印
      * @param str
      */
     public static void logMes(String str){
-        if(isLoging){
+      boolean isLoging = true;
+      if(isLoging){
             Log.e("------test------",""+str);
         }
     }

@@ -67,7 +67,7 @@ public class BaseApplication extends Application {
 
     @Override
     public void onCreate() {
-        mContext = getApplicationContext();// 上下文
+        mContext = this.getApplicationContext();// 上下文
         mMainThread = Thread.currentThread(); // 主线程
         mMainTreadId = android.os.Process.myTid();// 主线程Id
         mMainLooper = getMainLooper(); // 主线程Looper对象

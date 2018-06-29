@@ -13,13 +13,12 @@ import java.util.List;
  * Created by mikyou on 16-10-22.
  */
 public class VIPCountDownTimer extends MikyouCountDownTimer {
-    private SpannableString mSpan;
-    private Context mContext;
+  private Context mContext;
     private int mDrawableId;
     private List<MikyouBackgroundSpan> mSpanList;
     private String[] vipNumbers;
-    private char[] vipNonNumbers;
-    public VIPCountDownTimer(Context mContext, long mGapTime, String mTimePattern,int mDrawableId) {
+
+  public VIPCountDownTimer(Context mContext, long mGapTime, String mTimePattern,int mDrawableId) {
         super(mContext, mGapTime, mTimePattern,mDrawableId);
         this.mContext = mContext;
         this.mDrawableId = mDrawableId;
@@ -37,7 +36,7 @@ public class VIPCountDownTimer extends MikyouCountDownTimer {
     @Override
     public void setBackgroundSpan(String timeStr) {
         int mGapLen = 1;
-        mSpan = new SpannableString(timeStr);
+      SpannableString mSpan = new SpannableString(timeStr);
         initSpanData(timeStr);
         int start = 0 ;
         int count =0;
@@ -70,15 +69,19 @@ public class VIPCountDownTimer extends MikyouCountDownTimer {
     public void initSpanData(String timeStr) {
         super.initSpanData(timeStr);
         vipNumbers = TimerUtils.getNumInTimerStr(timeStr);//得到每个数字注意不是每块数值，并加入数组
-        vipNonNumbers = TimerUtils.getNonNumInTimerStr(timeStr);//得到每个间隔字符，并加入到数组
+      char[] vipNonNumbers = TimerUtils.getNonNumInTimerStr(timeStr);
         for (int i=0;i<vipNumbers.length;i++){
             for (int j=0;j<vipNumbers[i].toCharArray().length;j++){//因为需要得到每个数字所以还得遍历每块数值中的每个数字，所以需要二层循环
-                MikyouBackgroundSpan mSpan = new MikyouBackgroundSpan(mContext.getDrawable(mDrawableId), ImageSpan.ALIGN_BOTTOM);
+                MikyouBackgroundSpan mSpan = null;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    mSpan =
+                        new MikyouBackgroundSpan(mContext.getDrawable(mDrawableId), ImageSpan.ALIGN_BOTTOM);
+                }
                 initBackSpanStyle(mSpan);
                 mSpanList.add(mSpan);
             }
         }
-        for (int i= 0; i<vipNonNumbers.length;i++){
+        for (int i= 0; i< vipNonNumbers.length;i++){
             TextAppearanceSpan mGapSpan = new TextAppearanceSpan(mContext, R.style.SpecialTextAppearance);
             mTextColorSpanList.add(mGapSpan);
         }

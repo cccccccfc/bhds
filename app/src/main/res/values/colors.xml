@@ -18,14 +18,12 @@
     <color name="search_title_color">#4C4C4C</color>
     //历史搜索字体颜色
     <color name="search_history_color">#999999</color>
-    <drawable name="tabcolor">#D3BF9C</drawable>
-    <drawable name="untabcolor">#ffffff</drawable>
 
-    //横线颜色
-    <color name="login_hx">#EDEDED </color>
+  //横线颜色
+  <color name="login_hx">#EDEDED </color>
     <color name="divide_color">#e1e1e1</color>
     <color name="Address_color">#eeeeee</color>
     <color name="full_delete">#d3bf9c </color>
     <color name="full_add">#c8ab7a </color>
-    <color name="address_divide">#f6f6f6 </color>
+    <color name="address_divide">#F4F4F4 </color>
 </resources>

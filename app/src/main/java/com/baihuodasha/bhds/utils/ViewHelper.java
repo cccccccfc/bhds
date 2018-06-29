@@ -13,13 +13,12 @@ import java.lang.ref.WeakReference;
  */
 
 class ViewHelper {
-    private Context mContext;
-    private View mView;
+  private View mView;
     private SparseArray<WeakReference<View>> mViews;
 
     public ViewHelper(Context context, int viewLayoutResId) {
         this();
-        this.mContext = context;
+      Context mContext = context;
         this.mView = LayoutInflater.from(mContext).inflate(viewLayoutResId, null,false);
 //        this.mView=View.inflate(mContext,viewLayoutResId,null);
 

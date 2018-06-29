@@ -26,7 +26,6 @@
           android:id="@+id/rl_myself_headportrait"
           android:layout_width="@dimen/dm150"
           android:layout_height="@dimen/dm150"
-          android:layout_centerVertical="true"
           android:layout_gravity="center"
           >
         <ImageView
@@ -48,7 +47,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dm030"
-            android:layout_toRightOf="@id/rl_myself_headportrait"
             android:text="注册/登陆"
             android:textColor="@color/white"
             android:textSize="@dimen/dm034"
@@ -57,10 +55,8 @@
             android:id="@+id/tv_myself_signin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_myself_name"
             android:layout_marginLeft="@dimen/dm030"
             android:layout_marginTop="@dimen/dm016"
-            android:layout_toRightOf="@id/rl_myself_headportrait"
             android:background="@drawable/user_daily_attendance"
             android:paddingBottom="@dimen/dm003"
             android:paddingLeft="@dimen/dm016"
@@ -75,7 +71,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/user_phone"
         android:orientation="vertical"
         >
       <RelativeLayout
@@ -116,6 +111,7 @@
           android:layout_marginLeft="@dimen/dm016"
           android:layout_marginRight="@dimen/dm016"
           android:weightSum="5"
+          android:baselineAligned="false"
           >
         <LinearLayout
             android:id="@+id/ll_myself_orderform_obligation"
@@ -279,6 +275,7 @@
           android:layout_marginLeft="@dimen/dm016"
           android:layout_marginRight="@dimen/dm016"
           android:weightSum="4"
+          android:baselineAligned="false"
           >
         <LinearLayout
             android:id="@+id/ll_myself_property_redpacket"
@@ -408,6 +405,7 @@
           android:layout_marginLeft="@dimen/dm016"
           android:layout_marginRight="@dimen/dm016"
           android:weightSum="4"
+          android:baselineAligned="false"
           >
         <LinearLayout
             android:id="@+id/ll_myself_service_invitefriends"
@@ -512,6 +510,7 @@
           android:layout_marginLeft="@dimen/dm016"
           android:layout_marginRight="@dimen/dm016"
           android:weightSum="4"
+          android:baselineAligned="false"
           >
         <LinearLayout
             android:id="@+id/ll_myself_service_location"

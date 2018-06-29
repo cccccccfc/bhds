@@ -31,7 +31,6 @@ import com.baihuodasha.bhds.utils.CustomViewPager;
 public class FragmentClassification extends BaseFragment implements View.OnClickListener{
 
   private LayoutInflater linflater;
-  private ClassificationAdapter classificationAdapter;
   private ImageView[] shopViews;
   private TextView[] listMenuTextViews;
   private LinearLayout[] linearLayout;
@@ -47,7 +46,6 @@ public class FragmentClassification extends BaseFragment implements View.OnClick
   @BindView(R.id.title_return) ImageView title_return;
   @BindView(R.id.lin_seach) LinearLayout lin_seach;
   @BindView(R.id.img_message) ImageView img_message;
-  private View view;
   private String[] listMenus;
 
   @Nullable @Override
@@ -67,7 +65,8 @@ public class FragmentClassification extends BaseFragment implements View.OnClick
   private void initViewPager() {
     lin_seach.setOnClickListener(this);
     // 由于使用了支持包所以最终必须确保所有的导入包都是来自支持包
-    classificationAdapter = new ClassificationAdapter(getChildFragmentManager(), listMenus);
+    ClassificationAdapter classificationAdapter =
+        new ClassificationAdapter(getChildFragmentManager(), listMenus);
     viewPager.setAdapter(classificationAdapter);
     // 为ViewPager设置页面变化的监控
     viewPager.addOnPageChangeListener(onPageChangeListener);
@@ -108,7 +107,7 @@ public class FragmentClassification extends BaseFragment implements View.OnClick
     shopViews = new ImageView[listMenus.length];
     LinearLayout toolsLayout = (LinearLayout)layoutView.findViewById(R.id.recyclerView_tools);
     for (int i = 0; i < listMenus.length; i++) {
-       view = linflater.inflate(R.layout.itemview_categorize_listmenus, null);
+      View view = linflater.inflate(R.layout.itemview_categorize_listmenus, null);
       // 给每个View设定唯一标识
       view.setId(i);
       // 给每个view添加点击监控事件

@@ -13,16 +13,12 @@ import org.apache.commons.lang.time.DurationFormatUtils;
  */
 public class MikyouCountDownTimer extends CountDownTimer{
 
-    private Context mContext;//传入的上下文对象
-    protected TextView mDateTv;//一个TextView实现倒计时
-    private long  mGapTime;//传入设置的时间间隔即倒计时的总时长
-    private long mCount = 1000;//倒计时的步长　一般为1000代表每隔1s跳一次
-    private String mTimePattern = "HH:mm:ss";//timePattern 传入的时间的样式　如: HH:mm:ss HH时mm分ss秒　dd天HH时mm分ss秒
+  protected TextView mDateTv;//一个TextView实现倒计时
+  private String mTimePattern = "HH:mm:ss";//timePattern 传入的时间的样式　如: HH:mm:ss HH时mm分ss秒　dd天HH时mm分ss秒
     private String mTimeStr;
     protected List<MikyouBackgroundSpan> mBackSpanList;
     protected List<TextAppearanceSpan> mTextColorSpanList;
-    private int mDrawableId;
-    private boolean flag = false;//设置标记flag,用于控制使得初始化Span的数据一次
+  private boolean flag = false;//设置标记flag,用于控制使得初始化Span的数据一次
 
     protected  String[] numbers;//此数组用于保存每个倒计时字符拆分后的天,时,分,秒的数值
     protected char[]  nonNumbers;//保存了天,时,分,秒之间的间隔("天","时","分","秒"或者":")
@@ -37,10 +33,10 @@ public class MikyouCountDownTimer extends CountDownTimer{
 
     public MikyouCountDownTimer(Context mContext, long mGapTime, int mCount, String mTimePattern,int mDrawableId) {
         super(mGapTime,mCount);
-        this.mContext = mContext;
-        this.mGapTime = mGapTime;//倒计时总时长
-        this.mCount = mCount;//每次倒计时的步长，默认是1000
-        this.mDrawableId= mDrawableId;//用于设置背景的drawable的id
+      Context mContext1 = mContext;
+      long mGapTime1 = mGapTime;
+      long mCount1 = mCount;
+      int mDrawableId1 = mDrawableId;
         this.mTimePattern = mTimePattern;//时间的格式:如HH:mm:ss或者dd天HH时mm分ss秒等
         mBackSpanList = new ArrayList<>();
         mTextColorSpanList = new ArrayList<>();

@@ -37,12 +37,10 @@ public class ActivityLogin extends BaseActivity {
   @BindView(R.id.iv_login_wx)//微信登录
       ImageView wx;
 
-
   @BindView(R.id.img_full_selector) CheckBox imgFullSelector;
   @BindView(R.id.img_login_eye) ImageView imgeye;
   @BindView(R.id.iv_base_back) ImageView ivBaseBack;
   @BindView(R.id.tv_base_title) TextView tvBaseTitle;
-
 
   @Override public void setContentLayout(Bundle savedInstanceState) {
     setContentView(R.layout.activity_login);
@@ -115,7 +113,6 @@ public class ActivityLogin extends BaseActivity {
 
   private boolean isEye = false;
   Intent intent;
-
 
   //activity回调  第三方登录的回调
   @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {

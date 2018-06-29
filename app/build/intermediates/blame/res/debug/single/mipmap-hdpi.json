@@ -64,10 +64,6 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-hdpi\\usercenterb.png"
     },
     {
-        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\banner.png",
-        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-hdpi\\banner.png"
-    },
-    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\search_dashalogo.png",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-hdpi\\search_dashalogo.png"
     },

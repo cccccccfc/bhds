@@ -31,8 +31,7 @@ public class ActivityReceiverAddress extends BaseActivity {
   @BindView(R.id.ll_myself_shippingaddress_bg) LinearLayout llMyselfShippingaddressBg;
   @BindView(R.id.rv_myself_shippingaddress_add) LinearLayout rvMyselfShippingaddressAdd;
   private MyselfShippingaddressListAdapter adapter;
-  private List<AddressBean> item;
-  private AddressBean bean;
+
   @Override public void setContentLayout(Bundle savedInstanceState) {
     setContentView(R.layout.activity_receiver_address);
     ButterKnife.bind(this);
@@ -89,9 +88,9 @@ public class ActivityReceiverAddress extends BaseActivity {
   }
 
   private void getImageList() {
-    item = new ArrayList<>();
+    List<AddressBean> item = new ArrayList<>();
     for (int i = 0; i < 10; i++) {
-      bean = new AddressBean();
+      AddressBean bean = new AddressBean();
       bean.setAddress("北京朝阳区。。。。。。。。。。。。。");
       if (i ==2) {
         bean.setAddress("北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区北京朝阳区。。");
@@ -106,4 +105,7 @@ public class ActivityReceiverAddress extends BaseActivity {
   //  Log.i("qaz", "getImageList: "+item.size());
     adapter.addList(item);
   }
+
+
+
 }

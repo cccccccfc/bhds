@@ -33,7 +33,6 @@ import java.text.ParseException;
  */
 public abstract class BaseActivity extends AppCompatActivity implements OnClickListener {
   public BaseApplication softApplication;
-  private boolean isContantMainTitle = true;
   private RepeatedClickHandler repeatedClickHandler;
   private ProgressDialog progressDialog;
   public static String CURRENT_FRAGMENT = "";
@@ -55,6 +54,7 @@ public abstract class BaseActivity extends AppCompatActivity implements OnClickL
     // 处理重复点击
     repeatedClickHandler = new RepeatedClickHandler();
     setContentLayout(savedInstanceState);
+    boolean isContantMainTitle = true;
     if (isContantMainTitle) {
       initBaseView();
     }

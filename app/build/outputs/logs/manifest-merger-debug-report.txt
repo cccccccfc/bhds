@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:2:1-59:12
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:2:1-62:12
 	package
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:4:5-35
 		INJECTED from C:\fei\bhds\app\src\main\AndroidManifest.xml
@@ -62,9 +62,10 @@ ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:17:3-86
 	android:name
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:17:20-84
 application
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:20:3-57:17
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:20:3-60:17
 MERGED from [bhds:utilslibrary:unspecified] C:\fei\bhds\utilslibrary\build\intermediates\bundles\default\AndroidManifest.xml:11:5-12:19
 MERGED from [bhds:mylibrary:unspecified] C:\fei\bhds\mylibrary\build\intermediates\bundles\default\AndroidManifest.xml:11:5-20
+MERGED from [bhds:wheelview:unspecified] C:\fei\bhds\wheelview\build\intermediates\bundles\default\AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support:design:25.1.1] C:\Users\zhang\.android\build-cache\010a735325088608fa76242c15c386da617c24fb\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:transition:25.1.1] C:\Users\zhang\.android\build-cache\be8b4008a9717f27fe952deb11574ede2ea36202\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\zhang\.android\build-cache\bc51265347f34dbca426593291e8c6ed88500ee9\output\AndroidManifest.xml:9:5-20
@@ -162,10 +163,20 @@ activity#com.baihuodasha.bhds.activity.myself.receiveraddress.ActivityNewAddress
 ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:55:5-56:16
 	android:name
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:55:15-81
+activity#com.baihuodasha.bhds.activity.supermarket.ActivityFlashSale
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:57:5-58:16
+	android:name
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:57:15-69
+activity#com.baihuodasha.bhds.utils.statusbar.StatusBarActivity
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:59:5-76
+	android:name
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:59:15-64
 uses-sdk
 INJECTED from C:\fei\bhds\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [bhds:utilslibrary:unspecified] C:\fei\bhds\utilslibrary\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
 MERGED from [bhds:mylibrary:unspecified] C:\fei\bhds\mylibrary\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
+MERGED from [bhds:pickerview:unspecified] C:\fei\bhds\pickerview\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
+MERGED from [bhds:wheelview:unspecified] C:\fei\bhds\wheelview\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:25.1.1] C:\Users\zhang\.android\build-cache\010a735325088608fa76242c15c386da617c24fb\output\AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:transition:25.1.1] C:\Users\zhang\.android\build-cache\be8b4008a9717f27fe952deb11574ede2ea36202\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\zhang\.android\build-cache\bc51265347f34dbca426593291e8c6ed88500ee9\output\AndroidManifest.xml:5:5-7:41

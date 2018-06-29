@@ -74,4 +74,5 @@ public class HistoryShopShopDataBaseInfo extends ShopDataBaseDao {
     public void clearDataBase(){
         mWriteShopSQL.delete(SHOP_DATABASE_NAME, null, null);
     }
+
 }

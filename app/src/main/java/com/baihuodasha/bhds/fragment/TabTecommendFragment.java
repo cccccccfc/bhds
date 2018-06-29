@@ -40,13 +40,10 @@ import static com.baihuodasha.bhds.utils.FabbuttonUtils.FabbuttonUtil;
 public class TabTecommendFragment extends Fragment implements View.OnClickListener {
 
   private static final String EXTRA_CONTENT = "content";
-  private ParentInfo parentInfo;
 
-  private ArrayList<String> imageList;
   private Banner mBanner;
   private String mTitle;
   private RecyclerView mRecycshoping;
-  private ArrayList<String> imageRecyc;
   private HomesideslipproductsAdapter adapter;
   private RecyclerView mRecycinfo;
   private HomecategoryAdapter infoadapter;
@@ -56,7 +53,6 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
   private String[] contextImages;
   private RecyclerView mRecyccommendation;
   private HomerecommendationAdapter recommendationAdapter;
-  private RecommendationBean recommendationBean;
   private FloatingActionButton mFabbutton;
   private ScrollInterceptScrollView mScrollView;
 
@@ -101,7 +97,7 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
     } else {
       mBanner.startAutoPlay();
     }
-    imageList = new ArrayList<>();
+    ArrayList<String> imageList = new ArrayList<>();
     for (int i = 0; i < BannerImage.length; i++) {
       imageList.add(BannerImage[i]);
     }
@@ -161,7 +157,7 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
   private List<ParentInfo> dataInfoList = new ArrayList<>();
 
   private void getImageList() {
-    imageRecyc = new ArrayList<>();
+    ArrayList<String> imageRecyc = new ArrayList<>();
     for (int i = 0; i < contextImages.length; i++) {
       imageRecyc.add(contextImages[i]);
     }
@@ -171,7 +167,7 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
   private void getShopList() {
     dataInfoList.clear();
     for (int i = 0; i < BannerImage.length; i++) {
-      parentInfo = new ParentInfo();
+      ParentInfo parentInfo = new ParentInfo();
       List<ChildInfo> childInfoList = new ArrayList<>();
       parentInfo.setTitle("居家生活");
       parentInfo.setImage(BannerImage[i]);
@@ -188,7 +184,7 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
 
     recommendationList.clear();
     for (int i = 0; i < contextImages.length; i++) {
-      recommendationBean = new RecommendationBean();
+      RecommendationBean recommendationBean = new RecommendationBean();
       recommendationBean.setTitle("百安思保温杯304不锈钢真空高端保温杯 大容量男女创意定制便携保温杯");
       recommendationBean.setOldprice("1990.00");
       recommendationBean.setPrice("999.00");

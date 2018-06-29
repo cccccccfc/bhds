@@ -37,8 +37,6 @@ public class ActivityRegister extends BaseActivity implements View.OnClickListen
       RelativeLayout eye;
   @BindView(R.id.img_login_eye) ImageView imgeye;
   private String phoneNumber;
-  private String mCode;
-  private String mPassword;
   private String mVc_code = "";//验证码
 
   private LoadingProgressLayout mLayout;  //loading界面
@@ -136,8 +134,8 @@ public class ActivityRegister extends BaseActivity implements View.OnClickListen
    * 完成注册
    */
   private void successLogin() {
-    mCode = yzm.getText().toString();
-    mPassword = passport.getText().toString();
+    String mCode = yzm.getText().toString();
+    String mPassword = passport.getText().toString();
     phoneNumber = phone.getText().toString();
 
     PersonalInternetRequestUtils.register(this, phoneNumber, mVc_code, mPassword, mCode, mView,

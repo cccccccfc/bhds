@@ -29,7 +29,6 @@
       android:orientation="horizontal">
 
     <EditText
-        android:id="@+id/et_myself_paycode_oldpassword"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/dm020"
@@ -45,7 +44,6 @@
         android:paddingLeft="@dimen/dm025"
         android:paddingRight="@dimen/dm025">
       <TextView
-          android:id="@+id/tv_myself_paycode_oldpassworderror"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_centerInParent="true"
@@ -70,7 +68,6 @@
       android:orientation="horizontal">
 
     <EditText
-        android:id="@+id/et_myself_paycode_newpassword"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/dm020"
@@ -97,7 +94,6 @@
       android:orientation="horizontal">
 
     <EditText
-        android:id="@+id/et_myself_paycode_newpasswordgagain"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/dm020"
@@ -113,7 +109,6 @@
         android:paddingLeft="@dimen/dm025"
         android:paddingRight="@dimen/dm025">
       <TextView
-          android:id="@+id/tv_myself_paycode_newpasswordgagainerror"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_centerInParent="true"
@@ -130,7 +125,6 @@
       android:background="#f4f4f4"
       />
   <RelativeLayout
-      android:id="@+id/rl_myself_paycode_confirm"
       android:layout_width="match_parent"
       android:layout_height="@dimen/dm080"
       android:layout_marginLeft="@dimen/dm040"
