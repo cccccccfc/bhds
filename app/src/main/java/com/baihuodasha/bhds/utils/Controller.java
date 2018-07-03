@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import com.baihuodasha.bhds.utils.dialog.BaseDialog;
 
 /**
  * Created by 刘立元 on 2018/5/8.

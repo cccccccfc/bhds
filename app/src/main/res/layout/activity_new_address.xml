@@ -18,7 +18,7 @@
   <RelativeLayout
       android:id="@+id/rl_myself_newaddress_location"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/dm100"
+      android:layout_height="@dimen/dm090"
       android:background="@color/white"
       >
 
@@ -44,7 +44,7 @@
   <RelativeLayout
       android:id="@+id/rl_myself_newaddress_name"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/dm100"
+      android:layout_height="@dimen/dm090"
       android:background="@color/white"
       >
 
@@ -86,7 +86,7 @@
   <RelativeLayout
       android:id="@+id/rl_myself_newaddress_particularlocation"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/dm100"
+      android:layout_height="@dimen/dm090"
       android:background="@color/white"
       >
 
@@ -128,7 +128,7 @@
   <RelativeLayout
       android:id="@+id/rl_myself_newaddress_phone"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/dm100"
+      android:layout_height="@dimen/dm090"
       android:background="@color/white"
       >
 

@@ -1,6 +1,7 @@
 package com.baihuodasha.bhds.fragment;
 
 import android.graphics.Typeface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,6 +24,7 @@ import com.baihuodasha.bhds.utils.CommonUtils;
 import com.baihuodasha.bhds.utils.DoubleUtil;
 import com.baihuodasha.bhds.utils.assistant.ShopToDetailListener;
 import com.baihuodasha.bhds.utils.assistant.onCallBackListener;
+import com.baihuodasha.bhds.utils.dialog.BaseDialog;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +59,7 @@ public class FragmentShoppingTrolley extends BaseFragment
   private ShoppingTrolleyFullAdapter shoppingTrolleyFullAdapter;
   private int shopNum;
   private SupermarketChoicenessAdapter choicenessAdapter;
+  private BaseDialog endDialog;
 
   @Override public View initView(LayoutInflater inflater) {
     if (view == null) {
@@ -125,7 +128,7 @@ public class FragmentShoppingTrolley extends BaseFragment
           if (shopNum <= 0) {
             CommonUtils.toastMessage("请选择要删除的商品~");
           }else {
-
+            showEndDialog();
             CommonUtils.toastMessage("删除所选~");
           }
 
@@ -135,6 +138,14 @@ public class FragmentShoppingTrolley extends BaseFragment
       case R.id.tv_base_save: //编辑
         setPrise();
         Selectdelete();
+        break;
+      case R.id.cancel: //取消
+        endDialog.dismiss();
+        CommonUtils.toastMessage("取消");
+        break;
+      case R.id.yes: //删除
+        endDialog.dismiss();
+       CommonUtils.toastMessage("删除");
         break;
     }
   }
@@ -304,4 +315,32 @@ public class FragmentShoppingTrolley extends BaseFragment
     setPrise();
     shoppingTrolleyFullAdapter.notifyDataSetChanged();
   }
-}
+  AlertDialog dialog_del;
+    public void showEndDialog() {
+      endDialog = new BaseDialog.Builder(getActivity())
+          .setContentView(R.layout.dialog_commoditydetails)
+          .setCancelable(false)
+          .setText(R.id.tv_content, "确认要删除这"+shopNum+"件商品吗？")
+          .setOnClickListener(R.id.cancel, this)
+          .setOnClickListener(R.id.yes, this)
+          .show();
+    }
+    //dialog_del = new AlertDialog.Builder(getActivity()).create();
+    //View view = View.inflate(getActivity(), R.layout.dialog_commoditydetails, null);
+    //TextView cancel = (TextView) view.findViewById(R.id.cancel);
+    //TextView tv_content = (TextView) view.findViewById(R.id.tv_content);
+    //tv_content.setText("确认要删除这"+shopNum+"件商品吗？");
+    //cancel.setOnClickListener(new View.OnClickListener() {
+    //  @Override public void onClick(View view) {
+    //    dialog_del.dismiss();
+    //  }
+    //});
+    //TextView yes = (TextView) view.findViewById(R.id.yes);
+    //yes.setOnClickListener(new View.OnClickListener() {
+    //  @Override public void onClick(View view) {
+    //    dialog_del.dismiss();
+    //  }
+    //});
+    //dialog_del.show();
+    //dialog_del.getWindow().setContentView(view);
+  }

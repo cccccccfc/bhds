@@ -4,20 +4,21 @@
     android:layout_height="wrap_content">
   <LinearLayout
       android:id="@+id/linear_back"
-      android:layout_marginTop="@dimen/dm032"
-      android:layout_width="wrap_content"
+      android:layout_marginTop="@dimen/dm026"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="vertical"
+      android:gravity="center"
       >
     <ImageView
-        android:layout_marginLeft="@dimen/dm010"
-        android:id="@+id/child_item_img"
-        android:layout_width="@dimen/dm120"
-        android:layout_height="@dimen/dm120"
 
+        android:id="@+id/child_item_img"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dm120"
+        android:scaleType="fitXY"
         />
     <TextView
-        android:layout_marginTop="@dimen/dm024"
+        android:layout_marginTop="@dimen/dm016"
         android:id="@+id/child_item_tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

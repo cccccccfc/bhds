@@ -56,7 +56,9 @@
     </activity>
     <activity android:name=".activity.supermarket.ActivityFlashSale">
     </activity>
-    <activity android:name=".utils.statusbar.StatusBarActivity"></activity>
+    <activity android:name=".utils.statusbar.StatusBarActivity"/>
+    <activity android:name=".activity.index.ActivityCommodityDetails">
+    </activity>
   </application>
 
 </manifest>

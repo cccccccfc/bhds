@@ -75,7 +75,7 @@
         >
       <RelativeLayout
           android:layout_width="match_parent"
-          android:layout_height="@dimen/dm090"
+          android:layout_height="@dimen/dm081"
           android:gravity="center"
           >
         <TextView
@@ -107,7 +107,7 @@
           />
       <LinearLayout
           android:layout_width="match_parent"
-          android:layout_height="@dimen/dm150"
+          android:layout_height="@dimen/dm139"
           android:layout_marginLeft="@dimen/dm016"
           android:layout_marginRight="@dimen/dm016"
           android:weightSum="5"
@@ -124,7 +124,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+            android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm007"
               android:src="@mipmap/awaitingpayment"
               />
@@ -132,7 +132,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="待付款"
               android:textSize="@dimen/dm024"
               />
@@ -148,7 +148,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+              android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm007"
               android:src="@mipmap/waitingfordelivery"
               />
@@ -156,7 +156,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="待发货"
               android:textSize="@dimen/dm024"
               />
@@ -172,7 +172,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+              android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm007"
               android:src="@mipmap/delivered"
               />
@@ -180,7 +180,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="已发货"
               android:textSize="@dimen/dm024"
               />
@@ -196,7 +196,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+              android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm007"
               android:src="@mipmap/waitingevaluation"
               />
@@ -204,7 +204,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="待评价"
               android:textSize="@dimen/dm024"
               />
@@ -220,7 +220,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+              android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm007"
               android:src="@mipmap/salesreturn"
               />
@@ -228,7 +228,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="退换/售后"
               android:textSize="@dimen/dm024"
               />
@@ -236,12 +236,12 @@
       </LinearLayout>
       <TextView
           android:layout_width="match_parent"
-          android:layout_height="@dimen/dm020"
+          android:layout_height="@dimen/dm016"
           android:background="#f4f4f4"
           />
       <RelativeLayout
           android:layout_width="match_parent"
-          android:layout_height="@dimen/dm090"
+          android:layout_height="@dimen/dm081"
           android:gravity="center"
           >
         <TextView
@@ -271,7 +271,7 @@
           />
       <LinearLayout
           android:layout_width="match_parent"
-          android:layout_height="@dimen/dm150"
+          android:layout_height="@dimen/dm135"
           android:layout_marginLeft="@dimen/dm016"
           android:layout_marginRight="@dimen/dm016"
           android:weightSum="4"
@@ -288,7 +288,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+              android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm010"
               android:src="@mipmap/money"
               />
@@ -296,7 +296,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="　红包　"
               android:textSize="@dimen/dm024"
               />
@@ -312,7 +312,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+              android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm010"
               android:src="@mipmap/recharge"
               />
@@ -320,7 +320,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="在线充值"
               android:textSize="@dimen/dm024"
               />
@@ -336,15 +336,15 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
-              android:padding="@dimen/dm010"
+              android:layout_marginTop="@dimen/dm016"
+              android:padding="@dimen/dm008"
               android:src="@mipmap/eka"
               />
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="E卡充值"
               android:textSize="@dimen/dm024"
               />
@@ -360,7 +360,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+              android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm010"
               android:src="@mipmap/integral"
               />
@@ -368,7 +368,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="我的积分"
               android:textSize="@dimen/dm024"
               />
@@ -376,12 +376,12 @@
       </LinearLayout>
       <TextView
           android:layout_width="match_parent"
-          android:layout_height="@dimen/dm020"
+          android:layout_height="@dimen/dm016"
           android:background="#f4f4f4"
           />
       <RelativeLayout
           android:layout_width="match_parent"
-          android:layout_height="@dimen/dm090"
+          android:layout_height="@dimen/dm081"
           android:gravity="center_vertical"
           >
         <TextView
@@ -401,7 +401,7 @@
           />
       <LinearLayout
           android:layout_width="match_parent"
-          android:layout_height="@dimen/dm150"
+          android:layout_height="@dimen/dm136"
           android:layout_marginLeft="@dimen/dm016"
           android:layout_marginRight="@dimen/dm016"
           android:weightSum="4"
@@ -418,7 +418,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+              android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm010"
               android:src="@mipmap/inviting"
               />
@@ -426,7 +426,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="邀请好友"
               android:textSize="@dimen/dm024"
               />
@@ -442,7 +442,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+              android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm010"
               android:src="@mipmap/evaluate"
               />
@@ -450,7 +450,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="晒单/评价"
               android:textSize="@dimen/dm024"
               />
@@ -466,7 +466,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+              android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm010"
               android:src="@mipmap/collection"
               />
@@ -474,7 +474,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="　收藏　"
               android:textSize="@dimen/dm024"
               />
@@ -490,7 +490,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+              android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm010"
               android:src="@mipmap/track"
               />
@@ -498,7 +498,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="　足迹　"
               android:textSize="@dimen/dm024"
               />
@@ -506,7 +506,7 @@
       </LinearLayout>
       <LinearLayout
           android:layout_width="match_parent"
-          android:layout_height="@dimen/dm150"
+          android:layout_height="@dimen/dm135"
           android:layout_marginLeft="@dimen/dm016"
           android:layout_marginRight="@dimen/dm016"
           android:weightSum="4"
@@ -523,7 +523,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+              android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm010"
               android:src="@mipmap/add"
               />
@@ -531,7 +531,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="　地址　"
               android:textSize="@dimen/dm024"
               />
@@ -548,7 +548,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+              android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm010"
               android:src="@mipmap/service"
               />
@@ -556,7 +556,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="　客服　"
               android:textSize="@dimen/dm024"
               />
@@ -572,7 +572,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+              android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm010"
               android:src="@mipmap/help"
               />
@@ -580,7 +580,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="　帮助　"
               android:textSize="@dimen/dm024"
               />
@@ -596,7 +596,7 @@
               android:layout_width="@dimen/dm060"
               android:layout_height="@dimen/dm060"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm026"
+              android:layout_marginTop="@dimen/dm016"
               android:padding="@dimen/dm010"
               android:src="@mipmap/setup"
               />
@@ -604,7 +604,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dm016"
+              android:layout_marginTop="@dimen/dm010"
               android:text="　设置　"
               android:textSize="@dimen/dm024"
               />
@@ -612,7 +612,7 @@
       </LinearLayout>
       <TextView
           android:layout_width="match_parent"
-          android:layout_height="@dimen/dm020"
+          android:layout_height="@dimen/dm016"
           android:background="#EEEEEE"
           />
     </LinearLayout>

@@ -48,6 +48,10 @@
         "source": "C:\\fei\\bhds\\pickerview\\build\\intermediates\\bundles\\default\\res\\layout\\pickerview_time.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_commodity_details.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_commodity_details.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\layout\\notification_action.xml"
     },
@@ -440,12 +444,12 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\010a735325088608fa76242c15c386da617c24fb\\output\\res\\layout\\design_navigation_item.xml"
     },
     {
-        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\layout\\abc_list_menu_item_icon.xml"
-    },
-    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_setting.xml",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_setting.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ucrop_activity_photobox.xml",
@@ -480,8 +484,16 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\010a735325088608fa76242c15c386da617c24fb\\output\\res\\layout\\design_navigation_menu.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\commentontheentry_item.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\commentontheentry_item.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_commoditydetails.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\dialog_commoditydetails.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_skill_tab.xml",

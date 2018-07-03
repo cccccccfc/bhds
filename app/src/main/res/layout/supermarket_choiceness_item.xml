@@ -7,31 +7,32 @@
       android:id="@+id/lin_supermarket_choiceness"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop="@dimen/dm010"
+      android:layout_marginBottom="@dimen/dm020"
       android:layout_marginLeft="@dimen/dm008"
       android:layout_marginRight="@dimen/dm008"
-      android:layout_marginBottom="@dimen/dm020"
+      android:layout_marginTop="@dimen/dm010"
+      android:gravity="center"
       android:orientation="vertical"
       >
     <ImageView
         android:id="@+id/img_supermarket_choiceness"
         android:layout_width="wrap_content"
-        android:scaleType="fitXY"
-        android:layout_height="@dimen/dm220"
+        android:layout_height="@dimen/dm198"
         android:background="@mipmap/supermarket_newproduct"
+        android:scaleType="fitXY"
         />
     <TextView
         android:id="@+id/txe_supermarket_choiceness1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dm015"
         android:layout_marginLeft="@dimen/dm005"
-        android:textSize="@dimen/dm026"
-        android:text="测试测试测试测试"
+        android:layout_marginTop="@dimen/dm015"
+        android:ellipsize="end"
         android:maxEms="8"
         android:singleLine="true"
-        android:ellipsize="end"
+        android:text="测试测试测试测试"
         android:textColor="@color/black"
+        android:textSize="@dimen/dm026"
         />
     <TextView
         android:id="@+id/txe_supermarket_choiceness2"
@@ -39,12 +40,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dm005"
         android:layout_marginTop="@dimen/dm010"
-        android:textSize="@dimen/dm028"
+        android:ellipsize="end"
         android:maxEms="5"
         android:singleLine="true"
-        android:ellipsize="end"
         android:text="测试测试"
         android:textColor="@color/price"
+        android:textSize="@dimen/dm028"
         />
   </LinearLayout>
 

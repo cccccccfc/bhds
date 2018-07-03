@@ -43,7 +43,7 @@
         </android.support.v7.widget.RecyclerView>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dm020"
+            android:layout_height="@dimen/dm016"
             android:layout_marginTop="@dimen/dm016"
             android:background="#EEEEEE"
             />
@@ -124,11 +124,11 @@
             android:gravity="center"
             android:text="查看全部 >>"
             android:textColor="@color/colorText2"
-            android:textSize="@dimen/dm022"
+            android:textSize="@dimen/dm024"
             />
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dm020"
+            android:layout_height="@dimen/dm016"
             android:background="#EEEEEE"
             />
         <LinearLayout
@@ -187,11 +187,11 @@
               android:gravity="center"
               android:text="查看更多 >>"
               android:textColor="@color/colorText2"
-              android:textSize="@dimen/dm022"
+              android:textSize="@dimen/dm024"
               />
           <TextView
               android:layout_width="match_parent"
-              android:layout_height="@dimen/dm020"
+              android:layout_height="@dimen/dm016"
               android:background="#EEEEEE"
               />
         </LinearLayout>
@@ -262,11 +262,11 @@
               android:gravity="center"
               android:text="查看全部 >>"
               android:textColor="@color/colorText2"
-              android:textSize="@dimen/dm022"
+              android:textSize="@dimen/dm024"
               />
           <TextView
               android:layout_width="match_parent"
-              android:layout_height="@dimen/dm020"
+              android:layout_height="@dimen/dm016"
               android:layout_below="@+id/text_bhds_more"
               android:background="#EEEEEE"
               />
@@ -294,6 +294,7 @@
               android:layout_height="wrap_content"
               android:layout_marginLeft="@dimen/dm010"
               android:layout_marginRight="@dimen/dm010"
+              android:layout_marginBottom="@dimen/dm010"
               android:visibility="visible"
               >
           </android.support.v7.widget.RecyclerView>
@@ -314,11 +315,11 @@
               android:gravity="center"
               android:text="查看更多 >>"
               android:textColor="@color/colorText2"
-              android:textSize="@dimen/dm022"
+              android:textSize="@dimen/dm024"
               />
           <TextView
               android:layout_width="match_parent"
-              android:layout_height="@dimen/dm020"
+              android:layout_height="@dimen/dm016"
               android:background="#EEEEEE"
               />
         </LinearLayout>

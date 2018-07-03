@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baihuodasha.bhds.R;
 import com.baihuodasha.bhds.bean.ChildInfo;
-import com.bumptech.glide.Glide;
 import java.util.List;
 
 
@@ -44,7 +43,7 @@ public class HomecategoryInfoAdapter extends RecyclerView.Adapter<HomecategoryIn
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         ChildInfo info = list.get(position);
-        Glide.with(context).load(info.getIconImgID()).into(holder.imageInfo);
+      //  Glide.with(context).load(info.getIconImgID()).into(holder.imageInfo);
         holder.child_item_tv1.setText(info.getMenuName());
         holder.child_item_tv2.setText(info.getMenuName());
         holder.child_item_tv3.setText(info.getMenuName());

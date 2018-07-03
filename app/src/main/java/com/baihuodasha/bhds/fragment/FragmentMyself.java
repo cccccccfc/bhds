@@ -15,6 +15,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
+import com.baihuodasha.bhds.activity.index.ActivityCommodityDetails;
 import com.baihuodasha.bhds.activity.login.ActivityLogin;
 import com.baihuodasha.bhds.activity.myself.receiveraddress.ActivityReceiverAddress;
 import com.baihuodasha.bhds.activity.myself.setting.ActivityMyselfInformation;
@@ -232,7 +233,9 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
         CommonUtils.toastMessage("客服");
         break;
       case R.id.ll_myself_service_help ://帮助
-        CommonUtils.toastMessage("帮助");
+        Intent intenthelp =new Intent(getActivity() , ActivityCommodityDetails.class);
+        startActivity(intenthelp);
+      //  CommonUtils.toastMessage("帮助");
         break;
       case R.id.ll_myself_service_step : //设置
         Intent intentset =new Intent(getActivity() , ActivitySetting.class);

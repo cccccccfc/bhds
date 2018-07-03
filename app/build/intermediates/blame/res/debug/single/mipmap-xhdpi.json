@@ -60,6 +60,10 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-xhdpi\\back_x.png"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\collection_up.png",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-xhdpi\\collection_up.png"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\marketa.png",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-xhdpi\\marketa.png"
     },
@@ -82,6 +86,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\usercentera.png",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-xhdpi\\usercentera.png"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\shopping_basket.png",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-xhdpi\\shopping_basket.png"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\carta.png",
@@ -140,6 +148,10 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-xhdpi\\cartb.png"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\collection_un.png",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-xhdpi\\collection_un.png"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\service.png",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-xhdpi\\service.png"
     },
@@ -178,10 +190,6 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\sort_light.png",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-xhdpi\\sort_light.png"
-    },
-    {
-        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\image_1.png",
-        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-xhdpi\\image_1.png"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\shanchu.png",
@@ -254,6 +262,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\liangyou.png",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-xhdpi\\liangyou.png"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\share.png",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\mipmap-xhdpi\\share.png"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\timelimit_backgroud.png",

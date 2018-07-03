@@ -13,7 +13,7 @@
         android:id="@+id/child_item_img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:src="@mipmap/supermarket_newproduct"
         />
     <TextView
         android:layout_marginTop="@dimen/dm015"
@@ -21,6 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
+        android:layout_marginLeft="@dimen/dm010"
         android:text="11111111111"
         />
     <TextView
@@ -29,6 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorText"
+        android:layout_marginLeft="@dimen/dm010"
         android:text="11111111111"
         />
     <TextView
@@ -38,6 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="11111111111"
+        android:layout_marginLeft="@dimen/dm010"
         />
   </LinearLayout>
 

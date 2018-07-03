@@ -13,7 +13,7 @@
         >
         <LinearLayout
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/dm032"
+            android:layout_marginLeft="@dimen/dm024"
             android:layout_width="@dimen/dm004"
             android:layout_height="@dimen/dm032"
             >

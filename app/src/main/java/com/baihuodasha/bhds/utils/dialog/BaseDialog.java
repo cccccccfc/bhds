@@ -1,9 +1,7 @@
-package com.baihuodasha.bhds.utils;
+package com.baihuodasha.bhds.utils.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.StyleRes;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +15,7 @@ public class BaseDialog extends Dialog {
 
     private static Controller mController;
 
-    public BaseDialog(@NonNull Context context, @StyleRes int themeResId) {
+    public BaseDialog( Context context, int themeResId) {
         super(context, themeResId);
         mController = new Controller(this, getWindow());
     }
@@ -124,7 +122,7 @@ public class BaseDialog extends Dialog {
             P.mAnimaton=style;
             return  this;
         }
-        //设置点击空白处是否小时
+        //设置点击空白处是否消失
         public Builder setCanceble(boolean cancel){
             P.mCancelable=cancel;
             return this;

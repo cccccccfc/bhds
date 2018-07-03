@@ -8,6 +8,10 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\62ceab76caf433ce4c92b6ca8e6832afc62419da\\output\\res\\drawable\\ucrop_vector_loader.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shop_details_unselected_right.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\shop_details_unselected_right.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\backgroud_bg_white.xml",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\backgroud_bg_white.xml"
     },
@@ -16,12 +20,12 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\drawable\\notification_tile_bg.xml"
     },
     {
-        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tab_home_btn.xml",
-        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\tab_home_btn.xml"
-    },
-    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\drawable\\abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tab_home_btn.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\tab_home_btn.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\seachitem_background_checked.xml",
@@ -68,6 +72,10 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\tab_text_btn.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\check_collection_bg.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\check_collection_bg.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\layerlist_pager_loading.xml",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\layerlist_pager_loading.xml"
     },
@@ -104,6 +112,10 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\drawable\\abc_ratingbar_material.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shop_details_selected_left.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\shop_details_selected_left.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\drawable\\abc_btn_radio_material.xml"
     },
@@ -118,6 +130,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\spinner_big_inner.png",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\spinner_big_inner.png"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_shop_details_right.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\selector_shop_details_right.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\icon_select.png",
@@ -216,12 +232,20 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\ic_error_page.png"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\radius.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\radius.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\checkbox_selector.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\deb4fb50000acf0d343d809022d85269c91fabdd\\output\\res\\drawable\\checkbox_selector.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shop_details_selected_right.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\shop_details_selected_right.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\num_oval.xml",
@@ -278,6 +302,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\drawable\\abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_shop_details_left.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\selector_shop_details_left.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\item_select_bg.xml",
@@ -376,6 +404,10 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\home_recommendation_item.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\details_evaluate_more.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\details_evaluate_more.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\picture_sb_thumb.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\deb4fb50000acf0d343d809022d85269c91fabdd\\output\\res\\drawable\\picture_sb_thumb.xml"
     },
@@ -434,6 +466,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\drawable\\abc_ic_go_search_api_material.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shop_details_unselected_left.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\shop_details_unselected_left.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",

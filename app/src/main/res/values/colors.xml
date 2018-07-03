@@ -26,4 +26,5 @@
     <color name="full_delete">#d3bf9c </color>
     <color name="full_add">#c8ab7a </color>
     <color name="address_divide">#F4F4F4 </color>
+  <color name="shop_selection">#30ffffff </color>
 </resources>

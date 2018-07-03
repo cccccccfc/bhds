@@ -5,20 +5,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.baihuodasha.bhds.activity.myself.ActivitySetting"
+    tools:context="com.baihuodasha.bhds.activity.myself.setting.ActivitySetting"
     android:orientation="vertical"
     >
   <include layout="@layout/activity_base_title"/>
   <TextView
       android:layout_width="match_parent"
-      android:layout_height="@dimen/dm020"
+      android:layout_height="@dimen/dm016"
       android:background="#EEEEEE"
       />
   <RelativeLayout
       android:id="@+id/rl_myself_setting_phone"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/dm100"
-      android:gravity="center"
+      android:layout_height="@dimen/dm090"
       android:background="@color/white"
       >
     <TextView
@@ -26,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dm040"
         android:text="手机号绑定"
+        android:layout_centerVertical="true"
         android:textSize="@dimen/dm030"
         />
 
@@ -34,7 +34,8 @@
         android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/more"
+        android:layout_centerVertical="true"
+        android:background="@mipmap/more"
         />
   </RelativeLayout>
   <TextView
@@ -46,8 +47,7 @@
   <RelativeLayout
       android:id="@+id/rl_myself_setting_accountpassword"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/dm100"
-      android:gravity="center"
+      android:layout_height="@dimen/dm090"
       android:background="@color/white"
       >
     <TextView
@@ -55,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dm040"
         android:text="账号密码管理"
+        android:layout_centerVertical="true"
         android:textSize="@dimen/dm030"
         />
 
@@ -62,6 +63,7 @@
         android:layout_marginRight="@dimen/dm030"
         android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_height="wrap_content"
         android:src="@mipmap/more"
         />
@@ -75,13 +77,13 @@
   <RelativeLayout
       android:id="@+id/rl_myself_setting_paymentcode"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/dm100"
-      android:gravity="center"
+      android:layout_height="@dimen/dm090"
       android:background="@color/white"
       >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/dm040"
         android:text="支付密码管理"
         android:textSize="@dimen/dm030"
@@ -92,7 +94,8 @@
         android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/more"
+        android:layout_centerVertical="true"
+        android:background="@mipmap/more"
         />
   </RelativeLayout>
   <TextView
@@ -104,13 +107,13 @@
   <RelativeLayout
       android:id="@+id/rl_myself_setting_aboutus"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/dm100"
-      android:gravity="center"
+      android:layout_height="@dimen/dm090"
       android:background="@color/white"
       >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/dm040"
         android:text="关于我们"
         android:textSize="@dimen/dm030"
@@ -119,14 +122,15 @@
     <ImageView
         android:layout_marginRight="@dimen/dm030"
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/more"
+        android:background="@mipmap/more"
         />
   </RelativeLayout>
   <TextView
       android:layout_width="match_parent"
-      android:layout_height="@dimen/dm020"
+      android:layout_height="@dimen/dm016"
       android:background="#EEEEEE"
       />
   <RelativeLayout
