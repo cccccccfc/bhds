@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_type"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+
+  <TextView
+      android:id="@+id/tx_specification_title"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/dm081"
+      android:text="产品参数"
+      android:gravity="center"
+      android:textSize="@dimen/dm026"
+      android:textColor="@color/colorText2"
+      >
+  </TextView>
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/dm001"
+      android:layout_below="@+id/tx_specification_title"
+      android:background="@color/Address_color"
+      />
+  <ScrollView
+      android:layout_below="@+id/tx_specification_title"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scrollbars="none"
+      android:layout_above="@+id/rl_specification_close"
+      >
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rc_specification_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ></android.support.v7.widget.RecyclerView>
+
+  </ScrollView>
+  <RelativeLayout
+      android:id="@+id/rl_specification_close"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/dm120"
+      android:layout_alignParentBottom="true"
+      android:background="@color/white"
+
+      >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/dm045"
+        android:layout_marginRight="@dimen/dm045"
+        android:layout_marginBottom="@dimen/dm030"
+        android:gravity="center"
+        android:text="关闭"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dm034"
+        android:background="@drawable/user_daily_attendance"
+        />
+  </RelativeLayout>
+</RelativeLayout>

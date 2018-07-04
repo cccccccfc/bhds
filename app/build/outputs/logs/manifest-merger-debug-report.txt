@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:2:1-64:12
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:2:1-66:12
 	package
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:4:5-35
 		INJECTED from C:\fei\bhds\app\src\main\AndroidManifest.xml
@@ -62,7 +62,7 @@ ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:17:3-86
 	android:name
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:17:20-84
 application
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:20:3-62:17
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:20:3-64:17
 MERGED from [bhds:utilslibrary:unspecified] C:\fei\bhds\utilslibrary\build\intermediates\bundles\default\AndroidManifest.xml:11:5-12:19
 MERGED from [bhds:mylibrary:unspecified] C:\fei\bhds\mylibrary\build\intermediates\bundles\default\AndroidManifest.xml:11:5-20
 MERGED from [bhds:wheelview:unspecified] C:\fei\bhds\wheelview\build\intermediates\bundles\default\AndroidManifest.xml:11:5-15:19
@@ -175,6 +175,10 @@ activity#com.baihuodasha.bhds.activity.index.ActivityCommodityDetails
 ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:60:5-61:16
 	android:name
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:60:15-70
+activity#com.baihuodasha.bhds.activity.index.CommentDetailsActivity
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:62:5-63:16
+	android:name
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:62:15-68
 uses-sdk
 INJECTED from C:\fei\bhds\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [bhds:utilslibrary:unspecified] C:\fei\bhds\utilslibrary\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41

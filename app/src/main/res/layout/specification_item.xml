@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/dm081"
+
+      >
+    <TextView
+        android:id="@+id/tx_specification_name"
+        android:layout_width="@dimen/dm150"
+        android:layout_height="wrap_content"
+        android:text="产品参数"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/dm024"
+        android:textColor="@color/colorText2"
+        android:layout_marginLeft="@dimen/dm024"
+        />
+    <TextView
+        android:layout_toRightOf="@+id/tx_specification_name"
+        android:id="@+id/tx_specification_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="产品参数"
+        android:textSize="@dimen/dm024"
+        android:textColor="@color/colorText2"
+        android:layout_marginLeft="@dimen/dm036"
+        />
+
+  </RelativeLayout>
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/dm001"
+      android:background="@color/Address_color"
+      android:layout_marginLeft="@dimen/dm024"
+      />
+</LinearLayout>

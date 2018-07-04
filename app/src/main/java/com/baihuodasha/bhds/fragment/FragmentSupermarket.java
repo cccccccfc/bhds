@@ -18,6 +18,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
+import com.baihuodasha.bhds.activity.index.ActivityCommodityDetails;
 import com.baihuodasha.bhds.activity.index.ShopSearchActivity;
 import com.baihuodasha.bhds.activity.supermarket.ActivityFlashSale;
 import com.baihuodasha.bhds.adapter.SupermarkeGridtAdapter;
@@ -204,6 +205,8 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
     newproductAdapter.setOnItemClickListener(
         new SupermarketNewproductAdapter.OnItemClickListener() {
           @Override public void onClick(int v, String position) {
+            Intent intenthelp =new Intent(getActivity() , ActivityCommodityDetails.class);
+            startActivity(intenthelp);
             CommonUtils.toastMessage("点击了" + position);
           }
         });

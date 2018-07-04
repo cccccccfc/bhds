@@ -66,6 +66,8 @@
         <activity android:name="com.baihuodasha.bhds.utils.statusbar.StatusBarActivity" />
         <activity android:name="com.baihuodasha.bhds.activity.index.ActivityCommodityDetails" >
         </activity>
+        <activity android:name="com.baihuodasha.bhds.activity.index.CommentDetailsActivity" >
+        </activity>
         <activity
             android:name="com.luck.picture.lib.PictureSelectorActivity"
             android:screenOrientation="portrait"

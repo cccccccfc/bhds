@@ -263,7 +263,6 @@ public class FragmentShoppingTrolley extends BaseFragment
     for (ShopProduct pro : productList) {
       //            sum = sum + (pro.getNumber() * Double.parseDouble(pro.getPrice()));
       if (pro.isselector()) {
-
         sum = DoubleUtil.sum(sum,
             DoubleUtil.mul((double) pro.getNumber(), Double.parseDouble(pro.getPrice())));
         shopNum = shopNum + pro.getNumber();

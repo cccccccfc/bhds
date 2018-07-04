@@ -1,15 +1,19 @@
 package com.baihuodasha.bhds.activity.index;
 
-import android.app.AlertDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -22,12 +26,14 @@ import com.baihuodasha.bhds.base.Config;
 import com.baihuodasha.bhds.utils.CommonUtils;
 import com.baihuodasha.bhds.utils.GlideImageLoader;
 import com.baihuodasha.bhds.utils.XCRoundImageView;
+import com.baihuodasha.bhds.utils.popupwindow.CommercialPopupWindow;
+import com.baihuodasha.bhds.utils.popupwindow.SpecificationPopupWindow;
 import com.youth.banner.Banner;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActivityCommodityDetails extends BaseActivity {
+public class ActivityCommodityDetails extends BaseActivity implements SpecificationPopupWindow.TGClickListener {
 
   @BindView(R.id.iv_base_backto) ImageView ivBaseBackto;
   @BindView(R.id.iv_base_back) ImageView ivBaseBack;
@@ -82,6 +88,8 @@ public class ActivityCommodityDetails extends BaseActivity {
   @BindView(R.id.ll_commodity_details_evaluate_img) LinearLayout llCommodityDetailsEvaluateImg; //评论图片
   private SupermarketChoicenessAdapter choicenessAdapter;
   private int y;
+  private SpecificationPopupWindow specificationPopupWindow;
+  private CommercialPopupWindow commercialPopupWindow;
 
   @Override public void setContentLayout(Bundle savedInstanceState) {
     setContentView(R.layout.activity_commodity_details);
@@ -138,6 +146,9 @@ public class ActivityCommodityDetails extends BaseActivity {
             CommonUtils.toastMessage("点击了" + position);
           }
         });
+
+    specificationPopupWindow = new SpecificationPopupWindow(null, this,null,100, null ,this);
+    commercialPopupWindow = new CommercialPopupWindow(null, this,null,100, null);
   }
 
   @Override public void onClickEvent(View view) throws ParseException {
@@ -173,9 +184,12 @@ public class ActivityCommodityDetails extends BaseActivity {
         break;
       case R.id.rl_commodity_details_commodityparameter:
         CommonUtils.toastMessage("查看商品参数");
+        showCategory(2);
+
         break;
       case R.id.rl_commodity_details_itemspecifics:
         CommonUtils.toastMessage("选择商品规格");
+        showCategory(1);
         break;
       case R.id.tv_commodity_details_evaluate_seeall:
         CommonUtils.toastMessage("查看更多评价");
@@ -237,4 +251,52 @@ public class ActivityCommodityDetails extends BaseActivity {
     y = rlCommodityDetailsInfo.getTop() + tvCommodityDetailsOldprice.getTop();
   }
 
+  @Override public void onWork(int flag) {
+
+  }
+  /**
+   * 显示购物车
+   */
+  private void showCategory(int type) {
+    RotateAnimation rotateAnimation = new RotateAnimation(0, 90,
+        Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
+        0.5f);
+    rotateAnimation.setDuration(300);
+    rotateAnimation.setFillAfter(true);
+    // imgbut_left.setImageResource(R.drawable.menu_left_02);
+    // // //显示窗口  // baCommodityDetailsBanner
+    if (type ==1) {
+      specificationPopupWindow.showAtLocation(rlCommodityDetailsMenus, Gravity.BOTTOM, 0, 0);
+      backgroundAlpha(0.5f);
+      specificationPopupWindow
+          .setOnDismissListener(new PopupWindow.OnDismissListener() {
+            public void onDismiss() {
+              backgroundAlpha(1f);
+
+            }
+          });
+    }else {
+      commercialPopupWindow.showAtLocation(rlCommodityDetailsMenus, Gravity.BOTTOM, 0, 0);
+      backgroundAlpha(0.5f);
+      commercialPopupWindow
+          .setOnDismissListener(new PopupWindow.OnDismissListener() {
+            public void onDismiss() {
+              backgroundAlpha(1f);
+
+            }
+          });
+    }
+
+  }
+
+  /**
+   * 设置添加屏幕的背景透明度
+   *
+   * @param bgAlpha
+   */
+  public void backgroundAlpha(float bgAlpha) {
+    WindowManager.LayoutParams lp = getWindow().getAttributes();
+    lp.alpha = bgAlpha; // 0.0-1.0
+    getWindow().setAttributes(lp);
+  }
 }

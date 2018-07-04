@@ -59,6 +59,8 @@
     <activity android:name=".utils.statusbar.StatusBarActivity"/>
     <activity android:name=".activity.index.ActivityCommodityDetails">
     </activity>
+    <activity android:name=".activity.index.CommentDetailsActivity">
+    </activity>
   </application>
 
 </manifest>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+  <include layout="@layout/activity_base_title"></include>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#EDEDED" />
+
+    <TextView
+        android:id="@+id/tv_type_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="48dp"
+        android:text="请设置密码，用于支付验证"
+        android:textColor="#4c4c4c"
+        android:textSize="@dimen/dm030" />
+
+    <com.jry.agencymanager.view.PasswordInputView
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        android:cursorVisible="false"
+        android:enabled="true"
+        android:focusable="true"
+        android:inputType="numberPassword"
+        android:maxLength="6"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="12dp"
+        android:text="本密码用来充值，提现，支付订单等。支付验证密码不等同于取钱密码。"
+        android:textColor="@color/search_history_color"
+        android:textSize="@dimen/dm016" />
+
+    <TextView
+        android:id="@+id/yzxx_tv"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="34dp"
+        android:background="@color/titleBar"
+        android:gravity="center"
+        android:text="确认"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dm026"
+        android:textStyle="bold" />
+</LinearLayout>

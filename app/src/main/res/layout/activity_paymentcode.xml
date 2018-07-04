@@ -5,138 +5,175 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.baihuodasha.bhds.activity.myself.setting.ActivityPaymentcode"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.baihuodasha.bhds.activity.myself.setting.ActivityPaymentcode"
     >
   <include layout="@layout/activity_base_title"/>
   <TextView
-      android:layout_marginTop="@dimen/dm020"
       android:layout_width="match_parent"
       android:layout_height="@dimen/dm050"
-      android:gravity="center"
-      android:textSize="@dimen/dm028"
-      android:textColor="@color/blackText"
-      android:text="定期修改密码，提升账户安全"
+      android:layout_marginTop="@dimen/dm020"
       android:background="@color/white"
+      android:gravity="center"
+      android:text="定期修改密码，提升账户安全"
+      android:textColor="@color/blackText"
+      android:textSize="@dimen/dm028"
       />
   <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="@dimen/dm080"
-      android:layout_marginLeft="@dimen/dm040"
-      android:layout_marginRight="@dimen/dm040"
-      android:layout_marginTop="@dimen/dm016"
-      android:orientation="horizontal">
 
-    <EditText
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/dm020"
-        android:layout_weight="1"
-        android:background="@null"
-        android:inputType="number"
-        android:hint="请输入原密码"
-        android:textColorHint="@color/colorText"
-        android:textSize="@dimen/dm026"/>
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:paddingLeft="@dimen/dm025"
-        android:paddingRight="@dimen/dm025">
-      <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dm080"
+        android:layout_marginLeft="@dimen/dm040"
+        android:layout_marginRight="@dimen/dm040"
+        android:layout_marginTop="@dimen/dm016"
+        android:orientation="horizontal"
+        >
+
+      <EditText
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_marginLeft="@dimen/dm020"
+          android:layout_weight="1"
+          android:background="@null"
+          android:hint="请输入原密码"
+          android:inputType="number"
+          android:textColorHint="@color/colorText"
+          android:textSize="@dimen/dm026"
+          />
+      <RelativeLayout
           android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_centerInParent="true"
-          android:text="原密码错误"
-          android:visibility="gone"
-          android:textColor="@color/price"
-          android:textSize="@dimen/dm026"/>
-    </RelativeLayout>
-  </LinearLayout>
-  <TextView
-      android:layout_width="@dimen/dm530"
-      android:layout_height="@dimen/dm001"
-      android:layout_gravity="center"
-      android:background="#f4f4f4"
-      />
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="@dimen/dm080"
-      android:layout_marginLeft="@dimen/dm040"
-      android:layout_marginRight="@dimen/dm040"
-      android:layout_marginTop="@dimen/dm016"
-      android:orientation="horizontal">
+          android:layout_height="match_parent"
+          android:paddingLeft="@dimen/dm025"
+          android:paddingRight="@dimen/dm025"
+          >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="原密码错误"
+            android:textColor="@color/price"
+            android:textSize="@dimen/dm026"
+            android:visibility="gone"
+            />
+      </RelativeLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="@dimen/dm530"
+        android:layout_height="@dimen/dm001"
+        android:layout_gravity="center"
+        android:background="#f4f4f4"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dm080"
+        android:layout_marginLeft="@dimen/dm040"
+        android:layout_marginRight="@dimen/dm040"
+        android:layout_marginTop="@dimen/dm016"
+        android:orientation="horizontal"
+        >
 
-    <EditText
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/dm020"
-        android:layout_weight="1"
-        android:background="@null"
-        android:inputType="number"
-        android:hint="请输入新密码"
-        android:textColorHint="@color/colorText"
-        android:textSize="@dimen/dm026"/>
+      <EditText
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_marginLeft="@dimen/dm020"
+          android:layout_weight="1"
+          android:background="@null"
+          android:hint="请输入新密码"
+          android:inputType="number"
+          android:textColorHint="@color/colorText"
+          android:textSize="@dimen/dm026"
+          />
 
-  </LinearLayout>
-  <TextView
-      android:layout_width="@dimen/dm530"
-      android:layout_height="@dimen/dm001"
-      android:layout_gravity="center"
-      android:background="#f4f4f4"
-      />
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="@dimen/dm080"
-      android:layout_marginLeft="@dimen/dm040"
-      android:layout_marginRight="@dimen/dm040"
-      android:layout_marginTop="@dimen/dm016"
-      android:orientation="horizontal">
+    </LinearLayout>
+    <TextView
+        android:layout_width="@dimen/dm530"
+        android:layout_height="@dimen/dm001"
+        android:layout_gravity="center"
+        android:background="#f4f4f4"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dm080"
+        android:layout_marginLeft="@dimen/dm040"
+        android:layout_marginRight="@dimen/dm040"
+        android:layout_marginTop="@dimen/dm016"
+        android:orientation="horizontal"
+        >
 
-    <EditText
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/dm020"
-        android:layout_weight="1"
-        android:background="@null"
-        android:inputType="number"
-        android:hint="请再次输入新密码"
-        android:textColorHint="@color/colorText"
-        android:textSize="@dimen/dm026"/>
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:paddingLeft="@dimen/dm025"
-        android:paddingRight="@dimen/dm025">
-      <TextView
+      <EditText
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_marginLeft="@dimen/dm020"
+          android:layout_weight="1"
+          android:background="@null"
+          android:hint="请再次输入新密码"
+          android:inputType="number"
+          android:textColorHint="@color/colorText"
+          android:textSize="@dimen/dm026"
+          />
+      <RelativeLayout
           android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_centerInParent="true"
-          android:text="两次密码不一致"
-          android:visibility="gone"
-          android:textColor="@color/price"
-          android:textSize="@dimen/dm026"/>
-    </RelativeLayout>
+          android:layout_height="match_parent"
+          android:paddingLeft="@dimen/dm025"
+          android:paddingRight="@dimen/dm025"
+          >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="两次密码不一致"
+            android:textColor="@color/price"
+            android:textSize="@dimen/dm026"
+            android:visibility="gone"
+            />
+      </RelativeLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="@dimen/dm530"
+        android:layout_height="@dimen/dm001"
+        android:layout_gravity="center"
+        android:background="#f4f4f4"
+        />
+
   </LinearLayout>
-  <TextView
-      android:layout_width="@dimen/dm530"
-      android:layout_height="@dimen/dm001"
+
+  <com.baihuodasha.bhds.view.PasswordInputView
+      android:id="@+id/password"
+      android:layout_width="match_parent"
+      android:layout_height="52dp"
       android:layout_gravity="center"
-      android:background="#f4f4f4"
-      />
+      android:layout_centerInParent="true"
+      android:layout_marginLeft="24dp"
+      android:layout_marginRight="24dp"
+      android:layout_marginTop="16dp"
+      android:background="@color/white"
+      android:cursorVisible="false"
+      android:enabled="true"
+      android:focusable="true"
+      android:inputType="numberPassword"
+      android:maxLength="6"
+      android:singleLine="true" />
   <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="@dimen/dm080"
       android:layout_marginLeft="@dimen/dm040"
       android:layout_marginRight="@dimen/dm040"
       android:layout_marginTop="@dimen/dm045"
-      android:background="@color/titleBar">
+      android:background="@color/titleBar"
+      >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="确认修改"
         android:textColor="@color/white"
-        android:textSize="@dimen/dm034"/>
+        android:textSize="@dimen/dm034"
+        />
   </RelativeLayout>
 </LinearLayout>
