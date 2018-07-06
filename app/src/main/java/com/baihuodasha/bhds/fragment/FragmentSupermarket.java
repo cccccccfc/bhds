@@ -19,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
 import com.baihuodasha.bhds.activity.index.ActivityCommodityDetails;
-import com.baihuodasha.bhds.activity.index.ShopSearchActivity;
+import com.baihuodasha.bhds.activity.index.ActivityCommoditySearch;
 import com.baihuodasha.bhds.activity.supermarket.ActivityFlashSale;
 import com.baihuodasha.bhds.adapter.SupermarkeGridtAdapter;
 import com.baihuodasha.bhds.adapter.SupermarketChoicenessAdapter;
@@ -222,7 +222,7 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
     switch (v.getId()) {
 
       case R.id.lin_seach:
-        Intent intent = new Intent(getActivity(), ShopSearchActivity.class);
+        Intent intent = new Intent(getActivity(), ActivityCommoditySearch.class);
         startActivity(intent);
         break;
       case R.id.fab:

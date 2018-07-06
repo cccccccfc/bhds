@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:2:1-66:12
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:2:1-74:12
 	package
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:4:5-35
 		INJECTED from C:\fei\bhds\app\src\main\AndroidManifest.xml
@@ -62,8 +62,7 @@ ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:17:3-86
 	android:name
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:17:20-84
 application
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:20:3-64:17
-MERGED from [bhds:utilslibrary:unspecified] C:\fei\bhds\utilslibrary\build\intermediates\bundles\default\AndroidManifest.xml:11:5-12:19
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:20:3-72:17
 MERGED from [bhds:mylibrary:unspecified] C:\fei\bhds\mylibrary\build\intermediates\bundles\default\AndroidManifest.xml:11:5-20
 MERGED from [bhds:wheelview:unspecified] C:\fei\bhds\wheelview\build\intermediates\bundles\default\AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support:design:25.1.1] C:\Users\zhang\.android\build-cache\010a735325088608fa76242c15c386da617c24fb\output\AndroidManifest.xml:25:5-20
@@ -131,10 +130,10 @@ activity#com.baihuodasha.bhds.activity.login.ActivityForget
 ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:41:5-62
 	android:name
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:41:15-60
-activity#com.baihuodasha.bhds.activity.index.ShopSearchActivity
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:42:5-66
+activity#com.baihuodasha.bhds.activity.index.ActivityCommoditySearch
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:42:5-71
 	android:name
-		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:42:15-64
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:42:15-69
 activity#com.baihuodasha.bhds.activity.myself.setting.ActivitySetting
 ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:43:5-44:16
 	android:name
@@ -175,21 +174,38 @@ activity#com.baihuodasha.bhds.activity.index.ActivityCommodityDetails
 ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:60:5-61:16
 	android:name
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:60:15-70
-activity#com.baihuodasha.bhds.activity.index.CommentDetailsActivity
+activity#com.baihuodasha.bhds.activity.index.ActivityCommentDetails
 ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:62:5-63:16
 	android:name
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:62:15-68
+activity#com.baihuodasha.bhds.activity.index.ActivityCommodityEvaluation
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:64:5-65:16
+	android:name
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:64:15-73
+activity#com.lidong.photopicker.PhotoPickerActivity
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:66:5-69:57
+	android:configChanges
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:69:9-55
+	android:theme
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:68:9-48
+	android:name
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:67:9-66
+activity#com.lidong.photopicker.PhotoPreviewActivity
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:70:5-71:50
+	android:theme
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:71:9-48
+	android:name
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:70:15-73
 uses-sdk
 INJECTED from C:\fei\bhds\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [bhds:utilslibrary:unspecified] C:\fei\bhds\utilslibrary\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
 MERGED from [bhds:mylibrary:unspecified] C:\fei\bhds\mylibrary\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
+MERGED from [com.foamtrace:photopicker:1.0] C:\fei\bhds\photopicker\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
 MERGED from [bhds:pickerview:unspecified] C:\fei\bhds\pickerview\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
 MERGED from [bhds:wheelview:unspecified] C:\fei\bhds\wheelview\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:25.1.1] C:\Users\zhang\.android\build-cache\010a735325088608fa76242c15c386da617c24fb\output\AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:transition:25.1.1] C:\Users\zhang\.android\build-cache\be8b4008a9717f27fe952deb11574ede2ea36202\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\zhang\.android\build-cache\bc51265347f34dbca426593291e8c6ed88500ee9\output\AndroidManifest.xml:5:5-7:41
 MERGED from [com.jakewharton:butterknife:8.4.0] C:\Users\zhang\.android\build-cache\1c0c35545541d07f3f8e945a7fd825636191761a\output\AndroidManifest.xml:5:5-43
-MERGED from [com.zhy:okhttputils:2.6.2] C:\Users\zhang\.android\build-cache\ea2dd7230ec1e8181d18ecd359d6298b0b9547e3\output\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.LuckSiege.PictureSelector:picture_library:v2.0.7] C:\Users\zhang\.android\build-cache\deb4fb50000acf0d343d809022d85269c91fabdd\output\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.LuckSiege.PictureSelector:ucrop:v2.0.7] C:\Users\zhang\.android\build-cache\62ceab76caf433ce4c92b6ca8e6832afc62419da\output\AndroidManifest.xml:8:5-10:41
 MERGED from [com.android.support:appcompat-v7:25.1.1] C:\Users\zhang\.android\build-cache\1f39df20e0e800a231cf05bb373bdbd526415f66\output\AndroidManifest.xml:21:5-23:78

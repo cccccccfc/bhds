@@ -3,7 +3,6 @@ package com.baihuodasha.bhds.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,24 +14,22 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
-import com.baihuodasha.bhds.activity.index.ActivityCommodityDetails;
+import com.baihuodasha.bhds.activity.index.ActivityCommodityEvaluation;
 import com.baihuodasha.bhds.activity.login.ActivityLogin;
 import com.baihuodasha.bhds.activity.myself.receiveraddress.ActivityReceiverAddress;
 import com.baihuodasha.bhds.activity.myself.setting.ActivityMyselfInformation;
 import com.baihuodasha.bhds.activity.myself.setting.ActivitySetting;
 import com.baihuodasha.bhds.base.BaseFragment;
+import com.baihuodasha.bhds.net.SharePrefHelper;
 import com.baihuodasha.bhds.utils.CommonUtils;
-import com.baihuodasha.bhds.utils.Constants;
 import com.baihuodasha.bhds.utils.HeadZoomScrollView;
-import com.baihuodasha.bhds.utils.SpTools;
+import com.baihuodasha.bhds.utils.StringUtil;
 import com.baihuodasha.bhds.view.SelectPicPopupWindow;
-import com.base.utilslibrary.internet.PersonalInternetRequestUtils;
 import com.bumptech.glide.Glide;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
-import java.io.ByteArrayOutputStream;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 import static android.app.Activity.RESULT_OK;
@@ -75,6 +72,7 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
   private static final int EDITINFOR = 102;//去编辑个人信息
 
   private SelectPicPopupWindow mPopupWindow;
+  SharePrefHelper mSh;
 
   @Override public View initView(LayoutInflater inflater) {
     if (view == null) {
@@ -91,10 +89,15 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
 
   @Override public void init() {
     super.init();
+    mSh = SharePrefHelper.getInstance();
+    if (mSh.getLoginSuccess()) {
+
+    }
   }
 
   @Override public void initdata() {
     super.initdata();
+
     CommonUtils.deleteBitmap("myicons.jpg");
     Bitmap cacheBitmap = CommonUtils.getCacheFile("myicons.jpg");
     if (cacheBitmap != null) {
@@ -145,15 +148,20 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
         getActivity().overridePendingTransition(0, 0);
         break;
       case R.id.tv_myself_name:
-      case R.id.tv_myself_signin:
         //判断是否登录，是则进入个人界面，否则进入登录界面
-        if (SpTools.getBoolean(CommonUtils.getContext(), Constants.isLogin, false)) {
-
-        } else {
-          Intent intent1 = new Intent(getActivity(), ActivityLogin.class);
-          startActivityForResult(intent1, LOGIN);
+        if (mSh.getLoginSuccess()) {
+          Intent intent1 = new Intent(getActivity(), ActivityMyselfInformation.class);
+          startActivityForResult(intent1, EDITINFOR);
           getActivity().overridePendingTransition(0, 0);
+        } else {
+          Intent intent2 = new Intent(getActivity(), ActivityLogin.class);
+          startActivity(intent2);
+          getActivity().overridePendingTransition(0, 0);
+          getActivity().finish();
         }
+        break;
+      case R.id.tv_myself_signin:
+
         break;
 
       case R.id.btn_pick_photo://本地
@@ -179,70 +187,70 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
             .previewImage(false)// 是否可预览图片
             .forResult(PictureConfig.CHOOSE_REQUEST);//结果回调onActivityResult code
         break;
-      case R.id.tv_myself_orderform_seeall  ://查看全部订单
+      case R.id.tv_myself_orderform_seeall://查看全部订单
         CommonUtils.toastMessage("查看全部订单");
         break;
-      case R.id.ll_myself_orderform_obligation ://待付款
+      case R.id.ll_myself_orderform_obligation://待付款
         CommonUtils.toastMessage("待付款");
         break;
-      case R.id.ll_myself_orderform_delivergoods ://待发货
+      case R.id.ll_myself_orderform_delivergoods://待发货
         CommonUtils.toastMessage("待发货");
         break;
-      case R.id.ll_myself_orderform_delivered ://已发货
+      case R.id.ll_myself_orderform_delivered://已发货
         CommonUtils.toastMessage("已发货");
         break;
-      case R.id.ll_myself_orderform_evaluate ://待评价
+      case R.id.ll_myself_orderform_evaluate://待评价
         CommonUtils.toastMessage("待评价");
         break;
-      case R.id.ll_myself_orderform_aftersale  ://售后
+      case R.id.ll_myself_orderform_aftersale://售后
         CommonUtils.toastMessage("售后");
         break;
-      case R.id.tv_myself_property_totalassets ://查看全部资产
+      case R.id.tv_myself_property_totalassets://查看全部资产
         CommonUtils.toastMessage("查看全部资产");
         break;
-      case R.id.ll_myself_property_redpacket ://红包
+      case R.id.ll_myself_property_redpacket://红包
         CommonUtils.toastMessage("红包");
         break;
-      case R.id.ll_myself_property_destoonfinancecharge ://充值
+      case R.id.ll_myself_property_destoonfinancecharge://充值
         CommonUtils.toastMessage("充值");
         break;
-      case R.id.ll_myself_property_recharge  ://e卡充值
+      case R.id.ll_myself_property_recharge://e卡充值
         CommonUtils.toastMessage("e卡充值");
         break;
-      case R.id.ll_myself_property_integral  ://我的积分
+      case R.id.ll_myself_property_integral://我的积分
         CommonUtils.toastMessage("我的积分");
         break;
-      case R.id.ll_myself_service_invitefriends  ://邀请好友
+      case R.id.ll_myself_service_invitefriends://邀请好友
         CommonUtils.toastMessage("邀请好友");
         break;
-      case R.id.ll_myself_service_evaluationlist  ://晒单评价
+      case R.id.ll_myself_service_evaluationlist://晒单评价
         CommonUtils.toastMessage("晒单评价");
         break;
-      case R.id.ll_myself_service_enshrine ://收藏
+      case R.id.ll_myself_service_enshrine://收藏
         CommonUtils.toastMessage("收藏");
         break;
-      case R.id.ll_myself_service_footprint  ://足迹
+      case R.id.ll_myself_service_footprint://足迹
         CommonUtils.toastMessage("足迹");
         break;
-      case R.id.ll_myself_service_location  ://地址
-        Intent intentadd =new Intent(getActivity() , ActivityReceiverAddress.class);
+      case R.id.ll_myself_service_location://地址
+        Intent intentadd = new Intent(getActivity(), ActivityReceiverAddress.class);
         startActivity(intentadd);
         CommonUtils.toastMessage("地址");
         break;
-      case R.id.ll_myself_service_customerservice  ://客服
+      case R.id.ll_myself_service_customerservice://客服ActivityCommodityEvaluation
+        Intent intentser = new Intent(getActivity(), ActivityCommodityEvaluation.class);
+        startActivity(intentser);
         CommonUtils.toastMessage("客服");
         break;
-      case R.id.ll_myself_service_help ://帮助
+      case R.id.ll_myself_service_help://帮助
 
         CommonUtils.toastMessage("帮助");
         break;
-      case R.id.ll_myself_service_step : //设置
-        Intent intentset =new Intent(getActivity() , ActivitySetting.class);
+      case R.id.ll_myself_service_step: //设置
+        Intent intentset = new Intent(getActivity(), ActivitySetting.class);
         startActivity(intentset);
-       // CommonUtils.toastMessage("设置");
+        // CommonUtils.toastMessage("设置");
         break;
-
-
     }
   }
 
@@ -274,30 +282,13 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
           if (zoomBitMap != null) {
             //先保持到本地，在传到服务器
             CommonUtils.saveBitmapFile(zoomBitMap, "myicon.jpg");//先保存文件到本地
-         //   Log.i("qaz", "onActivityResult2: " + zoomBitMap);
-            PersonalInternetRequestUtils.uplodePicture(getActivity(), "ub_id", "myicon.jpg",
-                new PersonalInternetRequestUtils.ForResultListener() {
-                  @Override public void onResponseMessage(String code) {
-                    if (TextUtils.isEmpty(code)) {
-                      return;
-                    } else {
-                      picID = code;
-                      ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                      zoomBitMap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-                      byte[] bytes = baos.toByteArray();
-                      Glide.with(getActivity())
-                          .load(bytes)
-                          .placeholder(R.drawable.defaultavatar)
-                          .bitmapTransform(new CropCircleTransformation(getActivity()))
-                          .into(ivMyselfHeadportrait);
-                    }
-                  }
-                });
+            //   Log.i("qaz", "onActivityResult2: " + zoomBitMap);
+
           } else {
             //本地图片显示
             Bitmap cacheBitmap = CommonUtils.getCacheFile("myicon.jpg");
             byte[] bytes = CommonUtils.getBitMapByteArray(cacheBitmap);
-           // Log.i("qaz", "onActivityResult1: " + bytes);
+            // Log.i("qaz", "onActivityResult1: " + bytes);
             Glide.with(getActivity())
                 .load(bytes)
                 .placeholder(R.drawable.defaultavatar)
@@ -310,8 +301,12 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
   }
 
   @Override public void onResume() {
-
     super.onResume();
+    //判断是否是登录状态
+    if (StringUtil.isNullOrEmpty(mSh.getUserId()) || StringUtil.isNullOrEmpty(mSh.getUserToken())) {
+      name.setText("注册/登陆");
+    } else {
+      name.setText("百货大厦");
+    }
   }
-
 }

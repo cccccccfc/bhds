@@ -5,26 +5,17 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-
-import com.zhy.http.okhttp.OkHttpUtils;
-
-import java.io.File;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-
-import okhttp3.Cache;
-import okhttp3.OkHttpClient;
 
 /**
  * @author Admin
@@ -88,15 +79,7 @@ public class BaseApplication extends Application {
 
         String path = mContext.getCacheDir().getAbsolutePath();
         int cacheSize = 10 * 1024 * 1024; // 10 MiB
-        OkHttpClient client = new OkHttpClient.Builder()
-                .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
-                .readTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
-                .retryOnConnectionFailure(true)
-                .cache(new Cache(new File(path, "cache"), cacheSize))
-                .sslSocketFactory(createSSLSocketFactory())
-                .hostnameVerifier(new TrustAllHostnameVerifier())
-                .build();
-        OkHttpUtils.initClient(client);
+
 
         super.onCreate();
     }

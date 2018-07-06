@@ -1,6 +1,5 @@
 package com.baihuodasha.bhds.activity.login;
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -12,8 +11,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
 import com.baihuodasha.bhds.base.BaseActivity;
-import com.baihuodasha.bhds.utils.CommonUtils;
-import com.base.utilslibrary.internet.PersonalInternetRequestUtils;
 import java.text.ParseException;
 
 public class ActivityForget extends BaseActivity implements View.OnClickListener{
@@ -85,34 +82,14 @@ public class ActivityForget extends BaseActivity implements View.OnClickListener
 
     public void getCode() {
         phoneNumber = phone.getText().toString();
-        PersonalInternetRequestUtils.verificationCode(this,phoneNumber, mView,
-                new PersonalInternetRequestUtils.ForResultListener() {
-            @Override
-            public void onResponseMessage(String code) {
-                mVc_code = code;
-            }
-        });
+
     }
     private void successForget() {
         phoneNumber = phone.getText().toString();
         String mPassword = passport.getText().toString();
         String nextPassword = nextPassport.getText().toString();
         String mCode = yzm.getText().toString();
-        PersonalInternetRequestUtils.forgetPassword(this,phoneNumber, mVc_code, mCode, mPassword,
-            nextPassword,
-                mView, passport,nextPassport,new PersonalInternetRequestUtils.ForResultListener() {
-            @Override
-            public void onResponseMessage(String code) {
-                if(code.equals("成功")){
-                    CommonUtils.toastMessage("修改密码成功");
-                    Intent intent = new Intent(CommonUtils.getContext(),ActivityLogin.class);
-                    startActivity(intent);
-                    overridePendingTransition(0,0);
-                    finishAll();
-                    finish();
-                }
-            }
-        });
+
     }
 
 }

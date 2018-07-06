@@ -16,7 +16,6 @@ import com.baihuodasha.bhds.R;
 import com.baihuodasha.bhds.base.BaseActivity;
 import com.baihuodasha.bhds.utils.CommonUtils;
 import com.baihuodasha.bhds.view.LoadingProgressLayout;
-import com.base.utilslibrary.internet.PersonalInternetRequestUtils;
 import java.text.ParseException;
 
 public class ActivityRegister extends BaseActivity implements View.OnClickListener {
@@ -138,15 +137,7 @@ public class ActivityRegister extends BaseActivity implements View.OnClickListen
     String mPassword = passport.getText().toString();
     phoneNumber = phone.getText().toString();
 
-    PersonalInternetRequestUtils.register(this, phoneNumber, mVc_code, mPassword, mCode, mView,
-        new PersonalInternetRequestUtils.ForResultListener() {
-          @Override public void onResponseMessage(String code) {
-            if (code.equals("成功")) {
-              CommonUtils.toastMessage("注册成功");
-              finish();
-            }
-          }
-        });
+
   }
 
   private void finishAll() {
@@ -157,11 +148,6 @@ public class ActivityRegister extends BaseActivity implements View.OnClickListen
    */
   public void getCode() {
     phoneNumber = phone.getText().toString();
-    PersonalInternetRequestUtils.verificationCode(this, phoneNumber, mView,
-        new PersonalInternetRequestUtils.ForResultListener() {
-          @Override public void onResponseMessage(String code) {
-            mVc_code = code;
-          }
-        });
+
   }
 }

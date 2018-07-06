@@ -52,6 +52,7 @@ public class SupermarkeGridtAdapter
         }
       }
     });
+
   }
 
   @Override public int getItemCount() {

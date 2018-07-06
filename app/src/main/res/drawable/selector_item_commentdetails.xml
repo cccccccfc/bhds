@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/comment_details_item_unchecked"
+        android:state_checked="false" />
+    <item android:drawable="@drawable/comment_details_item_checked"
+        android:state_checked="true" />
+    <!--<item android:drawable="@drawable/seachitem_background_unchecked"-->
+        <!--android:state_pressed="false" />-->
+    <!--<item android:drawable="@drawable/seachitem_background_checked"-->
+        <!--android:state_pressed="true" />-->
+    <!--<item android:drawable="@drawable/seachitem_background_unchecked"-->
+        <!--android:state_selected="false" />-->
+    <!--<item android:drawable="@drawable/seachitem_background_checked"-->
+        <!--android:state_selected="true" />-->
+    <!--<item android:drawable="@drawable/seachitem_background_unchecked"-->
+        <!--android:state_focused="false" />-->
+    <!--<item android:drawable="@drawable/seachitem_background_checked"-->
+        <!--android:state_focused="true" />-->
+</selector>

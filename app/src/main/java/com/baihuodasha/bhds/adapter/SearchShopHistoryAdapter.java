@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baihuodasha.bhds.R;
-import com.baihuodasha.bhds.activity.index.ShopSearchActivity;
+import com.baihuodasha.bhds.activity.index.ActivityCommoditySearch;
 import com.baihuodasha.bhds.databases.searchshopdp.HistoryShopEntity;
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class SearchShopHistoryAdapter extends BaseAdapter{
     List<HistoryShopEntity> list;
     private Context mContext;
 
-    public SearchShopHistoryAdapter(ShopSearchActivity context,
+    public SearchShopHistoryAdapter( ActivityCommoditySearch context,
         List<HistoryShopEntity> list) {
         this.mContext=context;
         this.list=list;

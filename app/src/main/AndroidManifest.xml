@@ -39,7 +39,7 @@
     <activity android:name=".activity.login.ActivityLogin"/>
     <activity android:name=".activity.login.ActivityRegister"/>
     <activity android:name=".activity.login.ActivityForget"/>
-    <activity android:name=".activity.index.ShopSearchActivity"/>
+    <activity android:name=".activity.index.ActivityCommoditySearch"/>
     <activity android:name=".activity.myself.setting.ActivitySetting">
     </activity>
     <activity android:name=".activity.myself.setting.ActivityCellphonebinding">
@@ -59,8 +59,16 @@
     <activity android:name=".utils.statusbar.StatusBarActivity"/>
     <activity android:name=".activity.index.ActivityCommodityDetails">
     </activity>
-    <activity android:name=".activity.index.CommentDetailsActivity">
+    <activity android:name=".activity.index.ActivityCommentDetails">
     </activity>
+    <activity android:name=".activity.index.ActivityCommodityEvaluation">
+    </activity>
+    <activity
+        android:name="com.lidong.photopicker.PhotoPickerActivity"
+        android:theme="@style/PhotoPickerTheme"
+        android:configChanges="orientation|screenSize"/>
+    <activity android:name="com.lidong.photopicker.PhotoPreviewActivity"
+        android:theme="@style/PhotoPickerTheme"/>
   </application>
 
 </manifest>

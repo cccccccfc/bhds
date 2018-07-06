@@ -5,21 +5,125 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.baihuodasha.bhds.activity.index.CommentDetailsActivity"
+    android:background="@color/white"
     android:orientation="vertical"
+    tools:context="com.baihuodasha.bhds.activity.index.ActivityCommentDetails"
     >
   <include layout="@layout/activity_base_title"/>
-  <LinearLayout
+  <com.baihuodasha.bhds.utils.ScrollInterceptScrollView
+      android:id="@+id/sl_comment_details_info"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop="@dimen/dm032"
-      android:layout_marginLeft="@dimen/dm032"
+      android:scrollbars="none"
+      android:visibility="visible"
       >
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="评分"
-        />
+        android:orientation="vertical"
+        >
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="@dimen/dm032"
+          android:layout_marginTop="@dimen/dm032"
+          android:orientation="horizontal"
+          >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评分："
+            android:textSize="@dimen/dm024"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dm016"
+            >
+          <ImageView
+              android:id="@+id/iv_comment_details_xing1"
+              android:layout_width="@dimen/dm024"
+              android:layout_height="@dimen/dm024"
+              android:src="@mipmap/collection_un"
+              />
+          <ImageView
+              android:id="@+id/iv_comment_details_xing2"
+              android:layout_width="@dimen/dm024"
+              android:layout_height="@dimen/dm024"
+              android:layout_marginLeft="@dimen/dm010"
+              android:src="@mipmap/collection_un"
+              />
+          <ImageView
+              android:id="@+id/iv_comment_details_xing3"
+              android:layout_width="@dimen/dm024"
+              android:layout_height="@dimen/dm024"
+              android:layout_marginLeft="@dimen/dm010"
+              android:src="@mipmap/collection_un"
+              />
+          <ImageView
+              android:id="@+id/iv_comment_details_xing4"
+              android:layout_width="@dimen/dm024"
+              android:layout_height="@dimen/dm024"
+              android:layout_marginLeft="@dimen/dm010"
+              android:src="@mipmap/collection_un"
+              />
+          <ImageView
+              android:id="@+id/iv_comment_details_xing5"
+              android:layout_width="@dimen/dm024"
+              android:layout_height="@dimen/dm024"
+              android:layout_marginLeft="@dimen/dm010"
+              android:background="@mipmap/collection_un"
+              />
+        </LinearLayout>
 
-  </LinearLayout>
+        <TextView
+            android:id="@+id/tv_comment_details_eputation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dm024"
+            android:text="98%好评"
+            android:textSize="@dimen/dm024"
+            />
+
+      </LinearLayout>
+      <com.zhy.view.flowlayout.TagFlowLayout
+          android:id="@+id/tf_comment_details_item"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="@dimen/dm016"
+          android:layout_marginRight="@dimen/dm016"
+          android:layout_marginTop="@dimen/dm024"
+          android:background="#ffffff"
+          >
+      </com.zhy.view.flowlayout.TagFlowLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/dm032"
+          >
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rc_comment_details_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ></android.support.v7.widget.RecyclerView>
+      </LinearLayout>
+
+    </LinearLayout>
+
+
+  </com.baihuodasha.bhds.utils.ScrollInterceptScrollView>
+  <TextView
+      android:id="@+id/tf_comment_details_hint"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:drawableTop="@mipmap/comment_details_noting"
+      android:gravity="center"
+      android:visibility="gone"
+      android:layout_marginTop="@dimen/dm240"
+      android:drawablePadding="@dimen/dm024"
+      android:text="还没有评论哦，快来评论吧！"
+      android:textColor="@color/itemback"
+      android:textSize="@dimen/dm030"
+      />
 </LinearLayout>

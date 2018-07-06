@@ -1,105 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:weightSum="1"
+    >
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/dm001"
+      android:background="@color/Address_color"
+      />
   <LinearLayout
+      android:layout_marginTop="@dimen/dm032"
       android:id="@+id/rl_myself_headportrait"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-     android:layout_marginLeft="@dimen/dm030"
+      android:layout_marginLeft="@dimen/dm030"
       >
     <com.baihuodasha.bhds.utils.XCRoundImageView
-        android:id="@+id/iv_myself_headportrait"
+        android:id="@+id/iv_comment_details_headportrait"
         android:layout_width="@dimen/dm080"
         android:layout_height="@dimen/dm080"
         android:layout_gravity="center"
         android:src="@mipmap/bhds_recommend2"
         />
     <TextView
+        android:id="@+id/tv_comment_details_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="名字"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="@dimen/dm030"
+        android:text="名字"
         android:textSize="@dimen/dm030"
         />
     <LinearLayout
+        android:id="@+id/ll_comment_details_xing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="@dimen/dm032"
+        android:layout_marginLeft="@dimen/dm022"
         >
       <ImageView
+          android:id="@+id/iv_comment_details_xing1"
           android:layout_width="@dimen/dm024"
           android:layout_height="@dimen/dm024"
           android:src="@mipmap/collection_un"
           />
       <ImageView
+          android:id="@+id/iv_comment_details_xing2"
           android:layout_width="@dimen/dm024"
           android:layout_height="@dimen/dm024"
           android:src="@mipmap/collection_un"
+          android:layout_marginLeft="@dimen/dm010"
           />
       <ImageView
+          android:id="@+id/iv_comment_details_xing3"
           android:layout_width="@dimen/dm024"
           android:layout_height="@dimen/dm024"
           android:src="@mipmap/collection_un"
+          android:layout_marginLeft="@dimen/dm010"
           />
       <ImageView
+          android:id="@+id/iv_comment_details_xing4"
           android:layout_width="@dimen/dm024"
           android:layout_height="@dimen/dm024"
           android:src="@mipmap/collection_un"
+          android:layout_marginLeft="@dimen/dm010"
           />
       <ImageView
+          android:id="@+id/iv_comment_details_xing5"
           android:layout_width="@dimen/dm024"
           android:layout_height="@dimen/dm024"
           android:src="@mipmap/collection_un"
+          android:layout_marginLeft="@dimen/dm010"
           />
     </LinearLayout>
   </LinearLayout>
   <TextView
+      android:id="@+id/txcomment_details_time"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="@dimen/dm140"
+      android:text="2018.7.5 15：33：22"
+      android:textColor="@color/colorText"
+      android:textSize="@dimen/dm022"
+
+
+      />
+  <TextView
+      android:id="@+id/tv_comment_details_info"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginLeft="@dimen/dm140"
-      android:layout_marginTop="@dimen/dm010"
-      android:text="ajhfajkfjksdfmsdfdbfmsbfmsnbfmsdb"
       android:layout_marginRight="@dimen/dm030"
-
+      android:text="222222222222222222"
+      android:maxEms="250"
+      android:singleLine="true"
+      android:ellipsize="end"
+      android:textColor="@color/blackText"
+      android:textSize="@dimen/dm026"
       />
   <LinearLayout
+      android:id="@+id/ll3"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/dm128"
+      android:layout_height="wrap_content"
       android:layout_marginLeft="@dimen/dm140"
-      android:layout_marginTop="@dimen/dm020"
-      android:layout_marginRight="@dimen/dm020"
+      android:layout_marginRight="@dimen/dm030"
       >
-    <ImageView
-        android:layout_width="@dimen/dm128"
-        android:layout_height="@dimen/dm128"
-        android:src="@mipmap/img_bhds_special1"
-        />
-    <ImageView
-        android:layout_marginLeft="@dimen/dm010"
-        android:layout_width="@dimen/dm128"
-        android:layout_height="@dimen/dm128"
-        android:src="@mipmap/img_bhds_special1"
-        />
-    <ImageView
-        android:layout_marginLeft="@dimen/dm010"
-        android:layout_width="@dimen/dm128"
-        android:layout_height="@dimen/dm128"
-        android:src="@mipmap/img_bhds_special1"
-        android:visibility="visible"
-        />
-    <ImageView
-        android:layout_marginLeft="@dimen/dm010"
-        android:layout_width="@dimen/dm070"
-        android:layout_height="@dimen/dm128"
-        android:background="#f2f2f2"
-        android:paddingTop="@dimen/dm053"
-        android:paddingBottom="@dimen/dm053"
-        android:src="@mipmap/more"
-        />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ry_comment_details_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ></android.support.v7.widget.RecyclerView>
   </LinearLayout>
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dm032"
+      android:background="@drawable/text_backgroud"
+      android:text="测试测试试测试 "
+      android:textColor="@color/colorText2"
+      android:textSize="@dimen/dm026"
+      />
 </LinearLayout>

@@ -3,6 +3,10 @@ apply plugin: 'android-apt'
 android {
   compileSdkVersion 25
   buildToolsVersion "25.0.0"
+
+  packagingOptions {
+    exclude 'META-INF/rxjava.properties'
+  }
   defaultConfig {
     applicationId "com.baihuodasha.bhds"
     minSdkVersion 19
@@ -35,6 +39,7 @@ configurations.all {
   }
 }
 
+
 dependencies {
   compile fileTree(include: ['*.jar'], dir: 'libs')
   androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -49,8 +54,9 @@ dependencies {
   compile files('libs/umeng_social_shareboard.jar')
   compile files('libs/umeng_social_shareview.jar')
   compile files('libs/umeng_social_tool.jar')
-  compile project(':utilslibrary')
+
   compile project(':mylibrary')
+  compile project(':photopicker')
   //compile 'me.imid.swipebacklayout.lib:library:1.1.0'
   compile files('libs/commons-lang.jar')
   compile project(path: ':pickerview')
@@ -58,7 +64,7 @@ dependencies {
   compile 'com.android.support:design:25.1.1'
   compile 'com.android.support.constraint:constraint-layout:1.0.2'
   compile 'com.jakewharton:butterknife:8.4.0'
-  compile 'com.zhy:okhttputils:2.6.2'
+
   compile 'com.google.code.gson:gson:2.8.0'
   compile 'com.github.LuckSiege.PictureSelector:picture_library:v2.0.7'
   compile 'jp.wasabeef:glide-transformations:2.0.0'
@@ -69,4 +75,11 @@ dependencies {
   compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
   testCompile 'junit:junit:4.12'
   apt 'com.jakewharton:butterknife-compiler:8.4.0'
+
+  compile 'com.squareup.retrofit2:retrofit:2.0.1'
+  compile 'com.squareup.retrofit2:converter-scalars:2.0.1'
+  compile 'com.squareup.retrofit2:converter-gson:2.0.1'
+  compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
+  compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
+ // compile 'io.reactivex:rxandroid:1.1.0'
 }

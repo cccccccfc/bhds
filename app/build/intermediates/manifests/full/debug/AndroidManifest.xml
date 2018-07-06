@@ -46,7 +46,7 @@
         <activity android:name="com.baihuodasha.bhds.activity.login.ActivityLogin" />
         <activity android:name="com.baihuodasha.bhds.activity.login.ActivityRegister" />
         <activity android:name="com.baihuodasha.bhds.activity.login.ActivityForget" />
-        <activity android:name="com.baihuodasha.bhds.activity.index.ShopSearchActivity" />
+        <activity android:name="com.baihuodasha.bhds.activity.index.ActivityCommoditySearch" />
         <activity android:name="com.baihuodasha.bhds.activity.myself.setting.ActivitySetting" >
         </activity>
         <activity android:name="com.baihuodasha.bhds.activity.myself.setting.ActivityCellphonebinding" >
@@ -66,8 +66,17 @@
         <activity android:name="com.baihuodasha.bhds.utils.statusbar.StatusBarActivity" />
         <activity android:name="com.baihuodasha.bhds.activity.index.ActivityCommodityDetails" >
         </activity>
-        <activity android:name="com.baihuodasha.bhds.activity.index.CommentDetailsActivity" >
+        <activity android:name="com.baihuodasha.bhds.activity.index.ActivityCommentDetails" >
         </activity>
+        <activity android:name="com.baihuodasha.bhds.activity.index.ActivityCommodityEvaluation" >
+        </activity>
+        <activity
+            android:name="com.lidong.photopicker.PhotoPickerActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/PhotoPickerTheme" />
+        <activity
+            android:name="com.lidong.photopicker.PhotoPreviewActivity"
+            android:theme="@style/PhotoPickerTheme" />
         <activity
             android:name="com.luck.picture.lib.PictureSelectorActivity"
             android:screenOrientation="portrait"

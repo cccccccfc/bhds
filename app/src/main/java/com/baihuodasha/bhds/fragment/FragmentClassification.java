@@ -18,7 +18,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
-import com.baihuodasha.bhds.activity.index.ShopSearchActivity;
+import com.baihuodasha.bhds.activity.index.ActivityCommoditySearch;
 import com.baihuodasha.bhds.adapter.ClassificationAdapter;
 import com.baihuodasha.bhds.base.BaseFragment;
 import com.baihuodasha.bhds.base.Config;
@@ -187,7 +187,7 @@ public class FragmentClassification extends BaseFragment implements View.OnClick
     switch (v.getId()) {
 
       case  R.id.lin_seach:
-        Intent intent = new Intent(getActivity(), ShopSearchActivity.class);
+        Intent intent = new Intent(getActivity(), ActivityCommoditySearch.class);
         startActivity(intent);
         break;
     }

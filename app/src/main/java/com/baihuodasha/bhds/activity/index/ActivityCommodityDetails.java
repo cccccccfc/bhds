@@ -1,5 +1,6 @@
 package com.baihuodasha.bhds.activity.index;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -32,6 +33,8 @@ import com.youth.banner.Banner;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.baihuodasha.bhds.R.id.tx_commodity_details_evaluate_info;
 
 public class ActivityCommodityDetails extends BaseActivity implements SpecificationPopupWindow.TGClickListener {
 
@@ -84,7 +87,7 @@ public class ActivityCommodityDetails extends BaseActivity implements Specificat
   @BindView(R.id.iv_commodity_details_evaluate_xing4) ImageView ivCommodityDetailsEvaluateXing4;
   @BindView(R.id.iv_commodity_details_evaluate_xing5) ImageView ivCommodityDetailsEvaluateXing5;
   @BindView(R.id.rl_myself_headportrait) LinearLayout rlMyselfHeadportrait; // 评论头像
-  @BindView(R.id.tx_commodity_details_evaluate_info) TextView txCommodityDetailsEvaluateInfo;  //评论详情
+  @BindView(tx_commodity_details_evaluate_info) TextView txCommodityDetailsEvaluateInfo;  //评论详情
   @BindView(R.id.ll_commodity_details_evaluate_img) LinearLayout llCommodityDetailsEvaluateImg; //评论图片
   private SupermarketChoicenessAdapter choicenessAdapter;
   private int y;
@@ -191,8 +194,12 @@ public class ActivityCommodityDetails extends BaseActivity implements Specificat
         CommonUtils.toastMessage("选择商品规格");
         showCategory(1);
         break;
+      case R.id.tx_commodity_details_evaluate_info:
+      case R.id.iv_commodity_details_evaluate_more:
       case R.id.tv_commodity_details_evaluate_seeall:
         CommonUtils.toastMessage("查看更多评价");
+        Intent intent =new Intent(this ,ActivityCommentDetails.class);
+        startActivity(intent);
         break;
       case R.id.tv_commodity_details_menus_service:
         CommonUtils.toastMessage("客服");

@@ -14,7 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
-import com.baihuodasha.bhds.activity.index.ShopSearchActivity;
+import com.baihuodasha.bhds.activity.index.ActivityCommoditySearch;
 import com.baihuodasha.bhds.base.BaseFragment;
 import com.baihuodasha.bhds.utils.tablayout.TabLayout;
 import java.util.ArrayList;
@@ -78,7 +78,7 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
   private void initTab() {
     linSeach.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-        Intent intent = new Intent(getActivity(), ShopSearchActivity.class);
+        Intent intent = new Intent(getActivity(), ActivityCommoditySearch.class);
         startActivity(intent);
       }
     });

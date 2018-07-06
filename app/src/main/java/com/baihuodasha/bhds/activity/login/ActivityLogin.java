@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -14,9 +15,17 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
+import com.baihuodasha.bhds.activity.MainActivityTabHost;
 import com.baihuodasha.bhds.base.BaseActivity;
+import com.baihuodasha.bhds.bean.MainLogModel;
+import com.baihuodasha.bhds.net.SdjNetWorkManager;
+import com.baihuodasha.bhds.net.SharePrefHelper;
 import com.baihuodasha.bhds.utils.CommonUtils;
+import com.baihuodasha.bhds.utils.StringUtil;
 import java.text.ParseException;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ActivityLogin extends BaseActivity {
 
@@ -53,6 +62,7 @@ public class ActivityLogin extends BaseActivity {
   }
 
   @Override public void initView() {
+    mSh = SharePrefHelper.getInstance();
     ivBaseBack.setOnClickListener(this);
     eye.setOnClickListener(this);
     login.setOnClickListener(this);
@@ -88,7 +98,17 @@ public class ActivityLogin extends BaseActivity {
         passport.setSelection(passport.getText().length());
         break;
       case R.id.rl_login_login://登录
-        //                logIn();
+        String name = phone.getText().toString();
+        String pass = passport.getText().toString();
+        if (StringUtil.isNullOrEmpty(name)) {
+          showToast("请输入帐号");
+          return;
+        }
+        if (StringUtil.isNullOrEmpty(pass)) {
+          showToast("请输入账户密码");
+          return;
+        }
+        getLoginInfo(name, pass);
         break;
       case R.id.tv_login_register://跳转注册
         intent = new Intent(this, ActivityRegister.class);
@@ -118,5 +138,44 @@ public class ActivityLogin extends BaseActivity {
   @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     //  UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+  }
+
+  private SharePrefHelper mSh;
+
+  /**
+   * 联网方式
+   */
+  public void getLoginInfo(String name, String pwd) {
+
+    SdjNetWorkManager.getLogInfo(name, pwd, new Callback() {
+      @Override public void onResponse(Call call, Response response) {
+        MainLogModel msg = (MainLogModel) response.body();
+        MainLogModel.LoginDataModel bean = (MainLogModel.LoginDataModel) msg.getData();
+        Log.i("qaz", "onResponse: " + bean.getUserid());
+        Log.i("qaz", "onResponse: " + bean.getData());
+        Log.i("qaz", "onResponse: " + msg.getCode());
+        if (bean != null) {
+          mSh.setUserId(bean.getUserid() + "");
+          mSh.setUserToken(bean.getData() + "");
+          if (msg.getMsg().equals("登录成功")) {
+            mSh.setLoginSuccess(true);
+            mSh.setFirstStartInto(1);
+            Intent i = new Intent(ActivityLogin.this, MainActivityTabHost.class);
+            startActivity(i);
+            finish();
+          } else {
+            CommonUtils.toastMessage(msg.getMsg());
+            mSh.setLoginSuccess(false);
+            mSh.setFirstStartInto(0);
+          }
+        } else {
+          CommonUtils.toastMessage(msg.getMsg());
+        }
+      }
+
+      @Override public void onFailure(Call call, Throwable t) {
+        mSh.setLoginSuccess(false);
+      }
+    });
   }
 }
