@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:2:1-74:12
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:2:1-86:12
 	package
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:4:5-35
 		INJECTED from C:\fei\bhds\app\src\main\AndroidManifest.xml
@@ -62,9 +62,11 @@ ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:17:3-86
 	android:name
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:17:20-84
 application
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:20:3-72:17
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:20:3-84:17
 MERGED from [bhds:mylibrary:unspecified] C:\fei\bhds\mylibrary\build\intermediates\bundles\default\AndroidManifest.xml:11:5-20
 MERGED from [bhds:wheelview:unspecified] C:\fei\bhds\wheelview\build\intermediates\bundles\default\AndroidManifest.xml:11:5-15:19
+MERGED from [com.scwang.smartrefresh:SmartRefreshLayout:1.0.3] C:\Users\zhang\.android\build-cache\4b5c1563716aa5edb89d01ef3e9437bf8c5b221c\output\AndroidManifest.xml:11:5-15:19
+MERGED from [com.scwang.smartrefresh:SmartRefreshHeader:1.0.3] C:\Users\zhang\.android\build-cache\eff0e5771f2338741d2901002baca30dd35a9f73\output\AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support:design:25.1.1] C:\Users\zhang\.android\build-cache\010a735325088608fa76242c15c386da617c24fb\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:transition:25.1.1] C:\Users\zhang\.android\build-cache\be8b4008a9717f27fe952deb11574ede2ea36202\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\zhang\.android\build-cache\bc51265347f34dbca426593291e8c6ed88500ee9\output\AndroidManifest.xml:9:5-20
@@ -78,8 +80,6 @@ MERGED from [com.android.support:support-media-compat:25.1.1] C:\Users\zhang\.an
 MERGED from [com.android.support:support-core-utils:25.1.1] C:\Users\zhang\.android\build-cache\96d94a907424637555f1538aa4a9008860f3ca08\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-core-ui:25.1.1] C:\Users\zhang\.android\build-cache\3dc8d3e9bf838324b6d7e6d020c509f984f4fbfb\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:25.1.1] C:\Users\zhang\.android\build-cache\b2cb0d233a48455094efb6ace0be4795e1da1881\output\AndroidManifest.xml:25:5-20
-MERGED from [com.scwang.smartrefresh:SmartRefreshLayout:1.0.3] C:\Users\zhang\.android\build-cache\4b5c1563716aa5edb89d01ef3e9437bf8c5b221c\output\AndroidManifest.xml:11:5-15:19
-MERGED from [com.scwang.smartrefresh:SmartRefreshHeader:1.0.3] C:\Users\zhang\.android\build-cache\eff0e5771f2338741d2901002baca30dd35a9f73\output\AndroidManifest.xml:11:5-15:19
 	android:label
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:24:7-39
 	android:supportsRtl
@@ -183,25 +183,49 @@ ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:64:5-65:16
 	android:name
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:64:15-73
 activity#com.lidong.photopicker.PhotoPickerActivity
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:66:5-69:57
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:66:5-69:50
 	android:configChanges
-		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:69:9-55
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:68:9-55
 	android:theme
-		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:68:9-48
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:69:9-48
 	android:name
 		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:67:9-66
 activity#com.lidong.photopicker.PhotoPreviewActivity
-ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:70:5-71:50
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:70:5-72:50
 	android:theme
-		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:71:9-48
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:72:9-48
 	android:name
-		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:70:15-73
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:71:9-67
+activity#com.baihuodasha.bhds.utils.WebViewActivity
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:73:5-75:47
+	android:screenOrientation
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:75:9-45
+	android:name
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:74:9-46
+activity#com.baihuodasha.bhds.activity.order.ActivityOrderConfirmation
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:76:5-77:16
+	android:name
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:76:15-71
+activity#com.baihuodasha.bhds.activity.order.ActivityModePayment
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:78:5-79:16
+	android:name
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:78:15-65
+activity#com.baihuodasha.bhds.activity.order.ActivityPaymenResult
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:80:5-81:16
+	android:name
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:80:15-66
+activity#com.baihuodasha.bhds.activity.myself.ActivityMyRedPackets
+ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:82:5-83:16
+	android:name
+		ADDED from C:\fei\bhds\app\src\main\AndroidManifest.xml:82:15-67
 uses-sdk
 INJECTED from C:\fei\bhds\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [bhds:mylibrary:unspecified] C:\fei\bhds\mylibrary\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
 MERGED from [com.foamtrace:photopicker:1.0] C:\fei\bhds\photopicker\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
 MERGED from [bhds:pickerview:unspecified] C:\fei\bhds\pickerview\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
 MERGED from [bhds:wheelview:unspecified] C:\fei\bhds\wheelview\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
+MERGED from [com.scwang.smartrefresh:SmartRefreshLayout:1.0.3] C:\Users\zhang\.android\build-cache\4b5c1563716aa5edb89d01ef3e9437bf8c5b221c\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.scwang.smartrefresh:SmartRefreshHeader:1.0.3] C:\Users\zhang\.android\build-cache\eff0e5771f2338741d2901002baca30dd35a9f73\output\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:25.1.1] C:\Users\zhang\.android\build-cache\010a735325088608fa76242c15c386da617c24fb\output\AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:transition:25.1.1] C:\Users\zhang\.android\build-cache\be8b4008a9717f27fe952deb11574ede2ea36202\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\zhang\.android\build-cache\bc51265347f34dbca426593291e8c6ed88500ee9\output\AndroidManifest.xml:5:5-7:41
@@ -223,8 +247,6 @@ MERGED from [com.android.support:recyclerview-v7:25.1.1] C:\Users\zhang\.android
 MERGED from [com.android.support:support-core-ui:25.1.1] C:\Users\zhang\.android\build-cache\3dc8d3e9bf838324b6d7e6d020c509f984f4fbfb\output\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-compat:25.1.1] C:\Users\zhang\.android\build-cache\b2cb0d233a48455094efb6ace0be4795e1da1881\output\AndroidManifest.xml:21:5-23:58
 MERGED from [com.hyman:flowlayout-lib:1.1.2] C:\Users\zhang\.android\build-cache\1645d74f02c26646403f862e8257281791b19b01\output\AndroidManifest.xml:8:5-10:41
-MERGED from [com.scwang.smartrefresh:SmartRefreshLayout:1.0.3] C:\Users\zhang\.android\build-cache\4b5c1563716aa5edb89d01ef3e9437bf8c5b221c\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.scwang.smartrefresh:SmartRefreshHeader:1.0.3] C:\Users\zhang\.android\build-cache\eff0e5771f2338741d2901002baca30dd35a9f73\output\AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:25.1.1] C:\Users\zhang\.android\build-cache\010a735325088608fa76242c15c386da617c24fb\output\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion

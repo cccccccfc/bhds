@@ -78,6 +78,17 @@
             android:name="com.lidong.photopicker.PhotoPreviewActivity"
             android:theme="@style/PhotoPickerTheme" />
         <activity
+            android:name="com.baihuodasha.bhds.utils.WebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.baihuodasha.bhds.activity.order.ActivityOrderConfirmation" >
+        </activity>
+        <activity android:name="com.baihuodasha.bhds.activity.order.ActivityModePayment" >
+        </activity>
+        <activity android:name="com.baihuodasha.bhds.activity.order.ActivityPaymenResult" >
+        </activity>
+        <activity android:name="com.baihuodasha.bhds.activity.myself.ActivityMyRedPackets" >
+        </activity>
+        <activity
             android:name="com.luck.picture.lib.PictureSelectorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/activity.Theme"

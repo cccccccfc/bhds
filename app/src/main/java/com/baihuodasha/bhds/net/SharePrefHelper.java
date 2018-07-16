@@ -113,7 +113,7 @@ public class SharePrefHelper {
         return sharedPreferences.getString("addr_phone", "");
     }
     /**
-     * 地址炫男炫女
+     * 地址男女
      */
     public void setChoiceSex(int num) {
         sharedPreferences.edit().putInt("addr_sex", num).commit();
@@ -148,6 +148,18 @@ public class SharePrefHelper {
         return sharedPreferences.getString("user_id", "");
     }
 
+    /**
+     * 用户账号
+     *
+     * @param id
+     */
+    public void setUserName(String id) {
+        sharedPreferences.edit().putString("user_name", id).commit();
+    }
+
+    public String getUserName() {
+        return sharedPreferences.getString("user_name", "");
+    }
     /**
      * 用户机关推送id
      *

@@ -65,10 +65,22 @@
     </activity>
     <activity
         android:name="com.lidong.photopicker.PhotoPickerActivity"
-        android:theme="@style/PhotoPickerTheme"
-        android:configChanges="orientation|screenSize"/>
-    <activity android:name="com.lidong.photopicker.PhotoPreviewActivity"
+        android:configChanges="orientation|screenSize"
         android:theme="@style/PhotoPickerTheme"/>
+    <activity
+        android:name="com.lidong.photopicker.PhotoPreviewActivity"
+        android:theme="@style/PhotoPickerTheme"/>
+    <activity
+        android:name=".utils.WebViewActivity"
+        android:screenOrientation="portrait"/>
+    <activity android:name=".activity.order.ActivityOrderConfirmation">
+    </activity>
+    <activity android:name=".activity.order.ActivityModePayment">
+    </activity>
+    <activity android:name=".activity.order.ActivityPaymenResult">
+    </activity>
+    <activity android:name=".activity.myself.ActivityMyRedPackets">
+    </activity>
   </application>
 
 </manifest>

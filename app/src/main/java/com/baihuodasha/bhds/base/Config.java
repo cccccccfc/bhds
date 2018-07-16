@@ -102,4 +102,9 @@ public final class Config {
         "http://test2.baihuodasha.com//images/201805/1527145318831036967.jpg",
         "http://test2.baihuodasha.com//images/201805/1527145330758184757.jpg"
     };
+    public static final String[] OrderImages =  {
+        "http://test2.baihuodasha.com//images/201805/1527145341571611352.jpg",
+        "http://test2.baihuodasha.com//images/201805/1527145318831036967.jpg",
+        "http://test2.baihuodasha.com//images/201805/1527145330758184757.jpg"
+    };
 }

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="@dimen/dm024"
+      android:layout_marginRight="@dimen/dm024"
+      android:layout_marginTop="@dimen/dm016"
+      android:background="@mipmap/red_packet_backgroud_unused"
+      >
+
+    <TextView
+        android:id="@+id/tv_redpackrt_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dm030"
+        android:text="100"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dm080"
+        />
+    <TextView
+        android:id="@+id/tv_redpackrt_condition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_redpackrt_price"
+        android:layout_marginLeft="@dimen/dm030"
+        android:layout_marginTop="@dimen/dm036"
+        android:text="满1000元可用"
+        android:textColor="@color/Address_color"
+        android:textSize="@dimen/dm020"
+        />
+    <TextView
+        android:id="@+id/tv_redpackrt_lable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dm060"
+        android:layout_toRightOf="@+id/tv_redpackrt_price"
+        android:text="新用户奖励红包"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dm048"
+        />
+    <TextView
+        android:id="@+id/tv_redpackrt_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_redpackrt_lable"
+        android:layout_marginLeft="@dimen/dm070"
+        android:layout_marginTop="@dimen/dm070"
+        android:layout_toRightOf="@+id/tv_redpackrt_condition"
+        android:text="2018-08-01至2018-08-30"
+        android:textColor="@color/Address_color"
+        android:textSize="@dimen/dm020"
+        />
+    <ImageView
+        android:id="@+id/iv_redpackrt_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/dm010"
+        android:layout_marginRight="@dimen/dm010"
+        android:layout_marginTop="@dimen/dm060"
+        android:src="@mipmap/red_packet_backgroud_guoqi"
+        />
+  </RelativeLayout>
+
+
+</LinearLayout>

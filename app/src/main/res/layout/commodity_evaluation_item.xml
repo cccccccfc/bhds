@@ -2,16 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="@color/white"
     android:focusable="true"
     android:focusableInTouchMode="true"
+    android:orientation="vertical"
     >
   <TextView
       android:id="@+id/tv_f1"
       android:layout_width="match_parent"
       android:layout_height="@dimen/dm016"
-      android:background="@color/itemback"
+      android:background="@color/divide_color"
       />
   <RelativeLayout
       android:layout_width="match_parent"
@@ -46,13 +46,14 @@
         android:textSize="@dimen/dm024"
         />
     <LinearLayout
-        android:layout_below="@+id/tv_commodity_evaluation_label"
-        android:layout_toRightOf="@+id/iv_commodity_evaluation_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_commodity_evaluation_label"
         android:layout_marginLeft="@dimen/dm016"
         android:layout_marginTop="@dimen/dm016"
+        android:layout_toRightOf="@+id/iv_commodity_evaluation_image"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         >
       <TextView
           android:layout_width="wrap_content"
@@ -60,62 +61,32 @@
           android:text="评分："
           android:textSize="@dimen/dm028"
           />
-      <LinearLayout
+
+      <RatingBar
+          android:id="@+id/iv_commodity_evaluation_ratingbar"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_gravity="center_vertical"
-          android:layout_marginLeft="@dimen/dm016"
-          >
-        <ImageView
-            android:id="@+id/iv_commodity_evaluation_xing1"
-            android:layout_width="@dimen/dm024"
-            android:layout_height="@dimen/dm024"
-            android:src="@mipmap/collection_un"
-            />
-        <ImageView
-            android:id="@+id/iv_commodity_evaluation_xing2"
-            android:layout_width="@dimen/dm024"
-            android:layout_height="@dimen/dm024"
-            android:layout_marginLeft="@dimen/dm024"
-            android:src="@mipmap/collection_un"
-            />
-        <ImageView
-            android:id="@+id/iv_commodity_evaluation_xing3"
-            android:layout_width="@dimen/dm024"
-            android:layout_height="@dimen/dm024"
-            android:layout_marginLeft="@dimen/dm024"
-            android:src="@mipmap/collection_un"
-            />
-        <ImageView
-            android:id="@+id/iv_commodity_evaluation_xing4"
-            android:layout_width="@dimen/dm024"
-            android:layout_height="@dimen/dm024"
-            android:layout_marginLeft="@dimen/dm024"
-            android:src="@mipmap/collection_un"
-            />
-        <ImageView
-            android:id="@+id/iv_commodity_evaluation_xing5"
-            android:layout_width="@dimen/dm024"
-            android:layout_height="@dimen/dm024"
-            android:layout_marginLeft="@dimen/dm024"
-            android:background="@mipmap/collection_un"
-            />
-      </LinearLayout>
+          android:numStars="5"
+          android:rating="4"
+          android:stepSize="1"
+          style="@style/mRatingBar"
+          />
+
     </LinearLayout>
   </RelativeLayout>
   <EditText
       android:id="@+id/tet_commodity_evaluation_text"
       android:layout_width="match_parent"
       android:layout_height="@dimen/dm192"
-      android:layout_marginTop="@dimen/dm010"
       android:layout_marginLeft="@dimen/dm022"
       android:layout_marginRight="@dimen/dm022"
-      android:textSize="@dimen/dm022"
+      android:layout_marginTop="@dimen/dm010"
       android:background="#f6f6f6"
-      android:hint="默认评价"
-      android:paddingTop="@dimen/dm010"
-      android:paddingLeft="@dimen/dm020"
       android:gravity="top"
+      android:hint="默认评价"
+      android:paddingLeft="@dimen/dm020"
+      android:paddingTop="@dimen/dm010"
+      android:textSize="@dimen/dm022"
       />
   <LinearLayout
       android:layout_width="match_parent"
@@ -146,9 +117,9 @@
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/dm030"
       android:layout_marginLeft="@dimen/dm016"
       android:layout_marginRight="@dimen/dm016"
-      android:layout_marginBottom="@dimen/dm030"
       android:layout_marginTop="@dimen/dm016"
       >
     <com.baihuodasha.bhds.utils.MyGridView
@@ -157,6 +128,7 @@
         android:layout_height="wrap_content"
         android:horizontalSpacing="@dimen/dm004"
         android:numColumns="4"
-        android:verticalSpacing="@dimen/dm004" />
+        android:verticalSpacing="@dimen/dm004"
+        />
   </LinearLayout>
 </LinearLayout>

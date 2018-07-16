@@ -8,45 +8,24 @@ import java.io.Serializable;
 
 public class MainLogModel implements Serializable {
 
+  @Override public String toString() {
+    return "MainLogModel{"
+        + "key='"
+        + key
+        + '\''
+        + ", userid='"
+        + userid
+        + '\''
+        + ", data='"
+        + data
+        + '\''
+        + '}';
+  }
+
   /**
-   * code : 1
-   * msg : 登录成功
-   * data : {"key":"0de2762a03d69c62d5c088c163190961","userid":"1953","data":"0de2762a03d69c62d5c088c163190961"}
-   */
-
-  private String code;
-  private String msg;
-  private LoginDataModel data;
-
-  public String getCode() {
-    return code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public String getMsg() {
-    return msg;
-  }
-
-  public void setMsg(String msg) {
-    this.msg = msg;
-  }
-
-  public LoginDataModel getData() {
-    return data;
-  }
-
-  public void setData(LoginDataModel data) {
-    this.data = data;
-  }
-
-  public static class LoginDataModel {
-    /**
-     * key : 0de2762a03d69c62d5c088c163190961
-     * userid : 1953
-     * data : 0de2762a03d69c62d5c088c163190961
+     * key : 07ce06e30b0fc0cba7b875f5d8a50613
+     * userid : 1964
+     * data : 07ce06e30b0fc0cba7b875f5d8a50613
      */
 
     private String key;
@@ -76,5 +55,5 @@ public class MainLogModel implements Serializable {
     public void setData(String data) {
       this.data = data;
     }
-  }
+
 }

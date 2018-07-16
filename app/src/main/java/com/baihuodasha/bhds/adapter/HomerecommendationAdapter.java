@@ -10,7 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baihuodasha.bhds.R;
-import com.baihuodasha.bhds.bean.RecommendationBean;
+import com.baihuodasha.bhds.bean.MainIndexBestGoodsList;
+import com.baihuodasha.bhds.net.URLContents;
 import com.baihuodasha.bhds.utils.CommonUtils;
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
@@ -22,14 +23,18 @@ import java.util.List;
 
 public class HomerecommendationAdapter extends RecyclerView.Adapter<HomerecommendationAdapter.MyViewHolder> {
   private final FragmentActivity mContext;
-  private List<RecommendationBean> newlist;
-  public HomerecommendationAdapter(FragmentActivity mContext,List<RecommendationBean> mList) {
+  private List<MainIndexBestGoodsList.DataBean>  newlist;
+  boolean isLoadOver;
+  int pagesize = 15;
+
+  public HomerecommendationAdapter(FragmentActivity mContext,List<MainIndexBestGoodsList.DataBean>  mList) {
     this.mContext = mContext;
     if (mList != null && mList.size() > 0) {
       this.newlist = mList;
     } else {
       newlist = new ArrayList<>();
     }
+    isLoadOver = false;
   }
 
   @Override public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -38,14 +43,14 @@ public class HomerecommendationAdapter extends RecyclerView.Adapter<Homerecommen
   }
 
   @Override public void onBindViewHolder(MyViewHolder holder, final int position) {
-    holder.mTexttitle.setText(newlist.get(position).getTitle());
-    holder.mTextlabel.setText(newlist.get(position).getLabel());
-    holder.mTextoldprice.setText(newlist.get(position).getOldprice());
+    holder.mTexttitle.setText(newlist.get(position).getGoods_name());
+    holder.mTextlabel.setText(newlist.get(position).getGoods_brief());
+    holder.mTextoldprice.setText(newlist.get(position).getMarket_price());
     holder.mTextoldprice.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG );
     holder.mTextoldprice.getPaint().setAntiAlias(true);
     holder.mTextprice.getPaint().setAntiAlias(true);
-    holder.mTextprice.setText(newlist.get(position).getPrice());
-    Glide.with(mContext).load(newlist.get(position).getUrl()).into(holder.mItemivimage);
+    holder.mTextprice.setText(newlist.get(position).getShop_price());
+    Glide.with(mContext).load(URLContents.Goods_URL +newlist.get(position).getGoods_img()).into(holder.mItemivimage);
     holder.mTextbuy.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         CommonUtils.toastMessage("点击了"+position+"的购买");
@@ -73,15 +78,35 @@ public class HomerecommendationAdapter extends RecyclerView.Adapter<Homerecommen
       mItemivimage = (ImageView) itemView.findViewById(R.id.recommendatio_image);
     }
   }
-  public void addList(List<RecommendationBean> list) {
+  public void addList(List<MainIndexBestGoodsList.DataBean> list) {
     Log.i("qaz", "addList: "+list.size());
     if (list != null && list.size() > 0) {
       newlist.addAll(list);
       notifyDataSetChanged();
+      if (list.size() < pagesize) {
+        isLoadOver = true;
+      }
     }
   }
   public void clear() {
     newlist.clear();
+    isLoadOver = false;
     notifyDataSetChanged();
+  }
+
+  public boolean getIsLoadOver() {
+    return isLoadOver;
+  }
+
+  public int getPagesize() {
+    return pagesize;
+  }
+
+  public void setPagesize(int pagesize) {
+    this.pagesize = pagesize;
+  }
+
+  public int getPage() {
+    return newlist.size() / pagesize + 1  ;
   }
 }

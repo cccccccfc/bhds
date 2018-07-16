@@ -38,8 +38,6 @@ import com.youth.banner.listener.OnBannerClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.baihuodasha.bhds.utils.FabbuttonUtils.FabbuttonUtil;
-
 /**
  * @author IMXU
  * @time 2017/5/3 13:21
@@ -158,7 +156,7 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
     setmLayoutParams();
     getShopList();
     SetList();
-    FabbuttonUtil(getActivity(), mScrollView, mFabbutton);
+    //FabbuttonUtil(getActivity(), mScrollView, mFabbutton);
   }
 
   //设置倒计时

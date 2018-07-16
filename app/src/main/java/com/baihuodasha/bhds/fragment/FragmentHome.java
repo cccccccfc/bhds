@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,15 @@ import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
 import com.baihuodasha.bhds.activity.index.ActivityCommoditySearch;
 import com.baihuodasha.bhds.base.BaseFragment;
+import com.baihuodasha.bhds.bean.MainIndexNavigaitonModel;
+import com.baihuodasha.bhds.net.SdjNetWorkManager;
 import com.baihuodasha.bhds.utils.tablayout.TabLayout;
+import com.baihuodasha.bhds.view.MyDialog;
 import java.util.ArrayList;
 import java.util.List;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * @author IMXU
@@ -34,6 +41,9 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
   private List<String> tabIndicators;
   private List<Fragment> tabFragments;
   private View view;
+  private List<MainIndexNavigaitonModel.DataBean> bean;
+  private MyDialog loadDialog;
+  private boolean shouLoad = true;
 
   @Override public View initView(LayoutInflater inflater) {
     if (view == null) {
@@ -49,11 +59,11 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
     ImageView titleReturn = (ImageView) view.findViewById(R.id.title_return);
     TextView searchCon = (TextView) view.findViewById(R.id.search_con);
     RelativeLayout title = (RelativeLayout) view.findViewById(R.id.title);
-    mTabTl = (TabLayout)view.findViewById(R.id.tl_tab);
-    mContentVp = (ViewPager)view.findViewById(R.id.vp_content);
-    linSeach = (LinearLayout)view.findViewById(R.id.lin_seach);
+    mTabTl = (TabLayout) view.findViewById(R.id.tl_tab);
+    mContentVp = (ViewPager) view.findViewById(R.id.vp_content);
+    linSeach = (LinearLayout) view.findViewById(R.id.lin_seach);
 
-    ButterKnife.bind(this,view);
+    ButterKnife.bind(this, view);
     return view;
   }
 
@@ -63,6 +73,7 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
 
   @Override public void initdata() {
     super.initdata();
+
     initContent();
     initTab();
   }
@@ -87,28 +98,54 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
   }
 
   private void initContent() {
+    if (shouLoad) {
+      loadDialog = MyDialog.showDialog(getActivity());
+      //shouLoad = false;
+      loadDialog.show();
+    }
+    final View view =
+        LayoutInflater.from(getActivity()).inflate(R.layout.item_skill_tab, null, false);
+    final TextView tvName = (TextView) view.findViewById(R.id.tv_name);
     tabIndicators = new ArrayList<>();
-    String[] src = { "推荐", "居家", "电器", "厨具", "3C数码", "智能家电" };
-    View view = LayoutInflater.from(getActivity()).inflate(R.layout.item_skill_tab, null, false);
-    TextView tvName = (TextView) view.findViewById(R.id.tv_name);
-    for (int i = 0; i < src.length; i++) {
-      tvName.setText(src[i]);
-      TabLayout.Tab tab = mTabTl.newTab().setCustomView(view);
-      //设置第一个默认选中Tab
-      if (i == 0) {
-        mTabTl.addTab(tab, true);
-      } else {
-        mTabTl.addTab(tab);
-      }
-      tabIndicators.add(src[i]);
-    }
     tabFragments = new ArrayList<>();
-    for (String s : tabIndicators) {
-      tabFragments.add(TabTecommendFragment.newInstance(s));
-      tabFragments.add(TabLivingathomeFragment.newInstance(s));
-    }
-    ContentPagerAdapter contentAdapter = new ContentPagerAdapter(getChildFragmentManager());
+    final ContentPagerAdapter contentAdapter = new ContentPagerAdapter(getChildFragmentManager());
     mContentVp.setAdapter(contentAdapter);
+    SdjNetWorkManager.sendIndexNavigation(new Callback() {
+      @Override public void onResponse(Call call, Response response) {
+        MainIndexNavigaitonModel msg = (MainIndexNavigaitonModel) response.body();
+        if (msg != null) {
+          if (loadDialog != null) {
+            loadDialog.dismiss();
+            loadDialog = null;
+          }
+          bean =
+              (ArrayList<MainIndexNavigaitonModel.DataBean>) msg.getData();
+          for (int i = 0; i < bean.size(); i++) {
+            tvName.setText(bean.get(i).getName());
+            TabLayout.Tab tab = mTabTl.newTab().setCustomView(view);
+            if (i == 0) {
+              mTabTl.addTab(tab, true);
+            } else {
+              mTabTl.addTab(tab);
+            }
+            tabIndicators.add(bean.get(i).getName());
+          }
+          tabFragments.add(TabTecommendFragment.newInstance(""));
+          tabFragments.add(TabLivingathomeFragment.newInstance(""));
+          contentAdapter.notifyDataSetChanged();
+        }
+      }
+
+      @Override public void onFailure(Call call, Throwable t) {
+        if (loadDialog != null) {
+          loadDialog.dismiss();
+          loadDialog = null;
+        }
+        Log.i("qaz", "onResponse: " + t);
+      }
+    });
+
+
     mTabTl.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
       @Override public void onTabSelected(TabLayout.Tab tab) {
         updateTabTextView(tab, true);
@@ -123,22 +160,28 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
       }
     });
   }
+
   private void updateTabTextView(TabLayout.Tab tab, boolean isSelect) {
-  //  mContentVp.setCurrentItem(tab.getPosition());
+    //  mContentVp.setCurrentItem(tab.getPosition());
     if (isSelect) {
       //选中加粗
-      TextView tabSelect = (TextView)(((LinearLayout) ((LinearLayout) mTabTl.getChildAt(0)).getChildAt(tab.getPosition())).getChildAt(1));
-     // TextView tabSelect = (TextView) tab.getCustomView().findViewById(R.id.tv_name);
-     // tabSelect.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+      TextView tabSelect =
+          (TextView) (((LinearLayout) ((LinearLayout) mTabTl.getChildAt(0)).getChildAt(
+              tab.getPosition())).getChildAt(1));
+      // TextView tabSelect = (TextView) tab.getCustomView().findViewById(R.id.tv_name);
+      // tabSelect.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
       //tabSelect.setText(tab.getText());
     } else {
-      TextView tabUnSelect = (TextView)(((LinearLayout) ((LinearLayout) mTabTl.getChildAt(0)).getChildAt(tab.getPosition())).getChildAt(1));
+      TextView tabUnSelect =
+          (TextView) (((LinearLayout) ((LinearLayout) mTabTl.getChildAt(0)).getChildAt(
+              tab.getPosition())).getChildAt(1));
 
-  //    TextView tabUnSelect = (TextView) tab.getCustomView().findViewById(R.id.tv_name);
+      //    TextView tabUnSelect = (TextView) tab.getCustomView().findViewById(R.id.tv_name);
       //tabUnSelect.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-     // tabUnSelect.setText(tab.getText());
+      // tabUnSelect.setText(tab.getText());
     }
   }
+
   @Override public void onDestroyView() {
     super.onDestroyView();
   }

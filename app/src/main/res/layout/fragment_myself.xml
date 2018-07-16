@@ -20,7 +20,7 @@
         android:layout_height="@dimen/dm300"
         android:background="@mipmap/user_backgroud"
         android:gravity="center_horizontal"
-        android:paddingRight="@dimen/dm190"
+        android:paddingRight="@dimen/dm200"
         >
       <RelativeLayout
           android:id="@+id/rl_myself_headportrait"

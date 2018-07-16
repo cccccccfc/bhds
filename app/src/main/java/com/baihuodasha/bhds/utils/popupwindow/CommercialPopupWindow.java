@@ -92,7 +92,6 @@ public class CommercialPopupWindow extends PopupWindow implements OnClickListene
     //		this.setBackgroundDrawable(dw);
     //mMenuView添加OnTouchListener监听判断获取触屏位置如果在选择框外面则销毁弹出框
     mMenuView.setOnTouchListener(new OnTouchListener() {
-
       public boolean onTouch(View v, MotionEvent event) {
 
         int height = mMenuView.findViewById(R.id.rl_type).getTop();

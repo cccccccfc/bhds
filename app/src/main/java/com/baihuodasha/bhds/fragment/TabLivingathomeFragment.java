@@ -163,7 +163,7 @@ public class TabLivingathomeFragment extends Fragment implements View.OnClickLis
       parentInfo.setMenuList(childInfoList);
       dataInfoList.add(parentInfo);
     }
-    infoadapter.addList(dataInfoList);
+  //  infoadapter.addList(dataInfoList);
 
     recommendationList.clear();
     for (int i = 0; i < contextImages.length; i++) {
@@ -175,7 +175,7 @@ public class TabLivingathomeFragment extends Fragment implements View.OnClickLis
       recommendationBean.setUrl(contextImages[i]);
       recommendationList.add(recommendationBean);
     }
-    recommendationAdapter.addList(recommendationList);
+   // recommendationAdapter.addList(recommendationList);
 
     String[] gridumage = Config.SupermarkeGridimages;
     String[] gridtext = Config.SupermarkeGridtext;
@@ -193,6 +193,5 @@ public class TabLivingathomeFragment extends Fragment implements View.OnClickLis
   @Override public void onDestroy() {
     super.onDestroy();
   }
-
 
 }

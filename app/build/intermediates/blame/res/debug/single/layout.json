@@ -8,6 +8,10 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_setpwd.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_dialog_redpacket.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_dialog_redpacket.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\layout\\abc_activity_chooser_view.xml"
     },
@@ -132,6 +136,10 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_paymentcode.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_layout.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\dialog_layout.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\pickerview_options.xml",
         "source": "C:\\fei\\bhds\\pickerview\\build\\intermediates\\bundles\\default\\res\\layout\\pickerview_options.xml"
     },
@@ -188,6 +196,10 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\pager_empty.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_mode_payment.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\dialog_mode_payment.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_picture_play_audio.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\deb4fb50000acf0d343d809022d85269c91fabdd\\output\\res\\layout\\activity_picture_play_audio.xml"
     },
@@ -212,6 +224,10 @@
         "source": "C:\\fei\\bhds\\photopicker\\build\\intermediates\\bundles\\default\\res\\layout\\item_select_image.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_dialog_fale.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_dialog_fale.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\layout\\abc_screen_content_include.xml"
     },
@@ -230,6 +246,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\supermarket_choiceness_item.xml",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\supermarket_choiceness_item.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_dialog_deliverytime.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_dialog_deliverytime.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ucrop_layout_scale_wheel.xml",
@@ -284,8 +304,16 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_order_confirmation.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_order_confirmation.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_my_red_packets.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_my_red_packets.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\contxt_search_box.xml",
@@ -314,6 +342,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\010a735325088608fa76242c15c386da617c24fb\\output\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_ordercomfirmaiton_list.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\item_ordercomfirmaiton_list.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
@@ -348,12 +380,12 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\layout\\notification_action_tombstone.xml"
     },
     {
-        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\picture_empty.xml",
-        "source": "C:\\Users\\zhang\\.android\\build-cache\\deb4fb50000acf0d343d809022d85269c91fabdd\\output\\res\\layout\\picture_empty.xml"
-    },
-    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ucrop_controls.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\62ceab76caf433ce4c92b6ca8e6832afc62419da\\output\\res\\layout\\ucrop_controls.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\picture_empty.xml",
+        "source": "C:\\Users\\zhang\\.android\\build-cache\\deb4fb50000acf0d343d809022d85269c91fabdd\\output\\res\\layout\\picture_empty.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_tab_content.xml",
@@ -386,6 +418,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_cellphonebinding.xml",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_cellphonebinding.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\adapter_redpackets_item.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\adapter_redpackets_item.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_preview.xml",
@@ -460,6 +496,10 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\62ceab76caf433ce4c92b6ca8e6832afc62419da\\output\\res\\layout\\ucrop_picture_activity_multi_cutting.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_dialog_sockout.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_dialog_sockout.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_shopsearch.xml",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_shopsearch.xml"
     },
@@ -470,6 +510,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\picture_image_grid_item.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\deb4fb50000acf0d343d809022d85269c91fabdd\\output\\res\\layout\\picture_image_grid_item.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_mode_of_payment.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_mode_of_payment.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
@@ -486,6 +530,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_compat_status_bar.xml",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_compat_status_bar.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_paymen_result.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_paymen_result.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_camera.xml",
@@ -566,6 +614,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\010a735325088608fa76242c15c386da617c24fb\\output\\res\\layout\\design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_webview.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_webview.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_comment_details.xml",

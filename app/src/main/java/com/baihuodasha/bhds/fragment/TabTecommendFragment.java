@@ -18,12 +18,18 @@ import com.baihuodasha.bhds.adapter.HomecategoryAdapter;
 import com.baihuodasha.bhds.adapter.HomerecommendationAdapter;
 import com.baihuodasha.bhds.adapter.HomesideslipproductsAdapter;
 import com.baihuodasha.bhds.base.Config;
-import com.baihuodasha.bhds.bean.ChildInfo;
-import com.baihuodasha.bhds.bean.ParentInfo;
-import com.baihuodasha.bhds.bean.RecommendationBean;
+import com.baihuodasha.bhds.bean.MainCategoryGoodsListMdel;
+import com.baihuodasha.bhds.bean.MainIndexBannerModel;
+import com.baihuodasha.bhds.bean.MainIndexBestGoodsList;
+import com.baihuodasha.bhds.net.SdjNetWorkManager;
+import com.baihuodasha.bhds.net.URLContents;
 import com.baihuodasha.bhds.utils.CommonUtils;
 import com.baihuodasha.bhds.utils.GlideImageLoader;
 import com.baihuodasha.bhds.utils.ScrollInterceptScrollView;
+import com.baihuodasha.bhds.view.MyDialog;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import com.youth.banner.Banner;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
@@ -31,8 +37,11 @@ import com.zhy.view.flowlayout.TagFlowLayout;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
-import static com.baihuodasha.bhds.utils.FabbuttonUtils.FabbuttonUtil;
+import java.util.Timer;
+import java.util.TimerTask;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by yifeng on 16/8/3.
@@ -55,6 +64,12 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
   private HomerecommendationAdapter recommendationAdapter;
   private FloatingActionButton mFabbutton;
   private ScrollInterceptScrollView mScrollView;
+  private List<MainIndexBannerModel.DataBean> bean;
+  private MyDialog loadDialog;
+  private boolean shouLoad = true;
+  private String mold;
+  private boolean touch = true;
+  private SmartRefreshLayout mSmartR;
 
   public static TabTecommendFragment newInstance(String content) {
     Bundle arguments = new Bundle();
@@ -76,14 +91,14 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
     mRecycinfo = (RecyclerView) contentView.findViewById(R.id.recyc_info);
     mRecyccommendation = (RecyclerView) contentView.findViewById(R.id.recyc_commendation);
     mFabbutton = (FloatingActionButton) contentView.findViewById(R.id.fab);
+    mSmartR = (SmartRefreshLayout) contentView.findViewById(R.id.smart_commendation);
     mScrollView =
         (ScrollInterceptScrollView) contentView.findViewById(R.id.ScrollInterceptScrollView);
 
-    init();
     initdata();
     initListener();
     SelectorTab();
-    FabbuttonUtil(getActivity() ,mScrollView ,mFabbutton);
+   // FabbuttonUtil(getActivity(), mScrollView, mFabbutton);
 
     return contentView;
   }
@@ -92,23 +107,36 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
     BannerImage = Config.Bannerhomeimages;
     contextImages = Config.ContextImages;
     if (!mTitle.equals("推荐")) {
-      mBanner.setVisibility(View.GONE);
-      mBanner.stopAutoPlay();
+      //mBanner.setVisibility(View.GONE);
+      // mBanner.stopAutoPlay();
     } else {
-      mBanner.startAutoPlay();
+      // mBanner.startAutoPlay();
     }
-    ArrayList<String> imageList = new ArrayList<>();
-    for (int i = 0; i < BannerImage.length; i++) {
-      imageList.add(BannerImage[i]);
-    }
-    //设置图片加载器
-    mBanner.setImageLoader(new GlideImageLoader());
-    //设置图片集合
-    mBanner.setImages(imageList);
-    //banner设置方法全部调用完毕时最后调用
-    mBanner.start();
 
+    SdjNetWorkManager.sendIndexBanner("ads", new Callback() {
+      @Override public void onResponse(Call call, Response response) {
+        MainIndexBannerModel msg = (MainIndexBannerModel) response.body();
+        if (msg != null) {
+          ArrayList<String> imageList = new ArrayList<>();
+          bean = (ArrayList<MainIndexBannerModel.DataBean>) msg.getData();
+          for (int i = 0; i < bean.size(); i++) {
+            imageList.add(URLContents.Image_URL + bean.get(i).getImage());
+            //设置图片加载器
+            mBanner.setImageLoader(new GlideImageLoader());
+            //设置图片集合
+            mBanner.setImages(imageList);
+            //banner设置方法全部调用完毕时最后调用
+            mBanner.start();
+          }
+        }
+      }
+
+      @Override public void onFailure(Call call, Throwable t) {
+
+      }
+    });
     mFabbutton.setVisibility(View.GONE);
+
   }
 
   public void initdata() {
@@ -128,13 +156,31 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
     recommendationAdapter = new HomerecommendationAdapter(getActivity(), null);
     mRecyccommendation.setAdapter(recommendationAdapter);
     getShopList();
+    sendBestGoodsList(true, "15");
   }
 
   public void initListener() {
     mFabbutton.setOnClickListener(this);
     adapter.setOnItemClickListener(new HomesideslipproductsAdapter.OnItemClickListener() {
       @Override public void onClick(int v, String position) {
-        Log.i("qaz", "onClick: " + v + "个");
+        Log.i("qaz", "第" + v + "个" + position);
+      }
+    });
+    mSmartR.setEnableRefresh(false);
+    mSmartR.setLoadmoreFinished(true);
+    //进行加载更多的逻辑处理
+    mSmartR.setOnLoadmoreListener(new OnLoadmoreListener() {
+      @Override public void onLoadmore(RefreshLayout refreshlayout) {
+        new Timer().schedule(new TimerTask() {
+          @Override public void run() {
+            if (recommendationAdapter.getPage() != 1) {
+              sendBestGoodsList(false, "15");
+            }else {
+
+            }
+
+          }
+        }, 3000);
       }
     });
   }
@@ -153,48 +199,46 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
     }
   }
 
-  private List<RecommendationBean> recommendationList = new ArrayList<>();
-  private List<ParentInfo> dataInfoList = new ArrayList<>();
-
-  private void getImageList() {
-    ArrayList<String> imageRecyc = new ArrayList<>();
-    for (int i = 0; i < contextImages.length; i++) {
-      imageRecyc.add(contextImages[i]);
-    }
-    adapter.addList(imageRecyc);
-  }
-
   private void getShopList() {
-    dataInfoList.clear();
-    for (int i = 0; i < BannerImage.length; i++) {
-      ParentInfo parentInfo = new ParentInfo();
-      List<ChildInfo> childInfoList = new ArrayList<>();
-      parentInfo.setTitle("居家生活");
-      parentInfo.setImage(BannerImage[i]);
-      for (int j = 0; j < contextImages.length; j++) {
-        ChildInfo childInfo = new ChildInfo();
-        childInfo.setMenuName(i + "-" + j);
-        childInfo.setIconImgID(contextImages[j]);
-        childInfoList.add(childInfo);
+    SdjNetWorkManager.sendCategoryGoodsList(new Callback() {
+      @Override public void onResponse(Call call, Response response) {
+        MainCategoryGoodsListMdel msg = (MainCategoryGoodsListMdel) response.body();
+        if (msg != null) {
+          infoadapter.addList(msg.getData());
+        }
       }
-      parentInfo.setMenuList(childInfoList);
-      dataInfoList.add(parentInfo);
-    }
-    infoadapter.addList(dataInfoList);
 
-    recommendationList.clear();
-    for (int i = 0; i < contextImages.length; i++) {
-      RecommendationBean recommendationBean = new RecommendationBean();
-      recommendationBean.setTitle("百安思保温杯304不锈钢真空高端保温杯 大容量男女创意定制便携保温杯");
-      recommendationBean.setOldprice("1990.00");
-      recommendationBean.setPrice("999.00");
-      recommendationBean.setLabel("百安思保温杯304不锈钢真空高端保温杯 大容量男女创意定制便携保温杯");
-      recommendationBean.setUrl(contextImages[i]);
-      recommendationList.add(recommendationBean);
-    }
-    recommendationAdapter.addList(recommendationList);
+      @Override public void onFailure(Call call, Throwable t) {
+       // Log.i("qaz", "onFailure: "+t);
+      }
+    });
+
+
   }
+  private void sendBestGoodsList(final boolean isReflash ,String size){
 
+    int page = isReflash ? 1 : recommendationAdapter.getPage();
+    Log.i("qaz", "sendBestGoodsList: "+ isReflash);
+    SdjNetWorkManager.sendBestGoodsList(page, size, "空", new Callback() {
+      @Override public void onResponse(Call call, Response response) {
+        MainIndexBestGoodsList msg = (MainIndexBestGoodsList) response.body();
+        if (msg != null) {
+          recommendationAdapter.addList(msg.getData());
+
+          if (recommendationAdapter.getIsLoadOver()) {
+            mSmartR.setLoadmoreFinished(true);
+            return;
+          }
+        }else {
+          //mSmartR.setLoadmoreFinished(false);
+        }
+      }
+
+      @Override public void onFailure(Call call, Throwable t) {
+
+      }
+    });
+  }
   @Override public void onDestroy() {
     super.onDestroy();
   }
@@ -211,27 +255,65 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
         return tv;
       }
     };
-    tagAdapter.setSelectedList(1);
+    tagAdapter.setSelectedList(0);
+    sendIndexInfo("0");
     id_flowlayout.setAdapter(tagAdapter);
+
     id_flowlayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
       @Override public boolean onTagClick(View view, int i, FlowLayout parent) {
         //getList(showEntities.get(i).name, shopid, true);
-        CommonUtils.toastMessage("点击了" + showEntities[i]);
         tagAdapter.setSelectedList(i);
-        if (i == 1) {
-          getImageList();
-        } else if (i == 4) {
-          getImageList();
-        }
+
+
         return true;
       }
     });
     id_flowlayout.setOnSelectListener(new TagFlowLayout.OnSelectListener() {
       @Override public void onSelected(Set<Integer> selectPosSet) {
         //Log.i("qaz", "onSelected: "+selectPosSet.hashCode());
+        if (touch) {
+          touch = false;
+          sendIndexInfo(String.valueOf(selectPosSet.hashCode()));
+        } else {
+          adapter.clear();
+          CommonUtils.toastMessage("操作频繁");
+        }
       }
     });
   }
 
+  //type = ads轮播图  promoteGoods促销商品  	top10销售排名  best精品   hot热品  new新品
+  private void sendIndexInfo(String type) {
+    if (type.equals("0")) {
+      mold = "promoteGoods";
+    } else if (type.equals("1")) {
+      mold = "top10";
+    } else if (type.equals("2")) {
+      mold = "hot";
+    } else if (type.equals("3")) {
+      mold = "best";
+    } else {
+      mold = "new";
+    }
+ //   Log.i("qaz", "sendIndexInfo: " + mold);
+    adapter.clear();
+    SdjNetWorkManager.sendIndexBanner(mold, new Callback() {
+      @Override public void onResponse(Call call, Response response) {
+        MainIndexBannerModel msg = (MainIndexBannerModel) response.body();
+        if (msg != null) {
+          bean = (ArrayList<MainIndexBannerModel.DataBean>) msg.getData();
+         // bean.clear();
+          adapter.addList(bean);
+          adapter.notifyDataSetChanged();
+          touch = true;
+        }else {
+          adapter.clear();
+        }
+      }
 
+      @Override public void onFailure(Call call, Throwable t) {
+        touch = true;
+      }
+    });
+  }
 }

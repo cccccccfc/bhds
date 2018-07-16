@@ -27,7 +27,7 @@
       app:tabGravity="center"
       app:tabIndicatorHeight="@dimen/dm004"
       app:tabIndicatorColor="@color/titleBar"
-      app:tabLineOffset="@dimen/dm024"
+      app:tabLineOffset="@dimen/dm034"
       app:tabMode="scrollable"
       app:tabSelectedTextColor="@color/black"
       app:tabTextColor="@color/colorText"

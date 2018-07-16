@@ -5,8 +5,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 import com.baihuodasha.bhds.R;
 
 /**
@@ -33,12 +33,13 @@ public class SelectPicPopupWindow extends PopupWindow {
 		/*	// 控制它放置的位置
 			this.showAtLocation(parent, Gravity.BOTTOM, 0, 0);*/
 
-		Button btnTakePhoto = (Button) contentView.findViewById(R.id.btn_take_photo);
-		Button btnPickPhoto = (Button) contentView.findViewById(R.id.btn_pick_photo);
-		Button btnCancel = (Button) contentView.findViewById(R.id.btn_cancel);
+		TextView btnTakePhoto = (TextView) contentView.findViewById(R.id.btn_take_photo);
+		TextView btnPickPhoto = (TextView) contentView.findViewById(R.id.btn_pick_photo);
+		TextView btnCancel = (TextView) contentView.findViewById(R.id.btn_cancel);
 
 		btnTakePhoto.setOnClickListener(listener);
 		btnPickPhoto.setOnClickListener(listener);
-		btnCancel.setOnClickListener(listener);
+
 	}
+
 }

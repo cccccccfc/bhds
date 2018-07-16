@@ -11,7 +11,7 @@ import com.baihuodasha.bhds.R;
  * Created by 刘立元 on 2018/5/8.
  */
 
-public class BaseDialog extends Dialog {
+public class BaseDialog extends Dialog  {
 
     private static Controller mController;
 

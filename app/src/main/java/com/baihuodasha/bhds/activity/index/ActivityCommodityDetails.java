@@ -279,7 +279,6 @@ public class ActivityCommodityDetails extends BaseActivity implements Specificat
           .setOnDismissListener(new PopupWindow.OnDismissListener() {
             public void onDismiss() {
               backgroundAlpha(1f);
-
             }
           });
     }else {

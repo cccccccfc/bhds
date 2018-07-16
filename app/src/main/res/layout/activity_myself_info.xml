@@ -1,15 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_main"
-    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <include layout="@layout/activity_base_title"/>
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+  <include layout="@layout/activity_base_title"/>
+  <TextView
+      android:id="@+id/tv_f1"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/dm016"
+      android:background="@color/divide_color"
+      />
+  <RelativeLayout
+      android:id="@+id/rl_myself_info_headimg"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingLeft="@dimen/dm030"
+      >
+    <ImageView
+        android:id="@+id/iv_myself_info_headimg"
+        android:layout_marginTop="@dimen/dm020"
+        android:layout_width="@dimen/dm120"
+        android:layout_height="@dimen/dm120"
+        android:layout_marginBottom="@dimen/dm020"
+        />
     <TextView
-        android:id="@+id/tv_welcome_page"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dm040"
+        android:layout_toRightOf="@+id/iv_myself_info_headimg"
+        android:text="点击修改头像"
+        android:textSize="@dimen/dm024"
+        />
+  </RelativeLayout>
+
+  <TextView
+      android:id="@+id/tv_f2"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/dm016"
+      android:background="@color/divide_color"
+      />
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/dm090"
+      android:background="@color/white"
+      >
+
+    <TextView
+        android:id="@+id/tv_myself_info_name"
+        android:layout_width="@dimen/dm188"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="个人编辑界面"/>
-</RelativeLayout>
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dm030"
+        android:text="用户名"
+        android:textColor="@color/colorText2"
+        android:textSize="@dimen/dm028"
+        />
+    <EditText
+        android:id="@+id/et_myself_info_name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:text="用户名"
+        android:textSize="@dimen/dm028"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tv_myself_info_name"
+        android:textColor="@color/blackText"
+        />
+
+  </RelativeLayout>
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="0.5dp"
+      android:layout_marginLeft="12dp"
+      android:background="@color/login_hx"
+      />
+  <RelativeLayout
+      android:id="@+id/rl_myself_info_sex"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/dm090"
+      android:background="@color/white"
+      >
+
+    <TextView
+        android:id="@+id/tv_myself_info_sex"
+        android:layout_width="@dimen/dm188"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dm030"
+        android:text="性别"
+        android:textColor="@color/colorText2"
+        android:textSize="@dimen/dm028"
+        />
+    <TextView
+        android:id="@+id/et_myself_info_sex"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/tv_myself_info_sex"
+        android:gravity="center_vertical"
+        android:text="男"
+        android:textSize="@dimen/dm028"
+        android:textColor="@color/blackText"
+        />
+
+  </RelativeLayout>
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="0.5dp"
+      android:layout_marginLeft="12dp"
+      android:background="@color/login_hx"
+      />
+  <RelativeLayout
+      android:id="@+id/rl_myself_info_birthday"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/dm090"
+      android:background="@color/white"
+      >
+
+    <TextView
+        android:id="@+id/tv_myself_info_birthday"
+        android:layout_width="@dimen/dm188"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dm030"
+        android:text="出生日期"
+        android:textColor="@color/colorText2"
+        android:textSize="@dimen/dm028"
+        />
+    <TextView
+        android:id="@+id/et_myself_info_birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@+id/tv_myself_info_birthday"
+        android:text="1992-2-2"
+        android:textSize="@dimen/dm028"
+        android:textColor="@color/blackText"
+        />
+
+  </RelativeLayout>
+
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="0.5dp"
+      android:layout_marginLeft="12dp"
+      android:background="@color/login_hx"
+      />
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/dm090"
+      android:background="@color/white"
+      >
+
+    <TextView
+        android:id="@+id/tv_myself_info_email"
+        android:layout_width="@dimen/dm188"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dm030"
+        android:text="邮箱"
+        android:textColor="@color/colorText2"
+        android:textSize="@dimen/dm028"
+        />
+    <EditText
+        android:id="@+id/et_myself_info_email"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/tv_myself_info_email"
+        android:background="@null"
+        android:text="xxx@163.com"
+        android:textSize="@dimen/dm028"
+        android:textColor="@color/blackText"
+        />
+
+  </RelativeLayout>
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="0.5dp"
+      android:layout_marginLeft="12dp"
+      android:background="@color/login_hx"
+      />
+</LinearLayout>

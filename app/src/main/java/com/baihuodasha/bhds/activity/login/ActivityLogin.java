@@ -18,6 +18,7 @@ import com.baihuodasha.bhds.R;
 import com.baihuodasha.bhds.activity.MainActivityTabHost;
 import com.baihuodasha.bhds.base.BaseActivity;
 import com.baihuodasha.bhds.bean.MainLogModel;
+import com.baihuodasha.bhds.bean.Msg;
 import com.baihuodasha.bhds.net.SdjNetWorkManager;
 import com.baihuodasha.bhds.net.SharePrefHelper;
 import com.baihuodasha.bhds.utils.CommonUtils;
@@ -83,6 +84,8 @@ public class ActivityLogin extends BaseActivity {
   @Override public void onClickEvent(View view) throws ParseException {
     switch (view.getId()) {
       case R.id.iv_base_back:
+        Intent intentfin = new Intent(this, MainActivityTabHost.class);
+        startActivity(intentfin);
         finish();
         break;
       case R.id.rl_login_eye:
@@ -145,31 +148,31 @@ public class ActivityLogin extends BaseActivity {
   /**
    * 联网方式
    */
-  public void getLoginInfo(String name, String pwd) {
+  public void getLoginInfo(final String name, String pwd) {
 
     SdjNetWorkManager.getLogInfo(name, pwd, new Callback() {
       @Override public void onResponse(Call call, Response response) {
-        MainLogModel msg = (MainLogModel) response.body();
-        MainLogModel.LoginDataModel bean = (MainLogModel.LoginDataModel) msg.getData();
-        Log.i("qaz", "onResponse: " + bean.getUserid());
-        Log.i("qaz", "onResponse: " + bean.getData());
-        Log.i("qaz", "onResponse: " + msg.getCode());
-        if (bean != null) {
+        Msg msg = (Msg) response.body();
+        if (msg != null) {
+          MainLogModel bean= (MainLogModel) msg.getData();
+          Log.i("qaz", "onResponse: "+bean.toString());
           mSh.setUserId(bean.getUserid() + "");
-          mSh.setUserToken(bean.getData() + "");
+          mSh.setUserToken(bean.getKey() + "");
+         // mSh.setUserName(name + "");
           if (msg.getMsg().equals("登录成功")) {
-            mSh.setLoginSuccess(true);
-            mSh.setFirstStartInto(1);
+            // mSh.setLoginSuccess(true);
+            //mSh.setFirstStartInto(1);
             Intent i = new Intent(ActivityLogin.this, MainActivityTabHost.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
             finish();
           } else {
             CommonUtils.toastMessage(msg.getMsg());
-            mSh.setLoginSuccess(false);
-            mSh.setFirstStartInto(0);
+            //  mSh.setLoginSuccess(false);
+            //mSh.setFirstStartInto(0);
           }
         } else {
-          CommonUtils.toastMessage(msg.getMsg());
+         // CommonUtils.toastMessage(msg.getMsg());
         }
       }
 

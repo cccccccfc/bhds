@@ -10,8 +10,10 @@ import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import com.baihuodasha.bhds.R;
+import com.baihuodasha.bhds.utils.CommonUtils;
 import com.baihuodasha.bhds.utils.MyGridView;
 import com.lidong.photopicker.SelectModel;
 import com.lidong.photopicker.intent.PhotoPickerIntent;
@@ -79,7 +81,11 @@ public class CommodityEvaluationAdapter
       }
     });
 
-
+    holder.ivCommodityEvaluationRatingbar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+      @Override public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+        CommonUtils.toastMessage("评分星级=" + rating);
+      }
+    });
     //if (holder.gridView.getAdapter() == null) {
     //  holder.gridView.setAdapter(new GridImageAdapter(mContext,urllist));
     //} else {
@@ -93,10 +99,10 @@ public class CommodityEvaluationAdapter
 
   public class MyViewHolder extends RecyclerView.ViewHolder {
 
+     RatingBar ivCommodityEvaluationRatingbar;
     MyGridView gridView;
     CheckBox ckCommodityEvaluationSelection;
-    ImageView ivCommodityEvaluationImage, ivCommodityEvaluationXing1, ivCommodityEvaluationXing2,
-        ivCommodityEvaluationXing3, ivCommodityEvaluationXing4, ivCommodityEvaluationXing5;
+    ImageView ivCommodityEvaluationImage;
     TextView tvCommodityEvaluationTitle, tvCommodityEvaluationLabel;
     EditText tetCommodityEvaluationText;
 
@@ -108,16 +114,8 @@ public class CommodityEvaluationAdapter
           (TextView) itemView.findViewById(R.id.tv_commodity_evaluation_title);
       tvCommodityEvaluationLabel =
           (TextView) itemView.findViewById(R.id.tv_commodity_evaluation_label);
-      ivCommodityEvaluationXing1 =
-          (ImageView) itemView.findViewById(R.id.iv_commodity_evaluation_xing1);
-      ivCommodityEvaluationXing2 =
-          (ImageView) itemView.findViewById(R.id.iv_commodity_evaluation_xing2);
-      ivCommodityEvaluationXing3 =
-          (ImageView) itemView.findViewById(R.id.iv_commodity_evaluation_xing3);
-      ivCommodityEvaluationXing4 =
-          (ImageView) itemView.findViewById(R.id.iv_commodity_evaluation_xing4);
-      ivCommodityEvaluationXing5 =
-          (ImageView) itemView.findViewById(R.id.iv_commodity_evaluation_xing5);
+      ivCommodityEvaluationRatingbar =
+          (RatingBar) itemView.findViewById(R.id.iv_commodity_evaluation_ratingbar);
       tetCommodityEvaluationText =
           (EditText) itemView.findViewById(R.id.tet_commodity_evaluation_text);
       ckCommodityEvaluationSelection =

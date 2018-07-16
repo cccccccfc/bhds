@@ -173,8 +173,8 @@ public class ActivityNewAddress extends BaseActivity {
         .setTitleText("城市选择")
         .setTitleBgColor(Color.WHITE)//标题背景颜色 Night mode
         .setTextColorCenter(Color.BLACK) //设置选中项文字颜色
-        .setSubmitColor(R.color.colorText2)//确定按钮文字颜色
-        .setCancelColor(R.color.colorText2)//取消按钮文字颜色
+        .setSubmitColor(R.color.blackText)//确定按钮文字颜色
+        .setCancelColor(R.color.blackText)//取消按钮文字颜色
         .setContentTextSize(18)
         .setSubCalSize(18)//确定和取消文字大小
         .build();

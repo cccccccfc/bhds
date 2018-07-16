@@ -3,11 +3,14 @@ package com.baihuodasha.bhds.adapter;
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baihuodasha.bhds.R;
+import com.baihuodasha.bhds.bean.MainIndexBannerModel;
+import com.baihuodasha.bhds.net.URLContents;
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +22,9 @@ import java.util.List;
 public class HomesideslipproductsAdapter extends RecyclerView.Adapter<HomesideslipproductsAdapter.MyViewHolder> {
   private Context mContext;
   private OnItemClickListener mOnItemClickListener = null;
-  private List<String> newlist;
+  private List<MainIndexBannerModel.DataBean> newlist;
 
-  public HomesideslipproductsAdapter(FragmentActivity mContext, List<String> mList) {
+  public HomesideslipproductsAdapter(FragmentActivity mContext, List<MainIndexBannerModel.DataBean> mList) {
     this.mContext = mContext;
     if (mList != null && mList.size() > 0) {
       this.newlist = mList;
@@ -38,11 +41,13 @@ public class HomesideslipproductsAdapter extends RecyclerView.Adapter<Homesidesl
 
   @Override public void onBindViewHolder(HomesideslipproductsAdapter.MyViewHolder holder, final int position) {
     //
-    Glide.with(mContext).load(newlist.get(position)).into(holder.im);
+    Glide.with(mContext).load(URLContents.Goods_URL+newlist.get(position).getGoods_img()).into(holder.im);
+    Log.i("qaz", "onBindViewHolder: "+ URLContents.Goods_URL+newlist.get(position).getGoods_img());
     holder.im.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         if (mOnItemClickListener != null) {
-          mOnItemClickListener.onClick(position, newlist.get(position));
+
+          mOnItemClickListener.onClick(position, newlist.get(position).getGoods_name());
         }
       }
     });
@@ -77,7 +82,7 @@ public class HomesideslipproductsAdapter extends RecyclerView.Adapter<Homesidesl
     this.mOnItemClickListener = listener;
   }
 
-  public void addList(List<String> list) {
+  public void addList(List<MainIndexBannerModel.DataBean> list) {
     if (list != null && list.size() > 0) {
       newlist.addAll(list);
       notifyDataSetChanged();

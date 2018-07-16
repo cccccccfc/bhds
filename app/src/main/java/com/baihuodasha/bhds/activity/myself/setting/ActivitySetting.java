@@ -10,7 +10,9 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
+import com.baihuodasha.bhds.activity.login.ActivityLogin;
 import com.baihuodasha.bhds.base.BaseActivity;
+import com.baihuodasha.bhds.net.SharePrefHelper;
 import java.text.ParseException;
 
 public class ActivitySetting extends BaseActivity implements View.OnClickListener {
@@ -32,8 +34,9 @@ public class ActivitySetting extends BaseActivity implements View.OnClickListene
     setStatusBarPlaceVisible(true);
     setViewColorStatusBar(false, getResources().getColor(R.color.titleBar));
   }
-
+  private SharePrefHelper mSh;
   @Override public void initView() {
+    mSh = SharePrefHelper.getInstance();
     ivBaseBack.setOnClickListener(this);
     tvBaseTitle.setText("设置");
     tvBaseTitle.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
@@ -76,9 +79,16 @@ public class ActivitySetting extends BaseActivity implements View.OnClickListene
         //支付密码管理
         break;
       case R.id.rl_myself_setting_aboutus:
-        Intent intentab = new Intent(this, ActivityAboutus.class);
-        startActivity(intentab);
-        overridePendingTransition(0, 0);
+        if (mSh.getLoginSuccess()) {
+          //WebViewActivity.start(this, "关于我们", "http://www.baihuodasha.com/mobile/user.php?act=aboutus");
+        } else {
+          Intent help = new Intent(this, ActivityLogin.class);
+          startActivity(help);
+        }
+
+        //Intent intentab = new Intent(this, ActivityAboutus.class);
+        //startActivity(intentab);
+        //overridePendingTransition(0, 0);
         //关于我们
         break;
       case R.id.rl_myself_binding_confirm:

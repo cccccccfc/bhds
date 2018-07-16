@@ -8,9 +8,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Handler;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.baihuodasha.bhds.base.BaseApplication;
 import java.io.BufferedOutputStream;
@@ -18,7 +15,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Field;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * @author Admin
  * @time 2017/3/28 14:01
@@ -131,42 +130,6 @@ public class CommonUtils {
         getMainThreadHandler().removeCallbacks(task);
     }
 
-    /**
-     * 改变滑动条的长度 为了滑动的view pager用
-     * @param tabs
-     * @param leftDip
-     * @param rightDip
-     */
-    //public static void setIndicator(TabLayout tabs, int leftDip, int rightDip) {
-    //    Class<?> tabLayout = tabs.getClass();
-    //    Field tabStrip = null;
-    //    try {
-    //        tabStrip = tabLayout.getDeclaredField("mTabStrip");
-    //    } catch (NoSuchFieldException e) {
-    //        e.printStackTrace();
-    //    }
-    //
-    //    tabStrip.setAccessible(true);
-    //    LinearLayout llTab = null;
-    //    try {
-    //        llTab = (LinearLayout) tabStrip.get(tabs);
-    //    } catch (IllegalAccessException e) {
-    //        e.printStackTrace();
-    //    }
-    //
-    //    int left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, leftDip, Resources.getSystem().getDisplayMetrics());
-    //    int right = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, rightDip, Resources.getSystem().getDisplayMetrics());
-    //
-    //    for (int i = 0; i < llTab.getChildCount(); i++) {
-    //        View child = llTab.getChildAt(i);
-    //        child.setPadding(0, 0, 0, 0);
-    //        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1);
-    //        params.leftMargin = left;
-    //        params.rightMargin = right;
-    //        child.setLayoutParams(params);
-    //        child.invalidate();
-    //    }
-    //}
 
     public static void toastMessage(String msg){
         Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
@@ -275,5 +238,13 @@ public class CommonUtils {
         byte[] bytes=baos.toByteArray();
 
         return bytes;
+    }
+    public static boolean isEmail(String email){
+        Pattern pattern = Pattern.compile("^[A-Za-z0-9][\\w\\._]*[a-zA-Z0-9]+@[A-Za-z0-9-_]+\\.([A-Za-z]{2,4})");
+        Matcher matcher = pattern.matcher(email);
+        if(!matcher.matches()){
+            return false;
+        }
+        return true;
     }
 }

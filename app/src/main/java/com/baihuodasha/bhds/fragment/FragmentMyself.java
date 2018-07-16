@@ -1,9 +1,8 @@
 package com.baihuodasha.bhds.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,23 +15,24 @@ import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
 import com.baihuodasha.bhds.activity.index.ActivityCommodityEvaluation;
 import com.baihuodasha.bhds.activity.login.ActivityLogin;
+import com.baihuodasha.bhds.activity.myself.ActivityMyRedPackets;
 import com.baihuodasha.bhds.activity.myself.receiveraddress.ActivityReceiverAddress;
 import com.baihuodasha.bhds.activity.myself.setting.ActivityMyselfInformation;
 import com.baihuodasha.bhds.activity.myself.setting.ActivitySetting;
+import com.baihuodasha.bhds.activity.order.ActivityOrderConfirmation;
 import com.baihuodasha.bhds.base.BaseFragment;
+import com.baihuodasha.bhds.bean.MainUserInfoModel;
+import com.baihuodasha.bhds.bean.Msg;
+import com.baihuodasha.bhds.net.SdjNetWorkManager;
 import com.baihuodasha.bhds.net.SharePrefHelper;
 import com.baihuodasha.bhds.utils.CommonUtils;
 import com.baihuodasha.bhds.utils.HeadZoomScrollView;
-import com.baihuodasha.bhds.utils.StringUtil;
 import com.baihuodasha.bhds.view.SelectPicPopupWindow;
 import com.bumptech.glide.Glide;
-import com.luck.picture.lib.PictureSelector;
-import com.luck.picture.lib.config.PictureConfig;
-import com.luck.picture.lib.config.PictureMimeType;
-import com.luck.picture.lib.entity.LocalMedia;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
-
-import static android.app.Activity.RESULT_OK;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * @author IMXU
@@ -73,6 +73,7 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
 
   private SelectPicPopupWindow mPopupWindow;
   SharePrefHelper mSh;
+  private String heading;
 
   @Override public View initView(LayoutInflater inflater) {
     if (view == null) {
@@ -89,26 +90,19 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
 
   @Override public void init() {
     super.init();
+
     mSh = SharePrefHelper.getInstance();
+    mSh.setLoginSuccess(false);
     if (mSh.getLoginSuccess()) {
 
     }
+    name.setText(mSh.getUserName());
   }
 
   @Override public void initdata() {
     super.initdata();
-
-    CommonUtils.deleteBitmap("myicons.jpg");
-    Bitmap cacheBitmap = CommonUtils.getCacheFile("myicons.jpg");
-    if (cacheBitmap != null) {
-      byte[] bytes = CommonUtils.getBitMapByteArray(cacheBitmap);
-
-      Glide.with(getActivity())
-          .load(bytes)
-          .placeholder(R.drawable.defaultavatar)
-          .bitmapTransform(new CropCircleTransformation(getActivity()))
-          .into(ivMyselfHeadportrait);
-    }
+    getIcon();
+    sendUserInfo();
   }
 
   @Override public void initListener() {
@@ -164,29 +158,6 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
 
         break;
 
-      case R.id.btn_pick_photo://本地
-        PictureSelector.create(this)
-            .openGallery(PictureMimeType.ofImage())
-            .selectionMode(PictureConfig.SINGLE)//多选 or 单选
-            .enableCrop(true)//是否裁剪
-            .compress(true)//是否压缩
-            .freeStyleCropEnabled(true)// 裁剪框是否可拖拽
-            .compressMode(PictureConfig.LUBAN_COMPRESS_MODE)
-            //系统自带 or 鲁班压缩 PictureConfig.SYSTEM_COMPRESS_MODE or LUBAN_COMPRESS_MODE
-            .previewImage(false)// 是否可预览图片
-            .forResult(PictureConfig.CHOOSE_REQUEST);//结果回调onActivityResult code
-        break;
-      case R.id.btn_take_photo://拍照
-        PictureSelector.create(this)
-            .openCamera(PictureMimeType.ofImage())
-            .selectionMode(PictureConfig.SINGLE)//多选 or 单选
-            .enableCrop(true)//是否裁剪
-            .compress(true)//是否压缩
-            .freeStyleCropEnabled(true)// 裁剪框是否可拖拽
-            .compressMode(PictureConfig.LUBAN_COMPRESS_MODE)
-            .previewImage(false)// 是否可预览图片
-            .forResult(PictureConfig.CHOOSE_REQUEST);//结果回调onActivityResult code
-        break;
       case R.id.tv_myself_orderform_seeall://查看全部订单
         CommonUtils.toastMessage("查看全部订单");
         break;
@@ -209,6 +180,8 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
         CommonUtils.toastMessage("查看全部资产");
         break;
       case R.id.ll_myself_property_redpacket://红包
+        Intent intentred = new Intent(getActivity(), ActivityMyRedPackets.class);
+        startActivity(intentred);
         CommonUtils.toastMessage("红包");
         break;
       case R.id.ll_myself_property_destoonfinancecharge://充值
@@ -229,8 +202,10 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
       case R.id.ll_myself_service_enshrine://收藏
         CommonUtils.toastMessage("收藏");
         break;
-      case R.id.ll_myself_service_footprint://足迹
+      case R.id.ll_myself_service_footprint://足迹ActivityOrderConfirmation
         CommonUtils.toastMessage("足迹");
+        Intent intentfoot = new Intent(getActivity(), ActivityOrderConfirmation.class);
+        startActivity(intentfoot);
         break;
       case R.id.ll_myself_service_location://地址
         Intent intentadd = new Intent(getActivity(), ActivityReceiverAddress.class);
@@ -243,7 +218,12 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
         CommonUtils.toastMessage("客服");
         break;
       case R.id.ll_myself_service_help://帮助
-
+        if (mSh.getLoginSuccess()) {
+          //  WebViewActivity.start(getActivity(), "帮助中心", "http://www.baihuodasha.com/mobile/user.php?act=aboutus");
+        } else {
+          Intent help = new Intent(getActivity(), ActivityLogin.class);
+          startActivity(help);
+        }
         CommonUtils.toastMessage("帮助");
         break;
       case R.id.ll_myself_service_step: //设置
@@ -254,59 +234,69 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
     }
   }
 
-  public SelectPicPopupWindow getPicPopupWindow(Context context, View.OnClickListener itemsOnClick,
-      View viewAttach) {
-    //实例化SelectPicPopupWindow
-    SelectPicPopupWindow menuWindow = new SelectPicPopupWindow(context, itemsOnClick);
-    //显示窗口,设置layout在PopupWindow中显示的位置
-    menuWindow.showAtLocation(viewAttach, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
-    return menuWindow;
-  }
-
   private String picID = "";
 
   @Override public void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
-    if (resultCode == RESULT_OK) {
-      switch (requestCode) {
-        case PictureConfig.CHOOSE_REQUEST:
-          // 图片选择结果回调
-          LocalMedia media = PictureSelector.obtainMultipleResult(data).get(0);
-          // 例如 LocalMedia 里面返回三种path
-          // 1.media.getPath(); 为原图path
-          // 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true
-          // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true
-          // 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
-          final Bitmap zoomBitMap = CommonUtils.getBitmap(media.getCompressPath());
-
-          if (zoomBitMap != null) {
-            //先保持到本地，在传到服务器
-            CommonUtils.saveBitmapFile(zoomBitMap, "myicon.jpg");//先保存文件到本地
-            //   Log.i("qaz", "onActivityResult2: " + zoomBitMap);
-
-          } else {
-            //本地图片显示
-            Bitmap cacheBitmap = CommonUtils.getCacheFile("myicon.jpg");
-            byte[] bytes = CommonUtils.getBitMapByteArray(cacheBitmap);
-            // Log.i("qaz", "onActivityResult1: " + bytes);
-            Glide.with(getActivity())
-                .load(bytes)
-                .placeholder(R.drawable.defaultavatar)
-                .bitmapTransform(new CropCircleTransformation(getActivity()))
-                .into(ivMyselfHeadportrait);
-          }
-          break;
-      }
-    }
   }
 
   @Override public void onResume() {
     super.onResume();
+    getIcon();
     //判断是否是登录状态
-    if (StringUtil.isNullOrEmpty(mSh.getUserId()) || StringUtil.isNullOrEmpty(mSh.getUserToken())) {
-      name.setText("注册/登陆");
+    //if (StringUtil.isNullOrEmpty(mSh.getUserId()) || StringUtil.isNullOrEmpty(mSh.getUserToken())) {
+    //  name.setText("注册/登陆");
+    //} else {
+    //  name.setText("百货大厦");
+    //}
+    name.setText(mSh.getUserName());
+  }
+
+  private void sendUserInfo() {
+    SdjNetWorkManager.sendUserInfo(new Callback() {
+      @Override public void onResponse(Call call, Response response) {
+        Msg msg = (Msg) response.body();
+        if (msg != null) {
+          MainUserInfoModel bean = (MainUserInfoModel) msg.getData();
+          Log.i("qaz", "onResponse: " + bean.toString());
+          if (bean.getHeadimg() != null) {
+            heading = bean.getHeadimg();
+          } else {
+            heading =
+                "http://test2.baihuodasha.com/mobile/themesmobile/68ecshopcom_mobile/css/gaiban/img/User_center/headp.png";
+          }
+          Glide.with(getActivity())
+              .load(heading)
+              .placeholder(R.drawable.defaultavatar)
+              .bitmapTransform(new CropCircleTransformation(getActivity()))
+              .into(ivMyselfHeadportrait);
+          mSh.setUserName(bean.getNick_name());
+          //  name.setText(bean.getNick_name());
+        }
+      }
+
+      @Override public void onFailure(Call call, Throwable t) {
+        Log.i("qaz", "onFailure: " + t);
+      }
+    });
+  }
+
+  private void getIcon() {
+    Bitmap cacheBitmap = CommonUtils.getCacheFile("myicon.jpg");
+    if (cacheBitmap != null) {
+      byte[] bytes = CommonUtils.getBitMapByteArray(cacheBitmap);
+      Glide.with(this)
+          .load(bytes)
+          .placeholder(R.drawable.defaultavatar)
+          .bitmapTransform(new CropCircleTransformation(getActivity()))
+          .into(ivMyselfHeadportrait);
     } else {
-      name.setText("百货大厦");
+      Glide.with(this)
+          .load(
+              "http://test2.baihuodasha.com/mobile/themesmobile/68ecshopcom_mobile/css/gaiban/img/User_center/headp.png")
+          .placeholder(R.drawable.defaultavatar)
+          .bitmapTransform(new CropCircleTransformation(getActivity()))
+          .into(ivMyselfHeadportrait);
     }
   }
 }

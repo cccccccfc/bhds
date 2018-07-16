@@ -3,43 +3,53 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
-    android:background="@drawable/btn_style_alert_dialog_background"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
-
-    <Button
-        android:id="@+id/btn_take_photo"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dm090"
-        android:layout_marginLeft="@dimen/dm020"
-        android:layout_marginRight="@dimen/dm020"
-        android:layout_marginTop="@dimen/dm020"
-        android:background="@drawable/btn_style_alert_dialog_button"
-        android:text="拍照"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/btn_pick_photo"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dm090"
-        android:layout_marginLeft="@dimen/dm020"
-        android:layout_marginRight="@dimen/dm020"
-        android:layout_marginTop="@dimen/dm005"
-        android:background="@drawable/btn_style_alert_dialog_button"
-        android:text="从相册选择"
-        android:textStyle="bold" />
-
-    <Button
+    <TextView
         android:id="@+id/btn_cancel"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dm090"
-        android:layout_marginBottom="@dimen/dm015"
-        android:layout_marginLeft="@dimen/dm020"
-        android:layout_marginRight="@dimen/dm020"
-        android:layout_marginTop="@dimen/dm015"
-        android:background="@drawable/btn_style_alert_dialog_cancel"
-        android:text="取消"
-        android:textColor="#ffffff"
-        android:textStyle="bold" />
+        android:gravity="center"
+        android:textColor="@color/blackText"
+        android:background="@color/white"
+        android:textSize="@dimen/dm028"
+        android:text="头像编辑"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/login_hx"
+        />
+    <TextView
+        android:id="@+id/btn_take_photo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dm090"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="拍照"
+        android:textColor="@color/blackText"
+        android:textSize="@dimen/dm028"
+         />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/login_hx"
+        />
+    <TextView
+        android:id="@+id/btn_pick_photo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dm090"
+        android:textColor="@color/blackText"
+        android:background="@color/white"
+        android:textSize="@dimen/dm028"
+        android:text="从相册选择"
+        android:gravity="center"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/login_hx"
+        />
+
 
 </LinearLayout>

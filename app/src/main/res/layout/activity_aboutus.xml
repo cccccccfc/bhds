@@ -8,5 +8,6 @@
     android:background="@color/white"
     tools:context="com.baihuodasha.bhds.activity.myself.ActivityAboutus"
     >
-  <include layout="@layout/activity_base_title"/>
+
+
 </LinearLayout>

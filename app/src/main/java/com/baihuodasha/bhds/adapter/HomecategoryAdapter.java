@@ -11,7 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baihuodasha.bhds.R;
-import com.baihuodasha.bhds.bean.ParentInfo;
+import com.baihuodasha.bhds.bean.MainCategoryGoodsListMdel;
+import com.baihuodasha.bhds.net.URLContents;
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +24,8 @@ import java.util.List;
 public class HomecategoryAdapter extends RecyclerView.Adapter<HomecategoryAdapter.MyViewHolder> {
 
   private final FragmentActivity mContext;
-  private List<ParentInfo> newlist;
-  public HomecategoryAdapter(FragmentActivity mContext,List<ParentInfo> mList) {
+  private List<MainCategoryGoodsListMdel.DataBean> newlist;
+  public HomecategoryAdapter(FragmentActivity mContext,List<MainCategoryGoodsListMdel.DataBean> mList) {
     this.mContext = mContext;
     if (mList != null && mList.size() > 0) {
       this.newlist = mList;
@@ -39,10 +40,12 @@ public class HomecategoryAdapter extends RecyclerView.Adapter<HomecategoryAdapte
   }
 
   @Override public void onBindViewHolder(MyViewHolder holder, int position) {
-    holder.mItemtxtitle.setText(newlist.get(position).getTitle());
-    Glide.with(mContext).load(newlist.get(position).getImage()).into(holder.mItemivimage);
+    holder.mItemtxtitle.setText(newlist.get(position).getCat_name());
+    Glide.with(mContext).load(URLContents.Goods_URL +newlist.get(position).getType_img()).into(holder.mItemivimage);
+    //Log.i("qaz", "11111onBindViewHolder: "+URLContents.Goods_URL +newlist.get(position).getType_img());
+
     if (holder.mItemrecycinfo.getAdapter() == null) {
-      holder.mItemrecycinfo.setAdapter(new HomecategoryInfoAdapter(mContext, newlist.get(position).getMenuList()));
+      holder.mItemrecycinfo.setAdapter(new HomecategoryInfoAdapter(mContext, newlist.get(position).getGoodsList()));
     } else {
       holder.mItemrecycinfo.getAdapter().notifyDataSetChanged();
     }
@@ -76,7 +79,7 @@ public class HomecategoryAdapter extends RecyclerView.Adapter<HomecategoryAdapte
       mItemrecycinfo.setLayoutManager(manager);
     }
   }
-  public void addList(List<ParentInfo> list) {
+  public void addList(List<MainCategoryGoodsListMdel.DataBean> list) {
     Log.i("qaz", "addList: "+list.size());
     if (list != null && list.size() > 0) {
       newlist.addAll(list);
