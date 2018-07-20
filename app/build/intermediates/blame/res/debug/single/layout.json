@@ -48,6 +48,10 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\fragment_other.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_product_list.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_product_list.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\selector_home_tv.xml",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\selector_home_tv.xml"
     },
@@ -120,12 +124,12 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\recycinfo_item.xml"
     },
     {
-        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
-        "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\layout\\select_dialog_multichoice_material.xml"
-    },
-    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\layout\\select_dialog_multichoice_material.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ucrop_layout_rotate_wheel.xml",
@@ -192,12 +196,20 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\deb4fb50000acf0d343d809022d85269c91fabdd\\output\\res\\layout\\picture_activity_video_play.xml"
     },
     {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_mode_payment.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\dialog_mode_payment.xml"
+    },
+    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\pager_empty.xml",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\pager_empty.xml"
     },
     {
-        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_mode_payment.xml",
-        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\dialog_mode_payment.xml"
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_property_recharge.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_property_recharge.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_destoon_finance_charge.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\layout\\activity_destoon_finance_charge.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_picture_play_audio.xml",
@@ -380,12 +392,12 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\layout\\notification_action_tombstone.xml"
     },
     {
-        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ucrop_controls.xml",
-        "source": "C:\\Users\\zhang\\.android\\build-cache\\62ceab76caf433ce4c92b6ca8e6832afc62419da\\output\\res\\layout\\ucrop_controls.xml"
-    },
-    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\picture_empty.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\deb4fb50000acf0d343d809022d85269c91fabdd\\output\\res\\layout\\picture_empty.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ucrop_controls.xml",
+        "source": "C:\\Users\\zhang\\.android\\build-cache\\62ceab76caf433ce4c92b6ca8e6832afc62419da\\output\\res\\layout\\ucrop_controls.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_tab_content.xml",

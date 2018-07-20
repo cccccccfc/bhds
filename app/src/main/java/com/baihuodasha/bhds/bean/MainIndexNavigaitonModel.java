@@ -56,6 +56,23 @@ public class MainIndexNavigaitonModel {
   }
 
   public static class DataBean {
+    @Override public String toString() {
+      return "DataBean{"
+          + "id='"
+          + id
+          + '\''
+          + ", cid='"
+          + cid
+          + '\''
+          + ", name='"
+          + name
+          + '\''
+          + ", url='"
+          + url
+          + '\''
+          + '}';
+    }
+
     /**
      * id : 27
      * cid : 0

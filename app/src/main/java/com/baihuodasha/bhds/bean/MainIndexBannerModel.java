@@ -9,6 +9,19 @@ import java.util.List;
 
 public class MainIndexBannerModel implements Serializable {
 
+  @Override public String toString() {
+    return "MainIndexBannerModel{"
+        + "code='"
+        + code
+        + '\''
+        + ", msg='"
+        + msg
+        + '\''
+        + ", data="
+        + data
+        + '}';
+  }
+
   /**
    * code : 1
    * msg : 获取成功

@@ -7,11 +7,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baihuodasha.bhds.R;
-import com.baihuodasha.bhds.bean.ParentInfo;
+import com.baihuodasha.bhds.bean.GetChildTreeByCatId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +21,10 @@ import java.util.List;
 public class ClassifyInfoAdapter extends RecyclerView.Adapter<ClassifyInfoAdapter.MyViewHolder> {
 
   private final FragmentActivity mContext;
-  private List<ParentInfo> newlist;
-  public ClassifyInfoAdapter(FragmentActivity mContext,List<ParentInfo> mList) {
+  private List<GetChildTreeByCatId.DataBean> newlist;
+  private ClassifyInfoChildAdapter infoadapter;
+
+  public ClassifyInfoAdapter(FragmentActivity mContext,List<GetChildTreeByCatId.DataBean> mList) {
     this.mContext = mContext;
     if (mList != null && mList.size() > 0) {
       this.newlist = mList;
@@ -39,11 +40,17 @@ public class ClassifyInfoAdapter extends RecyclerView.Adapter<ClassifyInfoAdapte
 
   @Override public void onBindViewHolder(MyViewHolder holder, int position) {
 
-    holder.mItemtxtitle.setText(newlist.get(position).getTitle());
+    holder.mItemtxtitle.setText(newlist.get(position).getName());
     if (holder.mItemrecycinfo.getAdapter() == null) {
-      holder.mItemrecycinfo.setAdapter(new ClassifyInfoChildAdapter(mContext,newlist.get(position).getTitle() ,newlist.get(position).getMenuList()));
+      Log.i("qaz", "111111111111onBindViewHolder: ");
+      infoadapter =new ClassifyInfoChildAdapter(mContext,newlist.get(position).getCat_id());
+      holder.mItemrecycinfo.setAdapter(infoadapter);
     } else {
-      holder.mItemrecycinfo.getAdapter().notifyDataSetChanged();
+      infoadapter =new ClassifyInfoChildAdapter(mContext,newlist.get(position).getCat_id());
+      holder.mItemrecycinfo.setAdapter(infoadapter);
+      Log.i("qaz", "222222222222222onBindViewHolder: ");
+      //infoadapter.clear();
+      //infoadapter.addList(newlist.get(position).getCat_id());
     }
   }
 
@@ -54,7 +61,6 @@ public class ClassifyInfoAdapter extends RecyclerView.Adapter<ClassifyInfoAdapte
   public class MyViewHolder extends RecyclerView.ViewHolder {
 
     RecyclerView mItemrecycinfo;
-    ImageView mItemivimage;
     TextView mItemtxtitle;
     LinearLayout mItemlinmore;
 
@@ -69,9 +75,9 @@ public class ClassifyInfoAdapter extends RecyclerView.Adapter<ClassifyInfoAdapte
       mItemrecycinfo.setLayoutManager(manager);
     }
   }
-  public void addList(List<ParentInfo> list) {
-    Log.i("qaz", "addList: "+list.size());
+  public void addList(List<GetChildTreeByCatId.DataBean> list) {
     if (list != null && list.size() > 0) {
+      newlist.clear();
       newlist.addAll(list);
       notifyDataSetChanged();
     }

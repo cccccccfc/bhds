@@ -39,13 +39,8 @@ public class ActivityPaymenResult extends BaseActivity {
   @BindView(R.id.item_tx_title) TextView itemTxTitle;
   @BindView(R.id.rec_bhds_choiceness) RecyclerView recBhdsChoiceness;
 
-  @Override protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_paymen_result);
-    ButterKnife.bind(this);
-  }
-
   @Override public void setContentLayout(Bundle savedInstanceState) {
+    setContentView(R.layout.activity_paymen_result);
     ButterKnife.bind(this);
     setStatusBarPlaceVisible(true);
     setViewColorStatusBar(false, getResources().getColor(R.color.titleBar));

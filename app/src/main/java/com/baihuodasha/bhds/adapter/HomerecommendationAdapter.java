@@ -3,7 +3,6 @@ package com.baihuodasha.bhds.adapter;
 import android.graphics.Paint;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,11 +78,12 @@ public class HomerecommendationAdapter extends RecyclerView.Adapter<Homerecommen
     }
   }
   public void addList(List<MainIndexBestGoodsList.DataBean> list) {
-    Log.i("qaz", "addList: "+list.size());
+   // Log.i("qaz", "addList: "+list.size());
     if (list != null && list.size() > 0) {
       newlist.addAll(list);
       notifyDataSetChanged();
       if (list.size() < pagesize) {
+     //   Log.i("qaz", "addList: " );
         isLoadOver = true;
       }
     }
@@ -107,6 +107,7 @@ public class HomerecommendationAdapter extends RecyclerView.Adapter<Homerecommen
   }
 
   public int getPage() {
-    return newlist.size() / pagesize + 1  ;
+  //  Log.i("qaz", "getPage: "+newlist.size()  +"=="+pagesize + 1 );
+    return newlist.size() / pagesize  ;
   }
 }

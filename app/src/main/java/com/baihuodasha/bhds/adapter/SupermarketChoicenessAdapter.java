@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baihuodasha.bhds.R;
+import com.baihuodasha.bhds.bean.MainIndexBestGoodsList;
+import com.baihuodasha.bhds.net.URLContents;
+import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,14 +24,18 @@ public class SupermarketChoicenessAdapter extends RecyclerView.Adapter<Supermark
 
   private OnItemClickListener mOnItemClickListener = null;
   private final FragmentActivity mContext;
-  private List<String> newlist;
-  public SupermarketChoicenessAdapter(FragmentActivity mContext,List<String> mList) {
+  private List<MainIndexBestGoodsList.DataBean> newlist;
+  boolean isLoadOver;
+  int pagesize = 15;
+
+  public SupermarketChoicenessAdapter(FragmentActivity mContext,List<MainIndexBestGoodsList.DataBean> mList) {
     this.mContext = mContext;
     if (mList != null && mList.size() > 0) {
       this.newlist = mList;
     } else {
       newlist = new ArrayList<>();
     }
+    isLoadOver = false;
   }
 
   @Override public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -38,11 +45,13 @@ public class SupermarketChoicenessAdapter extends RecyclerView.Adapter<Supermark
 
   @Override public void onBindViewHolder(MyViewHolder holder, final int position) {
 
-    holder.mItemtxtitle.setText(newlist.get(position));
+    holder.mItemtxtitle.setText(newlist.get(position).getGoods_name());
+    Glide.with(mContext).load(URLContents.Goods_URL +newlist.get(position).getGoods_img()).into(holder.mItemivimage);
+    holder.mItemprice.setText(newlist.get(position).getShop_price());
     holder.mItemlinearl.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         if (mOnItemClickListener != null) {
-          mOnItemClickListener.onClick(position, newlist.get(position));
+          mOnItemClickListener.onClick(position, newlist.get(position).getGoods_id());
         }
       }
     });
@@ -66,15 +75,20 @@ public class SupermarketChoicenessAdapter extends RecyclerView.Adapter<Supermark
       mItemlinearl = (LinearLayout) itemView.findViewById(R.id.lin_supermarket_choiceness);
     }
   }
-  public void addList(List<String> list) {
+  public void addList(List<MainIndexBestGoodsList.DataBean> list) {
     Log.i("qaz", "addList: "+list.size());
     if (list != null && list.size() > 0) {
       newlist.addAll(list);
       notifyDataSetChanged();
+      if (list.size() < pagesize) {
+        //   Log.i("qaz", "addList: " );
+        isLoadOver = true;
+      }
     }
   }
   public void clear() {
     newlist.clear();
+    isLoadOver = false;
     notifyDataSetChanged();
   }
   /**
@@ -90,5 +104,21 @@ public class SupermarketChoicenessAdapter extends RecyclerView.Adapter<Supermark
    */
   public void setOnItemClickListener(OnItemClickListener listener) {
     this.mOnItemClickListener = listener;
+  }
+  public boolean getIsLoadOver() {
+    return isLoadOver;
+  }
+
+  public int getPagesize() {
+    return pagesize;
+  }
+
+  public void setPagesize(int pagesize) {
+    this.pagesize = pagesize;
+  }
+
+  public int getPage() {
+    //  Log.i("qaz", "getPage: "+newlist.size()  +"=="+pagesize + 1 );
+    return newlist.size() / pagesize  ;
   }
 }

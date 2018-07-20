@@ -1,52 +1,59 @@
 package com.baihuodasha.bhds.fragment;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
 import com.baihuodasha.bhds.activity.index.ActivityCommoditySearch;
-import com.baihuodasha.bhds.adapter.ClassificationAdapter;
+import com.baihuodasha.bhds.adapter.ClassifyInfoAdapter;
+import com.baihuodasha.bhds.adapter.LeftMenuAdapter;
 import com.baihuodasha.bhds.base.BaseFragment;
-import com.baihuodasha.bhds.base.Config;
-import com.baihuodasha.bhds.utils.CustomViewPager;
+import com.baihuodasha.bhds.bean.BigCategoryList;
+import com.baihuodasha.bhds.bean.GetChildTreeByCatId;
+import com.baihuodasha.bhds.net.SdjNetWorkManager;
+import com.baihuodasha.bhds.view.MyDialog;
+import java.util.ArrayList;
+import java.util.List;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * author：Anumbrella
  * Date：16/5/24 下午8:04
  */
-public class FragmentClassification extends BaseFragment implements View.OnClickListener{
+public class FragmentClassification extends BaseFragment
+    implements View.OnClickListener, LeftMenuAdapter.onItemSelectedListener {
 
-  private LayoutInflater linflater;
-  private ImageView[] shopViews;
-  private TextView[] listMenuTextViews;
-  private LinearLayout[] linearLayout;
-  private Bundle savedState;
-
-  /**
-   * 默认的ViewPager选中的项
-   */
-  private int currentItem = 0;
-
-  @BindView(R.id.goods) CustomViewPager viewPager;
+  @BindView(R.id.search_con) TextView searchCon;
+  @BindView(R.id.title) RelativeLayout title;
+  @BindView(R.id.recyclerView_tools) RecyclerView recyclerViewTools;
+  @BindView(R.id.item_iv_image) ImageView itemIvImage;
+  @BindView(R.id.RecyclerViewList) RecyclerView RecyclerViewList;
   @BindView(R.id.tools_scrollView) ScrollView tools_scrollView;
   @BindView(R.id.title_return) ImageView title_return;
   @BindView(R.id.lin_seach) LinearLayout lin_seach;
   @BindView(R.id.img_message) ImageView img_message;
-  private String[] listMenus;
+  private static List<BigCategoryList.DataBean> listMenus;
+  private List<BigCategoryList.DataBean> mens;
+  private FragmentClassificationList goodsFragment;
+  private LeftMenuAdapter leftAdapter;
+  private ClassifyInfoAdapter rightadapter;
+  private List<GetChildTreeByCatId.DataBean> rightList;
+  private MyDialog loadDialog;
+  private boolean shouLoad = true;
 
   @Nullable @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -56,140 +63,99 @@ public class FragmentClassification extends BaseFragment implements View.OnClick
     title_return.setVisibility(View.GONE);
     img_message.setVisibility(View.GONE);
     setHasOptionsMenu(true);
-    linflater = LayoutInflater.from(getContext());
-    initTools(view);
-    initViewPager();
+    lin_seach.setOnClickListener(this);
+    initTools();
     return view;
   }
-
-  private void initViewPager() {
-    lin_seach.setOnClickListener(this);
-    // 由于使用了支持包所以最终必须确保所有的导入包都是来自支持包
-    ClassificationAdapter classificationAdapter =
-        new ClassificationAdapter(getChildFragmentManager(), listMenus);
-    viewPager.setAdapter(classificationAdapter);
-    // 为ViewPager设置页面变化的监控
-    viewPager.addOnPageChangeListener(onPageChangeListener);
-  }
-
-  ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-    }
-
-    @Override public void onPageSelected(int position) {
-
-      if (viewPager.getCurrentItem() != position) {
-        viewPager.setCurrentItem(position);
-      }
-      // 通过ViewPager监听点击字体颜色和背景的改变
-      if (currentItem != position) {
-
-        changeTextColor(position);
-        //changeTextLocation(position);
-      }
-      currentItem = position;
-    }
-
-    @Override public void onPageScrollStateChanged(int state) {
-
-    }
-  };
 
   /**
    * 初始化左边目录
    */
-  private void initTools(View layoutView) {
-    listMenus = Config.categorizeTools;
-    listMenuTextViews = new TextView[listMenus.length];
-    linearLayout = new LinearLayout[listMenus.length];
-    shopViews = new ImageView[listMenus.length];
-    LinearLayout toolsLayout = (LinearLayout)layoutView.findViewById(R.id.recyclerView_tools);
-    for (int i = 0; i < listMenus.length; i++) {
-      View view = linflater.inflate(R.layout.itemview_categorize_listmenus, null);
-      // 给每个View设定唯一标识
-      view.setId(i);
-      // 给每个view添加点击监控事件
-      view.setOnClickListener(ListItemMenusClickListener);
-      // 获取到左侧栏的的TextView的组件
-      TextView textView = (TextView) view.findViewById(R.id.textView);
-      LinearLayout linear_back =  (LinearLayout) view.findViewById(R.id.linear_back);
-      ImageView imageView = (ImageView) view.findViewById(R.id.lineView);
-      textView.setText(listMenus[i]);
-      toolsLayout.addView(view);
-      // 传入的是地址不是复制的值
-      listMenuTextViews[i] = textView;
-      linearLayout[i] =linear_back;
-      shopViews[i] = imageView;
-    }
-    changeTextColor(0);
-  }
-
-  private void changeTextColor(int position) {
-    for (int i = 0; i < listMenus.length; i++) {
-      if (position != i) {
-        linearLayout[i].setBackgroundColor(Color.parseColor("#f6f6f6"));
-        listMenuTextViews[i].setTextColor(Color.parseColor("#666666"));
-        shopViews[i].setVisibility(View.GONE);
+  private void initTools() {
+    //左侧
+    LinearLayoutManager linearLayoutl = new LinearLayoutManager(getActivity());
+    linearLayoutl.setOrientation(LinearLayoutManager.VERTICAL);
+    recyclerViewTools.setLayoutManager(linearLayoutl);
+    leftAdapter = new LeftMenuAdapter(getActivity(), null);
+    recyclerViewTools.setAdapter(leftAdapter);
+    leftAdapter.addItemSelectedListener(this);
+    //  右侧
+    LinearLayoutManager linearLayoutr = new LinearLayoutManager(getActivity());
+    linearLayoutr.setOrientation(LinearLayoutManager.VERTICAL);
+    RecyclerViewList.setLayoutManager(linearLayoutr);
+    rightadapter = new ClassifyInfoAdapter(getActivity(), null);
+    RecyclerViewList.setAdapter(rightadapter);
+    SdjNetWorkManager.sendBigCategoryList(new Callback() {
+      @Override public void onResponse(Call call, Response response) {
+        BigCategoryList msg = (BigCategoryList) response.body();
+        if (msg != null) {
+          listMenus = (ArrayList<BigCategoryList.DataBean>) msg.getData();
+          if (listMenus != null) {
+            leftAdapter.addList(listMenus);
+            initRight(listMenus.get(0).getCat_id());
+          }
+        } else {
+        }
       }
-    }
-    shopViews[position].setVisibility(View.VISIBLE);
-    linearLayout[position].setBackgroundColor(Color.parseColor("#ffffff"));
-    listMenuTextViews[position].setTextColor(Color.parseColor("#000000"));
-  }
 
-  private void changeTextLocation(int clickPosition) {
-    int y = (shopViews[clickPosition].getTop());
-    // 如果滑动条可以滑动的情况下就把点击的视图移动到顶部
-    tools_scrollView.smoothScrollTo(0, y);
-  }
-
-  View.OnClickListener ListItemMenusClickListener = new View.OnClickListener() {
-    @Override public void onClick(View v) {
-      viewPager.setCurrentItem(v.getId());
-    }
-  };
-
-  @Override public boolean onOptionsItemSelected(MenuItem item) {
-
-    return super.onOptionsItemSelected(item);
-  }
-
-  @Override public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-    super.onCreateOptionsMenu(menu, inflater);
+      @Override public void onFailure(Call call, Throwable t) {
+      }
+    });
   }
 
   @Override public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-    restoreState();
-    changeTextColor(currentItem);
   }
 
   @Override public void onDestroyView() {
     super.onDestroyView();
-    savedState = saveState();
-  }
-
-  private void restoreState() {
-    if (savedState != null) {
-      currentItem = savedState.getInt("index");
-    }
-  }
-
-  private Bundle saveState() {
-    Bundle state = new Bundle();
-    state.putInt("index", currentItem);
-    return state;
   }
 
   @Override public void onClick(View v) {
     switch (v.getId()) {
 
-      case  R.id.lin_seach:
+      case R.id.lin_seach:
         Intent intent = new Intent(getActivity(), ActivityCommoditySearch.class);
         startActivity(intent);
         break;
     }
+  }
+
+  @Override public void onLeftItemSelected(int postion, String menu) {
+    initRight(menu);
+  }
+
+  private void initRight(String cat_id) {
+    if (shouLoad) {
+      loadDialog = MyDialog.showDialog(getActivity());
+      //shouLoad = false;
+      loadDialog.show();
+    }
+    SdjNetWorkManager.sendGetChildTreeByCatId(cat_id, new Callback() {
+      @Override public void onResponse(Call call, Response response) {
+        GetChildTreeByCatId msg = (GetChildTreeByCatId) response.body();
+        if (msg != null) {
+          if (loadDialog != null) {
+            loadDialog.dismiss();
+            loadDialog = null;
+          }
+          rightList = (ArrayList<GetChildTreeByCatId.DataBean>) msg.getData();
+          if (rightList != null) {
+            rightadapter.clear();
+            rightadapter.addList(rightList);
+          }else {
+
+          }
+        } else {
+        }
+      }
+
+      @Override public void onFailure(Call call, Throwable t) {
+        if (loadDialog != null) {
+          loadDialog.dismiss();
+          loadDialog = null;
+        }
+      }
+    });
   }
 }

@@ -5,7 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.Log;
+import com.baihuodasha.bhds.bean.BigCategoryList;
 import com.baihuodasha.bhds.fragment.FragmentClassificationList;
+import java.util.List;
 
 /**
  * author：Anumbrella
@@ -14,9 +16,9 @@ import com.baihuodasha.bhds.fragment.FragmentClassificationList;
 public class ClassificationAdapter extends FragmentStatePagerAdapter {
 
 
-    private String[] list;
+    private List<BigCategoryList.DataBean> list;
 
-    public ClassificationAdapter(FragmentManager fm, String[] array) {
+    public ClassificationAdapter(FragmentManager fm, List<BigCategoryList.DataBean> array) {
         super(fm);
         list = array;
     }
@@ -27,7 +29,7 @@ public class ClassificationAdapter extends FragmentStatePagerAdapter {
         Fragment fragment = new FragmentClassificationList();
         Bundle bundle = new Bundle();
         // 把选中的index指针传入过去
-        bundle.putInt("index", position);
+        bundle.putString("index", list.get(position).getCat_id());
         // 设定在fragment当中去
         fragment.setArguments(bundle);
         return fragment;
@@ -35,6 +37,6 @@ public class ClassificationAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return list.length;
+        return list.size();
     }
 }

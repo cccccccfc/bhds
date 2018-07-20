@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,6 @@ import com.baihuodasha.bhds.adapter.ClassifyInfoAdapter;
 import com.baihuodasha.bhds.base.Config;
 import com.baihuodasha.bhds.bean.ChildInfo;
 import com.baihuodasha.bhds.bean.ParentInfo;
-import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,12 +35,13 @@ public class FragmentClassificationList extends Fragment {
     View view = inflater.inflate(R.layout.productlist_layout, null);
     RecyclerView recyclerViewList = (RecyclerView) view.findViewById(R.id.RecyclerViewList);
     ImageView item_iv_image = (ImageView) view.findViewById(R.id.item_iv_image);
-    int index = getArguments().getInt("index");
+    String index = getArguments().getString("index");
+    Log.i("qaz", "onCreateView: "+index);
     String[] fenleiimages = Config.Fenleiimages;
     fenleititle = Config.Fenleititle;
     fenleicommodity = Config.Fenleicommodity;
     contextImages = Config.ContextImages;
-    Glide.with(getActivity()).load(fenleiimages[index]).into(item_iv_image);
+    //Glide.with(getActivity()).load(fenleiimages[index]).into(item_iv_image);
     LinearLayoutManager linearLayoutT = new LinearLayoutManager(getActivity());
     linearLayoutT.setOrientation(LinearLayoutManager.VERTICAL);
     recyclerViewList.setLayoutManager(linearLayoutT);
@@ -67,6 +68,6 @@ public class FragmentClassificationList extends Fragment {
       parentInfo.setMenuList(childInfoList);
       dataInfoList.add(parentInfo);
     }
-    adapter.addList(dataInfoList);
+   // adapter.addList(dataInfoList);
   }
 }

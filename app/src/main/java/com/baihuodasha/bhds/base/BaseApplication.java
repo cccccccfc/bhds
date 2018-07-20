@@ -5,6 +5,12 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreater;
+import com.scwang.smartrefresh.layout.api.RefreshFooter;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -24,6 +30,7 @@ import javax.net.ssl.X509TrustManager;
  */
 
 public class BaseApplication extends Application {
+
     private static Context mContext;
     private static Thread mMainThread;
     private static long mMainTreadId;
@@ -129,5 +136,14 @@ public class BaseApplication extends Application {
         public boolean verify(String hostname, SSLSession session) {
             return true;
         }
+    }
+    static{
+        //设置脚布局样式,全局有效
+        SmartRefreshLayout.setDefaultRefreshFooterCreater(new DefaultRefreshFooterCreater() {
+            @Override public RefreshFooter createRefreshFooter(Context context, RefreshLayout layout) {
+                //指定为经典Footer，默认是 BallPulseFooter
+                return new ClassicsFooter(context).setSpinnerStyle(SpinnerStyle.Translate);
+            }
+        });
     }
 }

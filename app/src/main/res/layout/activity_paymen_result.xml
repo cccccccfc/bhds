@@ -243,7 +243,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dm080"
         android:layout_marginLeft="@dimen/dm030"
-        android:layout_marginRight="@dimen/dm030"
+        android:layout_marginRight="@dimen/dm020"
         android:layout_marginTop="@dimen/dm040"
         android:background="@drawable/backgroud_bg_golden"
         >
@@ -261,7 +261,7 @@
         android:id="@+id/cb_payment_cnfrim"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dm080"
-        android:layout_marginLeft="@dimen/dm030"
+        android:layout_marginLeft="@dimen/dm020"
         android:layout_marginRight="@dimen/dm030"
         android:layout_marginTop="@dimen/dm040"
         android:background="@drawable/backgroud_button_app_color"

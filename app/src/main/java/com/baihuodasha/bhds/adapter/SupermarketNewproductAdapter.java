@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baihuodasha.bhds.R;
+import com.baihuodasha.bhds.bean.SupermarketNewShop;
+import com.baihuodasha.bhds.net.URLContents;
+import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +24,8 @@ public class SupermarketNewproductAdapter extends RecyclerView.Adapter<Supermark
 
   private final FragmentActivity mContext;
   private OnItemClickListener mOnItemClickListener = null;
-  private List<String> newlist;
-  public SupermarketNewproductAdapter(FragmentActivity mContext,List<String> mList) {
+  private List<SupermarketNewShop.DataBean> newlist;
+  public SupermarketNewproductAdapter(FragmentActivity mContext,List<SupermarketNewShop.DataBean> mList) {
     this.mContext = mContext;
     if (mList != null && mList.size() > 0) {
       this.newlist = mList;
@@ -38,11 +41,14 @@ public class SupermarketNewproductAdapter extends RecyclerView.Adapter<Supermark
 
   @Override public void onBindViewHolder(MyViewHolder holder, final int position) {
 
-    holder.mItemtxtitle.setText(newlist.get(position));
+    holder.mItemtxtitle.setText(newlist.get(position).getGoods_name());
+    holder.mItemintroduce.setText(newlist.get(position).getGoods_name());
+    holder.mItemprice.setText(newlist.get(position).getShop_price());
+    Glide.with(mContext).load(URLContents.Goods_URL+newlist.get(position).getGoods_img()).into(holder.mItemivimage);
     holder.mItemlinearl.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         if (mOnItemClickListener != null) {
-          mOnItemClickListener.onClick(position, newlist.get(position));
+          mOnItemClickListener.onClick(position, newlist.get(position).getGoods_id());
         }
       }
     });
@@ -68,7 +74,7 @@ public class SupermarketNewproductAdapter extends RecyclerView.Adapter<Supermark
 
     }
   }
-  public void addList(List<String> list) {
+  public void addList(List<SupermarketNewShop.DataBean> list) {
     Log.i("qaz", "addList: "+list.size());
     if (list != null && list.size() > 0) {
       newlist.addAll(list);

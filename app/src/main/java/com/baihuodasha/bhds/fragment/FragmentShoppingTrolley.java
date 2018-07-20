@@ -176,7 +176,7 @@ public class FragmentShoppingTrolley extends BaseFragment
     for (int i = 0; i < 14; i++) {
       price2.add(i + "测试");
     }
-    choicenessAdapter.addList(price2);
+    //choicenessAdapter.addList(price2);
 
     shoppingTrolleyFullAdapter.setOnDelListener(new ShoppingTrolleyFullAdapter.onSwipeListener() {
       @Override public void onDel(int pos) {

@@ -1,23 +1,24 @@
 package com.baihuodasha.bhds.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import com.baihuodasha.bhds.R;
+import com.baihuodasha.bhds.activity.supermarket.ActivityFlashSale;
 import com.baihuodasha.bhds.adapter.HomecategoryAdapter;
 import com.baihuodasha.bhds.adapter.HomerecommendationAdapter;
 import com.baihuodasha.bhds.adapter.HomesideslipproductsAdapter;
-import com.baihuodasha.bhds.base.Config;
 import com.baihuodasha.bhds.bean.MainCategoryGoodsListMdel;
 import com.baihuodasha.bhds.bean.MainIndexBannerModel;
 import com.baihuodasha.bhds.bean.MainIndexBestGoodsList;
@@ -37,11 +38,11 @@ import com.zhy.view.flowlayout.TagFlowLayout;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.Timer;
-import java.util.TimerTask;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.baihuodasha.bhds.utils.FabbuttonUtils.FabbuttonUtil;
 
 /**
  * Created by yifeng on 16/8/3.
@@ -58,8 +59,6 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
   private HomecategoryAdapter infoadapter;
   private TagFlowLayout id_flowlayout;
   private TagAdapter tagAdapter;
-  private String[] BannerImage;
-  private String[] contextImages;
   private RecyclerView mRecyccommendation;
   private HomerecommendationAdapter recommendationAdapter;
   private FloatingActionButton mFabbutton;
@@ -70,6 +69,7 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
   private String mold;
   private boolean touch = true;
   private SmartRefreshLayout mSmartR;
+  private ImageView mFlashSale;
 
   public static TabTecommendFragment newInstance(String content) {
     Bundle arguments = new Bundle();
@@ -85,7 +85,9 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
     View contentView = inflater.inflate(R.layout.fragment_tab_content, null);
     mTitle = getArguments().getString(EXTRA_CONTENT);
     // ((TextView) contentView.findViewById(R.id.tv_content)).setText(mTitle);
+    //ActivityFlashSale
     mBanner = (Banner) contentView.findViewById(R.id.banner);
+    mFlashSale = (ImageView) contentView.findViewById(R.id.img_flash_sale);
     id_flowlayout = (TagFlowLayout) contentView.findViewById(R.id.id_flowlayout);
     mRecycshoping = (RecyclerView) contentView.findViewById(R.id.recyc_shoping);
     mRecycinfo = (RecyclerView) contentView.findViewById(R.id.recyc_info);
@@ -94,25 +96,25 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
     mSmartR = (SmartRefreshLayout) contentView.findViewById(R.id.smart_commendation);
     mScrollView =
         (ScrollInterceptScrollView) contentView.findViewById(R.id.ScrollInterceptScrollView);
-
+    mSmartR.setEnableRefresh(false);
+    mSmartR.setEnableNestedScroll(true);
+    init();
     initdata();
     initListener();
     SelectorTab();
-   // FabbuttonUtil(getActivity(), mScrollView, mFabbutton);
-
+    FabbuttonUtil(getActivity(), mScrollView, mFabbutton);
     return contentView;
   }
 
   public void init() {
-    BannerImage = Config.Bannerhomeimages;
-    contextImages = Config.ContextImages;
+    mFlashSale.setOnClickListener(this);
     if (!mTitle.equals("推荐")) {
       //mBanner.setVisibility(View.GONE);
       // mBanner.stopAutoPlay();
     } else {
       // mBanner.startAutoPlay();
     }
-
+    mFabbutton.setVisibility(View.GONE);
     SdjNetWorkManager.sendIndexBanner("ads", new Callback() {
       @Override public void onResponse(Call call, Response response) {
         MainIndexBannerModel msg = (MainIndexBannerModel) response.body();
@@ -120,6 +122,7 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
           ArrayList<String> imageList = new ArrayList<>();
           bean = (ArrayList<MainIndexBannerModel.DataBean>) msg.getData();
           for (int i = 0; i < bean.size(); i++) {
+          //  Log.i("qaz", "onResponse: "+URLContents.Image_URL + bean.get(i).getImage());
             imageList.add(URLContents.Image_URL + bean.get(i).getImage());
             //设置图片加载器
             mBanner.setImageLoader(new GlideImageLoader());
@@ -130,12 +133,9 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
           }
         }
       }
-
       @Override public void onFailure(Call call, Throwable t) {
-
       }
     });
-    mFabbutton.setVisibility(View.GONE);
 
   }
 
@@ -163,26 +163,29 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
     mFabbutton.setOnClickListener(this);
     adapter.setOnItemClickListener(new HomesideslipproductsAdapter.OnItemClickListener() {
       @Override public void onClick(int v, String position) {
-        Log.i("qaz", "第" + v + "个" + position);
+       // Log.i("qaz", "第" + v + "个" + position);
       }
     });
-    mSmartR.setEnableRefresh(false);
-    mSmartR.setLoadmoreFinished(true);
-    //进行加载更多的逻辑处理
+
     mSmartR.setOnLoadmoreListener(new OnLoadmoreListener() {
-      @Override public void onLoadmore(RefreshLayout refreshlayout) {
-        new Timer().schedule(new TimerTask() {
-          @Override public void run() {
-            if (recommendationAdapter.getPage() != 1) {
+      @Override public void onLoadmore(final RefreshLayout refreshlayout) {
+        refreshlayout.getLayout().postDelayed(new Runnable() {
+          @Override
+          public void run() {
+            if (recommendationAdapter.getIsLoadOver()) {
+              CommonUtils.toastMessage("数据全部加载完毕");
+              refreshlayout.setLoadmoreFinished(true);
+
+            } else {
               sendBestGoodsList(false, "15");
-            }else {
-
+              refreshlayout.finishLoadmore();
             }
-
+            refreshlayout.finishLoadmore();
           }
-        }, 3000);
+        }, 1000);
       }
     });
+
   }
 
   @Override public void onClick(View v) {
@@ -196,6 +199,9 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
         });
         mFabbutton.setVisibility(View.GONE);
         break;
+      case  R.id.img_flash_sale:
+        Intent i = new Intent(getActivity() , ActivityFlashSale.class);
+        startActivity(i);
     }
   }
 
@@ -218,19 +224,20 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
   private void sendBestGoodsList(final boolean isReflash ,String size){
 
     int page = isReflash ? 1 : recommendationAdapter.getPage();
-    Log.i("qaz", "sendBestGoodsList: "+ isReflash);
-    SdjNetWorkManager.sendBestGoodsList(page, size, "空", new Callback() {
+
+    SdjNetWorkManager.sendBestGoodsList(page, size, "", new Callback() {
       @Override public void onResponse(Call call, Response response) {
         MainIndexBestGoodsList msg = (MainIndexBestGoodsList) response.body();
         if (msg != null) {
-          recommendationAdapter.addList(msg.getData());
-
-          if (recommendationAdapter.getIsLoadOver()) {
-            mSmartR.setLoadmoreFinished(true);
-            return;
+          if (msg.getData()!= null && msg.getData().size() > 0) {
+            recommendationAdapter.addList(msg.getData());
+          }else {
+            mSmartR.finishLoadmore();
           }
+
         }else {
-          //mSmartR.setLoadmoreFinished(false);
+          mSmartR.setLoadmoreFinished(false);
+          mSmartR.finishLoadmore();
         }
       }
 
@@ -263,8 +270,6 @@ public class TabTecommendFragment extends Fragment implements View.OnClickListen
       @Override public boolean onTagClick(View view, int i, FlowLayout parent) {
         //getList(showEntities.get(i).name, shopid, true);
         tagAdapter.setSelectedList(i);
-
-
         return true;
       }
     });

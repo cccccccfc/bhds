@@ -2,7 +2,6 @@ package com.baihuodasha.bhds.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +43,7 @@ public class HomecategoryInfoAdapter
   @Override public void onBindViewHolder(ViewHolder holder, int position) {
     MainCategoryGoodsListMdel.DataBean.GoodsListBean info = list.get(position);
     Glide.with(context).load(URLContents.Goods_URL + info.getGoods_img()).into(holder.imageInfo);
-    Log.i("qaz", "22222onBindViewHolder: "+URLContents.Goods_URL + info.getGoods_img());
+  //  Log.i("qaz", "22222onBindViewHolder: "+URLContents.Goods_URL + info.getGoods_img());
     holder.child_item_tv1.setText(info.getGoods_name());
     holder.child_item_tv2.setText(info.getGoods_brief());
     holder.child_item_tv3.setText("¥" + info.getShop_price());

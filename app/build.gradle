@@ -63,8 +63,11 @@ dependencies {
 
 
   // compile 'io.reactivex:rxandroid:1.1.0'
+  //没有使用特殊Header，可以不加这行
   compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
-  compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3' //没有使用特殊Header，可以不加这行
+  compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
+  compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+  compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
   compile 'com.android.support:appcompat-v7:25.1.1'
   compile 'com.android.support:design:25.1.1'
   compile 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -75,8 +78,6 @@ dependencies {
   compile 'com.youth.banner:banner:1.4.10'
   compile 'com.android.support:recyclerview-v7:25.1.1'
   compile 'com.hyman:flowlayout-lib:1.1.2'
-  compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
-  compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
   compile 'com.squareup.retrofit2:retrofit:2.0.1'
   compile 'com.squareup.retrofit2:converter-scalars:2.0.1'
   compile 'com.squareup.retrofit2:converter-gson:2.0.1'

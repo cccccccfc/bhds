@@ -3,7 +3,6 @@ package com.baihuodasha.bhds.adapter;
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +41,7 @@ public class HomesideslipproductsAdapter extends RecyclerView.Adapter<Homesidesl
   @Override public void onBindViewHolder(HomesideslipproductsAdapter.MyViewHolder holder, final int position) {
     //
     Glide.with(mContext).load(URLContents.Goods_URL+newlist.get(position).getGoods_img()).into(holder.im);
-    Log.i("qaz", "onBindViewHolder: "+ URLContents.Goods_URL+newlist.get(position).getGoods_img());
+  //  Log.i("qaz", "onBindViewHolder: "+ URLContents.Goods_URL+newlist.get(position).getGoods_img());
     holder.im.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         if (mOnItemClickListener != null) {

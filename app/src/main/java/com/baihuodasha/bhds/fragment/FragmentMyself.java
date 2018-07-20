@@ -15,7 +15,9 @@ import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
 import com.baihuodasha.bhds.activity.index.ActivityCommodityEvaluation;
 import com.baihuodasha.bhds.activity.login.ActivityLogin;
+import com.baihuodasha.bhds.activity.myself.ActivityDestoonFinanceCharge;
 import com.baihuodasha.bhds.activity.myself.ActivityMyRedPackets;
+import com.baihuodasha.bhds.activity.myself.ActivityPropertyRecharge;
 import com.baihuodasha.bhds.activity.myself.receiveraddress.ActivityReceiverAddress;
 import com.baihuodasha.bhds.activity.myself.setting.ActivityMyselfInformation;
 import com.baihuodasha.bhds.activity.myself.setting.ActivitySetting;
@@ -184,11 +186,15 @@ public class FragmentMyself extends BaseFragment implements View.OnClickListener
         startActivity(intentred);
         CommonUtils.toastMessage("红包");
         break;
-      case R.id.ll_myself_property_destoonfinancecharge://充值
-        CommonUtils.toastMessage("充值");
-        break;
-      case R.id.ll_myself_property_recharge://e卡充值
+      case R.id.ll_myself_property_destoonfinancecharge://e卡充值
+        Intent intentprop = new Intent(getActivity(), ActivityPropertyRecharge.class);
+        startActivity(intentprop);
         CommonUtils.toastMessage("e卡充值");
+        break;
+      case R.id.ll_myself_property_recharge://充值
+        CommonUtils.toastMessage("充值");
+        Intent intentdfc = new Intent(getActivity(), ActivityDestoonFinanceCharge.class);
+        startActivity(intentdfc);
         break;
       case R.id.ll_myself_property_integral://我的积分
         CommonUtils.toastMessage("我的积分");

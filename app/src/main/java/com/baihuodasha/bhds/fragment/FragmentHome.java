@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +38,7 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
   private LinearLayout linSeach;
 
   private List<String> tabIndicators;
+  private List<String> tabid;
   private List<Fragment> tabFragments;
   private View view;
   private List<MainIndexNavigaitonModel.DataBean> bean;
@@ -107,6 +107,8 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
         LayoutInflater.from(getActivity()).inflate(R.layout.item_skill_tab, null, false);
     final TextView tvName = (TextView) view.findViewById(R.id.tv_name);
     tabIndicators = new ArrayList<>();
+  //  tabIndicators.add("推荐");
+    tabid = new ArrayList<>();
     tabFragments = new ArrayList<>();
     final ContentPagerAdapter contentAdapter = new ContentPagerAdapter(getChildFragmentManager());
     mContentVp.setAdapter(contentAdapter);
@@ -129,9 +131,12 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
               mTabTl.addTab(tab);
             }
             tabIndicators.add(bean.get(i).getName());
+           // tabid.add(bean.get(i).getCid());
           }
           tabFragments.add(TabTecommendFragment.newInstance(""));
           tabFragments.add(TabLivingathomeFragment.newInstance(""));
+          tabFragments.add(TabLivingathomeFragment.newInstance(""));
+          tabFragments.add(TabLivingathomeFragment.newInstance("4"));
           contentAdapter.notifyDataSetChanged();
         }
       }
@@ -141,7 +146,6 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
           loadDialog.dismiss();
           loadDialog = null;
         }
-        Log.i("qaz", "onResponse: " + t);
       }
     });
 

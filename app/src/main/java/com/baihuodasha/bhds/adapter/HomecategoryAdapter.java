@@ -3,7 +3,6 @@ package com.baihuodasha.bhds.adapter;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +24,8 @@ public class HomecategoryAdapter extends RecyclerView.Adapter<HomecategoryAdapte
 
   private final FragmentActivity mContext;
   private List<MainCategoryGoodsListMdel.DataBean> newlist;
+  private OnItemClickListener mOnItemClickListener = null;
+
   public HomecategoryAdapter(FragmentActivity mContext,List<MainCategoryGoodsListMdel.DataBean> mList) {
     this.mContext = mContext;
     if (mList != null && mList.size() > 0) {
@@ -39,7 +40,7 @@ public class HomecategoryAdapter extends RecyclerView.Adapter<HomecategoryAdapte
     return new HomecategoryAdapter.MyViewHolder(view);
   }
 
-  @Override public void onBindViewHolder(MyViewHolder holder, int position) {
+  @Override public void onBindViewHolder(MyViewHolder holder, final int position) {
     holder.mItemtxtitle.setText(newlist.get(position).getCat_name());
     Glide.with(mContext).load(URLContents.Goods_URL +newlist.get(position).getType_img()).into(holder.mItemivimage);
     //Log.i("qaz", "11111onBindViewHolder: "+URLContents.Goods_URL +newlist.get(position).getType_img());
@@ -51,7 +52,9 @@ public class HomecategoryAdapter extends RecyclerView.Adapter<HomecategoryAdapte
     }
     holder.mItemlinmore.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-
+        if (mOnItemClickListener != null) {
+          mOnItemClickListener.onClick(position, newlist.get(position).getCat_id(),newlist.get(position).getCat_name());
+        }
       }
     });
   }
@@ -59,6 +62,8 @@ public class HomecategoryAdapter extends RecyclerView.Adapter<HomecategoryAdapte
   @Override public int getItemCount() {
     return  newlist != null ? newlist.size() : 0;
   }
+
+
 
   public class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -80,7 +85,7 @@ public class HomecategoryAdapter extends RecyclerView.Adapter<HomecategoryAdapte
     }
   }
   public void addList(List<MainCategoryGoodsListMdel.DataBean> list) {
-    Log.i("qaz", "addList: "+list.size());
+  //  Log.i("qaz", "addList: "+list.size());
     if (list != null && list.size() > 0) {
       newlist.addAll(list);
       notifyDataSetChanged();
@@ -89,5 +94,19 @@ public class HomecategoryAdapter extends RecyclerView.Adapter<HomecategoryAdapte
   public void clear() {
     newlist.clear();
     notifyDataSetChanged();
+  }
+  /**
+   * 创建一个监听事件的接口；重要
+   */
+  public interface OnItemClickListener {
+    //判断当前是否为item设置监听事件
+    void onClick(int v, String position,String name);
+  }
+
+  /**
+   * 外界进行调用该方法，为item设置点击事件；重要
+   */
+  public void setOnItemClickListener(OnItemClickListener listener) {
+    this.mOnItemClickListener = listener;
   }
 }

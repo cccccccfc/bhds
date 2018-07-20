@@ -15,6 +15,9 @@ import com.baihuodasha.bhds.adapter.MyselfRedpacketsListAdapter;
 import com.baihuodasha.bhds.base.BaseActivity;
 import java.text.ParseException;
 
+/**
+ * 我的红包
+ */
 public class ActivityMyRedPackets extends BaseActivity {
 
   @BindView(R.id.iv_base_backto) ImageView ivBaseBackto;

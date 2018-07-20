@@ -88,6 +88,12 @@
         </activity>
         <activity android:name="com.baihuodasha.bhds.activity.myself.ActivityMyRedPackets" >
         </activity>
+        <activity android:name="com.baihuodasha.bhds.activity.myself.ActivityPropertyRecharge" >
+        </activity>
+        <activity android:name="com.baihuodasha.bhds.activity.myself.ActivityDestoonFinanceCharge" >
+        </activity>
+        <activity android:name="com.baihuodasha.bhds.activity.index.ActivityProductList" >
+        </activity>
         <activity
             android:name="com.luck.picture.lib.PictureSelectorActivity"
             android:screenOrientation="portrait"

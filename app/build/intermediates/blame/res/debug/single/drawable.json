@@ -4,12 +4,12 @@
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\gg_shape_normal.xml"
     },
     {
-        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\check_payment_bg.xml",
-        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\check_payment_bg.xml"
-    },
-    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\gif_tag.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\deb4fb50000acf0d343d809022d85269c91fabdd\\output\\res\\drawable\\gif_tag.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\check_payment_bg.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\check_payment_bg.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ucrop_vector_loader.xml",
@@ -22,6 +22,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\backgroud_bg_white.xml",
         "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\backgroud_bg_white.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\backgroud_bg_gray.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\backgroud_bg_gray.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\comment_details_item_checked.xml",
@@ -494,6 +498,10 @@
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\backgroud_bg_golden.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\drawable\\backgroud_bg_golden.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",

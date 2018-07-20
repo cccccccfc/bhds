@@ -5,22 +5,30 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.baihuodasha.bhds.R;
 import com.baihuodasha.bhds.adapter.FlashSaleListAdapter;
 import com.baihuodasha.bhds.base.BaseActivity;
-import com.baihuodasha.bhds.base.Config;
-import com.baihuodasha.bhds.bean.RecommendationBean;
+import com.baihuodasha.bhds.bean.FlashSaleModel;
+import com.baihuodasha.bhds.net.SdjNetWorkManager;
+import com.baihuodasha.bhds.utils.CommonUtils;
 import com.baihuodasha.bhds.utils.countdowntimer.TimerUtils;
+import com.baihuodasha.bhds.view.MyDialog;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ActivityFlashSale extends BaseActivity {
 
@@ -32,7 +40,11 @@ public class ActivityFlashSale extends BaseActivity {
   @BindView(R.id.tv_base_save) TextView tvBaseSave;
   @BindView(R.id.lin_timelimit_timer) LinearLayout mLintimelimittimer;
   @BindView(R.id.rc_flashsale_list) RecyclerView rcFlashsaleList;
+  @BindView(R.id.rel_timelimit_backgroud) RelativeLayout relTimelimitBackgroud;
+  @BindView(R.id.ScrollInterceptScrollView) SmartRefreshLayout Msmart;
   private FlashSaleListAdapter flashsalelistAdapter;
+  private MyDialog loadDialog;
+  private boolean shouLoad = true;
 
   @Override public void setContentLayout(Bundle savedInstanceState) {
     setContentView(R.layout.activity_flash_sale);
@@ -46,6 +58,24 @@ public class ActivityFlashSale extends BaseActivity {
 
   @Override public void initView() {
     ivBaseBack.setOnClickListener(this);
+    Msmart.setEnableRefresh(false);
+    Msmart.setOnLoadmoreListener(new OnLoadmoreListener() {
+      @Override public void onLoadmore(final RefreshLayout refreshlayout) {
+        refreshlayout.getLayout().postDelayed(new Runnable() {
+          @Override
+          public void run() {
+            if (flashsalelistAdapter.getIsLoadOver()) {
+              CommonUtils.toastMessage("数据全部加载完毕");
+              refreshlayout.setLoadmoreFinished(true);
+            } else {
+              setlist(false, "15");
+              refreshlayout.finishLoadmore();
+            }
+            refreshlayout.finishLoadmore();
+          }
+        }, 1000);
+      }
+    });
   }
 
   @Override public void dealLogicBeforeInitView() {
@@ -56,10 +86,11 @@ public class ActivityFlashSale extends BaseActivity {
     rcFlashsaleList.setLayoutManager(linearLayoutF);
     flashsalelistAdapter = new FlashSaleListAdapter(this, null);
     rcFlashsaleList.setAdapter(flashsalelistAdapter);
+
   }
 
   @Override public void dealLogicAfterInitView() {
-    setlist();
+    setlist(true,"15");
   }
 
   @Override public void onClickEvent(View view) throws ParseException {
@@ -87,20 +118,42 @@ public class ActivityFlashSale extends BaseActivity {
     tv.setLayoutParams(params);
   }
 
-  private List<RecommendationBean> recommendationList = new ArrayList<>();
-
-  private void setlist() {
-    String[] contextImages = Config.ContextImages;
-    recommendationList.clear();
-    for (int i = 0; i < contextImages.length; i++) {
-      RecommendationBean recommendationBean = new RecommendationBean();
-      recommendationBean.setTitle("百安思保温杯304不锈钢真空高端保温杯 大容量男女创意定制便携保温杯");
-      recommendationBean.setOldprice("1990.00");
-      recommendationBean.setPrice("999.00");
-      recommendationBean.setLabel("百安思保温杯304不锈钢真空高端保温杯 大容量男女创意定制便携保温杯");
-      recommendationBean.setUrl(contextImages[i]);
-      recommendationList.add(recommendationBean);
+  private void setlist(final boolean isReflash ,String size) {
+    if (isReflash) {
+      loadDialog = MyDialog.showDialog(this);
+      loadDialog.show();
     }
-    flashsalelistAdapter.addList(recommendationList);
+    int page = isReflash ? 1 : flashsalelistAdapter.getPage();
+    Log.i("qaz", "setlist: ");
+    SdjNetWorkManager.sendGroupbuy("list", page, size, new Callback() {
+      @Override public void onResponse(Call call, Response response) {
+        FlashSaleModel msg = (FlashSaleModel) response.body();
+         Log.i("qaz", "11111onResponse: "+msg.toString());
+        if (msg != null) {
+          if (loadDialog != null) {
+            loadDialog.dismiss();
+            loadDialog = null;
+          }
+          if (msg.getData()!= null && msg.getData().size() > 0) {
+            flashsalelistAdapter.addList(msg.getData());
+          }else {
+            Msmart.finishLoadmore();
+          }
+
+        }else {
+          Msmart.setLoadmoreFinished(false);
+          Msmart.finishLoadmore();
+        }
+      }
+
+      @Override public void onFailure(Call call, Throwable t) {
+        Log.i("qaz", "sendGoodsList: " +t);
+        if (loadDialog != null) {
+          loadDialog.dismiss();
+          loadDialog = null;
+        }
+      }
+    });
   }
+
 }

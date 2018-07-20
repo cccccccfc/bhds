@@ -81,6 +81,12 @@
     </activity>
     <activity android:name=".activity.myself.ActivityMyRedPackets">
     </activity>
+    <activity android:name=".activity.myself.ActivityPropertyRecharge">
+    </activity>
+    <activity android:name=".activity.myself.ActivityDestoonFinanceCharge">
+    </activity>
+    <activity android:name=".activity.index.ActivityProductList">
+    </activity>
   </application>
 
 </manifest>

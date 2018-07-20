@@ -43,13 +43,21 @@ public class MainCategoryGoodsListMdel {
   }
 
   public static class DataBean {
+    public String getCat_id() {
+      return cat_id;
+    }
+
+    public void setCat_id(String cat_id) {
+      this.cat_id = cat_id;
+    }
+
     /**
      * cat_name : 享受生活
      * type_img : images/201805/1527131835025400111.jpg
      * type_img_url :
      * goodsList : [{"goods_id":"5100","goods_name":"金稻KD-3080冷热美容仪 冷热交替修复肌肤 冰热美肤仪 紧肤仪","click_count":"21","market_price":"465.59","org_price":"388.00","shop_price":"388.00","promote_price":"0.00","promote_start_date":"0","promote_end_date":"0","goods_brief":"金稻KD-3080冷热美容仪 冷热交替修复肌肤 冰热美肤仪 紧肤仪\r\n","goods_thumb":"images/201805/thumb_img/5028_thumb_G_1527068836793.jpg","goods_img":"images/201805/goods_img/5028_G_1527068836307.jpg","img_url":"images/201804/goods_img/5100_P_1522745538817.jpg"},{"goods_id":"5097","goods_name":"金稻KD-388B直发器 卷发直发两用直发器 ","click_count":"18","market_price":"162.00","org_price":"135.00","shop_price":"135.00","promote_price":"0.00","promote_start_date":"0","promote_end_date":"0","goods_brief":"金稻KD-388B直发器 卷发直发两用直发器 \r\n","goods_thumb":"images/201805/thumb_img/5028_thumb_G_1527068836793.jpg","goods_img":"images/201805/goods_img/5028_G_1527068836307.jpg","img_url":"images/201804/goods_img/5097_P_1522745009827.jpg"},{"goods_id":"5095","goods_name":"金稻彩光美容仪微电流拉皮机超声波导入仪抗皱紧肤提升KD-3060","click_count":"2","market_price":"465.59","org_price":"388.00","shop_price":"388.00","promote_price":"0.00","promote_start_date":"0","promote_end_date":"0","goods_brief":"金稻彩光美容仪微电流拉皮机超声波导入仪抗皱紧肤提升KD-3060","goods_thumb":"images/201805/thumb_img/5028_thumb_G_1527068836793.jpg","goods_img":"images/201805/goods_img/5028_G_1527068836307.jpg","img_url":"images/201804/goods_img/5095_P_1522744429254.jpg"},{"goods_id":"5092","goods_name":"金稻超声波铲皮机 导入精华脸部清洁器 脸部洁面仪美容仪KD-8020","click_count":"4","market_price":"222.00","org_price":"185.00","shop_price":"185.00","promote_price":"0.00","promote_start_date":"0","promote_end_date":"0","goods_brief":"金稻超声波铲皮机 导入精华脸部清洁器 脸部洁面仪美容仪KD-8020\r\n","goods_thumb":"images/201805/thumb_img/5028_thumb_G_1527068836793.jpg","goods_img":"images/201805/goods_img/5028_G_1527068836307.jpg","img_url":"images/201804/goods_img/5092_P_1522743770573.jpg"}]
      */
-
+    private String cat_id;
     private String cat_name;
     private String type_img;
     private String type_img_url;

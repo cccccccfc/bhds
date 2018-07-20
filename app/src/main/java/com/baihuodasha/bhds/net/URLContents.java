@@ -20,4 +20,13 @@ public class URLContents {
   public static final String sendIndexBanner ="first/index/";//获取销售排名
   public static final String sendCategoryGoodsList ="index/indexCategoryGoodsList/";//获取首页分类商品
   public static final String sendBestGoodsList ="index/indexBestGoodsList/";//获取首页分类商品
+  public static final String sendcategoryBanner ="index/categoryBannerList/";//获取首页tab1分类轮播图
+  public static final String sendcatgoryNextInformationList ="index/catgoryNextInformationList/";//获得该类下级分类列表
+  public static final String sendSupermarkNewBanner ="index/mallMiddleAdsPictures/";//获得百货超市轮播图
+  public static final String sendBigCategoryList ="index/bigCategoryList/";//获得分类页面 左侧列表
+  public static final String sendGetChildTreeByCatId ="index/getChildTreeByCatId/";//获得分类页面 右侧数据
+  public static final String sendGroupbuy ="http://test2.baihuodasha.com/mobile/group_buy.php/";//获取团购活动商品列表
+  public static final String sendtopicGoodsList ="index/topicGoodsList/";//获取专题商品
+  public static final String sendgetCategoryGoodsListByCatId ="index/getCategoryGoodsListByCatId/";//获取分类商品列表
+
 }

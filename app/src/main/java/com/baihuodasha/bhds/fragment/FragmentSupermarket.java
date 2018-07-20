@@ -28,15 +28,28 @@ import com.baihuodasha.bhds.adapter.SupermarketNewproductAdapter;
 import com.baihuodasha.bhds.base.BaseFragment;
 import com.baihuodasha.bhds.base.Config;
 import com.baihuodasha.bhds.bean.ChildInfo;
+import com.baihuodasha.bhds.bean.MainIndexBannerModel;
+import com.baihuodasha.bhds.bean.MainIndexBestGoodsList;
 import com.baihuodasha.bhds.bean.SupermarketGridBean;
+import com.baihuodasha.bhds.bean.SupermarketNewShop;
+import com.baihuodasha.bhds.net.SdjNetWorkManager;
+import com.baihuodasha.bhds.net.URLContents;
 import com.baihuodasha.bhds.utils.CommonUtils;
 import com.baihuodasha.bhds.utils.GlideImageLoader;
 import com.baihuodasha.bhds.utils.ScrollInterceptScrollView;
 import com.baihuodasha.bhds.utils.countdowntimer.TimerUtils;
+import com.baihuodasha.bhds.view.MyDialog;
+import com.bumptech.glide.Glide;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import com.youth.banner.Banner;
 import com.youth.banner.listener.OnBannerClickListener;
 import java.util.ArrayList;
 import java.util.List;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * @author IMXU
@@ -49,7 +62,6 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
   @BindView(R.id.title_return) ImageView title_return;
   @BindView(R.id.lin_seach) LinearLayout lin_seach;
   @BindView(R.id.img_message) ImageView img_message;
-
 
   @BindView(R.id.search_con) TextView searchCon;
   @BindView(R.id.title) RelativeLayout title;
@@ -88,13 +100,18 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
   @BindView(R.id.rec_bhds_choiceness) RecyclerView mRecBhdsChoiceness;
   @BindView(R.id.fab) FloatingActionButton mFabbutton;//scrollInterceptScrollView
   @BindView(R.id.scrollInterceptScrollView) ScrollInterceptScrollView mScrollView;
-      //scrollInterceptScrollView
-
+  @BindView(R.id.item_tx_title) TextView itemTxTitle;
+  @BindView(R.id.SmartRefreshLayout) SmartRefreshLayout
+      mSmartR;
+  //scrollInterceptScrollView
+  private MyDialog loadDialog;
+  private boolean shouLoad = true;
   private View view;
   private SupermarkeGridtAdapter adapter;
   private SupermarketCountdownAdapter countdownAdapter;
   private SupermarketNewproductAdapter newproductAdapter;
   private SupermarketChoicenessAdapter choicenessAdapter;
+  private List<MainIndexBannerModel.DataBean> bean;
 
   @Override public View initView(LayoutInflater inflater) {
     if (view == null) {
@@ -110,24 +127,67 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
 
   @Override public void init() {
     //mSimpletoolbar.setLeftTitleDrawable(R.drawable.advisor_home_img);
-
+    mSmartR.setEnableRefresh(false);
     img_message.setImageDrawable(getResources().getDrawable(R.mipmap.sort_light));
     title_return.setImageDrawable(getResources().getDrawable(R.mipmap.market));
-    String[] bannerImage = Config.Bannermarketimages;
-    List<String> imageList = new ArrayList<>();
-    for (int i = 0; i < bannerImage.length; i++) {
-      imageList.add(bannerImage[i]);
-    }
-    //设置图片加载器
-    mBannersupermarket.setImageLoader(new GlideImageLoader());
-    //设置图片集合
-    mBannersupermarket.setImages(imageList);
-    //banner设置方法全部调用完毕时最后调用
-    mBannersupermarket.start();
-    mFabbutton.setVisibility(View.GONE);
-  }
+    //轮播图
+    SdjNetWorkManager.sendcategoryBanner("418", new Callback() {
+      @Override public void onResponse(Call call, Response response) {
+        MainIndexBannerModel msg = (MainIndexBannerModel) response.body();
+        if (msg != null) {
+          ArrayList<String> imageList = new ArrayList<>();
+          bean = (ArrayList<MainIndexBannerModel.DataBean>) msg.getData();
+          if (bean != null) {
+            for (int i = 0; i < bean.size(); i++) {
+              imageList.add(URLContents.Goods_URL + bean.get(i).getImage());
+              //设置图片加载器
+              mBannersupermarket.setImageLoader(new GlideImageLoader());
+              //设置图片集合
+              mBannersupermarket.setImages(imageList);
+              //banner设置方法全部调用完毕时最后调用
+              mBannersupermarket.start();
+            }
+          } else {
+            // CommonUtils.toastMessage("请求数据失败");
+          }
+        }
+      }
 
-  private int padding = 0;
+      @Override public void onFailure(Call call, Throwable t) {
+      }
+    });
+    //推荐三张图片
+    SdjNetWorkManager.sendSupermarkNewBanner("418", new Callback() {
+      @Override public void onResponse(Call call, Response response) {
+        MainIndexBannerModel msg = (MainIndexBannerModel) response.body();
+        if (msg != null) {
+          ArrayList<String> imageList = new ArrayList<>();
+          bean = (ArrayList<MainIndexBannerModel.DataBean>) msg.getData();
+          if (bean != null) {
+            for (int i = 0; i < bean.size(); i++) {
+              //  imgBhdsRecommend
+              Glide.with(getActivity())
+                  .load(URLContents.Goods_URL + bean.get(0).getGoods_img())
+                  .into(imgBhdsRecommend);
+              Glide.with(getActivity())
+                  .load(URLContents.Goods_URL + bean.get(1).getGoods_img())
+                  .into(imgBhdsRecommend1);
+              Glide.with(getActivity())
+                  .load(URLContents.Goods_URL + bean.get(2).getGoods_img())
+                  .into(imgBhdsRecommend2);
+            }
+          } else {
+            // CommonUtils.toastMessage("请求数据失败");
+          }
+        }
+      }
+
+      @Override public void onFailure(Call call, Throwable t) {
+      }
+    });
+    mFabbutton.setVisibility(View.GONE);
+    setmLayoutParams();
+  }
 
   @Override public void initdata() {
     RecyclerView.LayoutManager manager = new GridLayoutManager(getActivity(), 5);
@@ -153,9 +213,9 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
     mRecBhdsChoiceness.setLayoutManager(linearLayoutF);
     choicenessAdapter = new SupermarketChoicenessAdapter(getActivity(), null);
     mRecBhdsChoiceness.setAdapter(choicenessAdapter);
-    setmLayoutParams();
+
     getShopList();
-    SetList();
+    sendBestGoodsList(true, "15");
     //FabbuttonUtil(getActivity(), mScrollView, mFabbutton);
   }
 
@@ -170,7 +230,6 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
             .setTimerGapColor(Color.BLACK)
             .getmDateTv();
     mLintimelimittimer.addView(tv);
-
     tv.setGravity(Gravity.CENTER_HORIZONTAL);
     LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) tv.getLayoutParams();
     params.setMargins(0, 0, 0, 0);
@@ -191,7 +250,7 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
       }
     });
     adapter.setOnItemClickListener(new SupermarkeGridtAdapter.OnItemClickListener() {
-      @Override public void onClick(int v, String position) {
+      @Override public void onClick(int v, String position, String name) {
         CommonUtils.toastMessage("点击了" + position);
       }
     });
@@ -203,7 +262,7 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
     newproductAdapter.setOnItemClickListener(
         new SupermarketNewproductAdapter.OnItemClickListener() {
           @Override public void onClick(int v, String position) {
-            Intent intenthelp =new Intent(getActivity() , ActivityCommodityDetails.class);
+            Intent intenthelp = new Intent(getActivity(), ActivityCommodityDetails.class);
             startActivity(intenthelp);
             CommonUtils.toastMessage("点击了" + position);
           }
@@ -214,6 +273,24 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
             CommonUtils.toastMessage("点击了" + position);
           }
         });
+    mSmartR.setOnLoadmoreListener(new OnLoadmoreListener() {
+      @Override public void onLoadmore(final RefreshLayout refreshlayout) {
+        refreshlayout.getLayout().postDelayed(new Runnable() {
+          @Override
+          public void run() {
+            if (choicenessAdapter.getIsLoadOver()) {
+              CommonUtils.toastMessage("数据全部加载完毕");
+              refreshlayout.setLoadmoreFinished(true);
+
+            } else {
+              sendBestGoodsList(false, "15");
+              refreshlayout.finishLoadmore();
+            }
+            refreshlayout.finishLoadmore();
+          }
+        }, 1000);
+      }
+    });
   }
 
   @Override public void onClick(View v) {
@@ -233,7 +310,7 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
         break;
       case R.id.text_timelimit_more:
         CommonUtils.toastMessage("限时特卖查看更多");
-        Intent intentlimit = new Intent(getActivity() , ActivityFlashSale.class);
+        Intent intentlimit = new Intent(getActivity(), ActivityFlashSale.class);
         startActivity(intentlimit);
         break;
       case R.id.text_recommend_more:
@@ -251,6 +328,31 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
   private List<SupermarketGridBean> supermarketList = new ArrayList<>();
 
   private void getShopList() {
+    if (shouLoad) {
+      loadDialog = MyDialog.showDialog(getActivity());
+      //shouLoad = false;
+      loadDialog.show();
+    }
+    // 超市新品推荐
+    SdjNetWorkManager.sendSupermarkNewShopList("418", "new", "8", new Callback() {
+      @Override public void onResponse(Call call, Response response) {
+        SupermarketNewShop msg = (SupermarketNewShop) response.body();
+        if (msg != null) {
+          if (loadDialog != null) {
+            loadDialog.dismiss();
+            loadDialog = null;
+          }
+          newproductAdapter.addList(msg.getData());
+        }
+      }
+
+      @Override public void onFailure(Call call, Throwable t) {
+        if (loadDialog != null) {
+          loadDialog.dismiss();
+          loadDialog = null;
+        }
+      }
+    });
     String[] gridumage = Config.SupermarkeGridimages;
     String[] gridtext = Config.SupermarkeGridtext;
     supermarketList.clear();
@@ -261,31 +363,31 @@ public class FragmentSupermarket extends BaseFragment implements View.OnClickLis
       supergridbean.setUrl(gridumage[i]);
       supermarketList.add(supergridbean);
     }
-    adapter.addList(supermarketList);
+    //adapter.addList(supermarketList);
   }
 
-  private List<String> price = new ArrayList<>();
-  private List<String> price1 = new ArrayList<>();
-  private List<String> price2 = new ArrayList<>();
+  private void sendBestGoodsList(final boolean isReflash, String size) {
 
-  private void SetList() {
-    String[] supermarketprice = Config.supermarketprice;
-    price.clear();
-    for (int i = 0; i < supermarketprice.length; i++) {
-      price.add(supermarketprice[i]);
-    }
-    countdownAdapter.addList(price);
+    int page = isReflash ? 1 : choicenessAdapter.getPage();
+    // 超市推荐商品
+    SdjNetWorkManager.sendBestGoodsList(page, size, "418", new Callback() {
+      @Override public void onResponse(Call call, Response response) {
+        MainIndexBestGoodsList msg = (MainIndexBestGoodsList) response.body();
+        if (msg != null) {
+          if (msg.getData() != null && msg.getData().size() > 0) {
+            choicenessAdapter.addList(msg.getData());
+          } else {
+            mSmartR.finishLoadmore();
+          }
+        } else {
+          mSmartR.setLoadmoreFinished(false);
+          mSmartR.finishLoadmore();
+        }
+      }
 
-    price1.clear();
-    for (int i = 0; i < 6; i++) {
-      price1.add(i + "测试");
-    }
-    newproductAdapter.addList(price1);
-
-    price2.clear();
-    for (int i = 0; i < 14; i++) {
-      price2.add(i + "测试");
-    }
-    choicenessAdapter.addList(price2);
+      @Override public void onFailure(Call call, Throwable t) {
+       // Log.i("qaz", "2222222222onFailure: "+t);
+      }
+    });
   }
 }

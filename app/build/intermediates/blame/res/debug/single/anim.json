@@ -68,12 +68,12 @@
         "source": "C:\\Users\\zhang\\.android\\build-cache\\1f39df20e0e800a231cf05bb373bdbd526415f66\\output\\res\\anim\\abc_fade_in.xml"
     },
     {
-        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\anim\\dialog_exit.xml",
-        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\anim\\dialog_exit.xml"
-    },
-    {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\anim\\pickerview_slide_out_bottom.xml",
         "source": "C:\\fei\\bhds\\pickerview\\build\\intermediates\\bundles\\default\\res\\anim\\pickerview_slide_out_bottom.xml"
+    },
+    {
+        "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\anim\\dialog_exit.xml",
+        "source": "C:\\fei\\bhds\\app\\src\\main\\res\\anim\\dialog_exit.xml"
     },
     {
         "merged": "C:\\fei\\bhds\\app\\build\\intermediates\\res\\merged\\debug\\anim\\dialog_from_bottom_in.xml",

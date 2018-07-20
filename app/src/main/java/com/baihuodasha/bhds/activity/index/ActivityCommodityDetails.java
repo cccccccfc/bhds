@@ -237,7 +237,7 @@ public class ActivityCommodityDetails extends BaseActivity implements Specificat
     for (int i = 0; i < 14; i++) {
       price2.add(i + "测试");
     }
-    choicenessAdapter.addList(price2);
+  //  choicenessAdapter.addList(price2);
   }
 
   private Handler handler = new Handler();

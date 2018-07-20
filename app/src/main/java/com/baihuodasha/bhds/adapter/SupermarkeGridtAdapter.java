@@ -10,7 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baihuodasha.bhds.R;
-import com.baihuodasha.bhds.bean.SupermarketGridBean;
+import com.baihuodasha.bhds.bean.MainCategoryGoodsListMdel;
+import com.baihuodasha.bhds.net.URLContents;
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +25,9 @@ public class SupermarkeGridtAdapter
 
   private Context mContext;
   private OnItemClickListener mOnItemClickListener = null;
-  private List<SupermarketGridBean> newlist;
+  private List<MainCategoryGoodsListMdel.DataBean> newlist;
 
-  public SupermarkeGridtAdapter(FragmentActivity mContext, List<SupermarketGridBean> mList) {
+  public SupermarkeGridtAdapter(FragmentActivity mContext, List<MainCategoryGoodsListMdel.DataBean> mList) {
     this.mContext = mContext;
     if (mList != null && mList.size() > 0) {
       this.newlist = mList;
@@ -43,12 +44,12 @@ public class SupermarkeGridtAdapter
 
   @Override public void onBindViewHolder(SupermarkeGridtAdapter.MyViewHolder holder, final int position) {
     //
-    Glide.with(mContext).load(newlist.get(position).url).into(holder.imageInfo);
-    holder.child_item_tv1.setText(newlist.get(position).title);
+    Glide.with(mContext).load(URLContents.Goods_URL+newlist.get(position).getType_img()).into(holder.imageInfo);
+    holder.child_item_tv1.setText(newlist.get(position).getCat_name());
     holder.linear_back.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         if (mOnItemClickListener != null) {
-          mOnItemClickListener.onClick(position, newlist.get(position).title);
+          mOnItemClickListener.onClick(position, newlist.get(position).getCat_id(),newlist.get(position).getCat_name());
         }
       }
     });
@@ -58,6 +59,7 @@ public class SupermarkeGridtAdapter
   @Override public int getItemCount() {
     return newlist != null ? newlist.size() : 0;
   }
+
 
   public class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -76,7 +78,7 @@ public class SupermarkeGridtAdapter
    */
   public interface OnItemClickListener {
     //判断当前是否为item设置监听事件
-    void onClick(int v, String position);
+    void onClick(int v, String position,String name);
   }
 
   /**
@@ -86,7 +88,7 @@ public class SupermarkeGridtAdapter
     this.mOnItemClickListener = listener;
   }
 
-  public void addList(List<SupermarketGridBean> list) {
+  public void addList(List<MainCategoryGoodsListMdel.DataBean> list) {
     if (list != null && list.size() > 0) {
       newlist.addAll(list);
       notifyDataSetChanged();
